@@ -1,15 +1,14 @@
-import React from 'react';
-import {useTranslation} from "react-i18next";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const MyComponent = () => {
-
-    const {t} = useTranslation()
+    const { t } = useTranslation()
 
     return (
-        <div> 
+        <div>
             {t('Главная страница')}
         </div>
-    );
-};
+    )
+}
 
-export default MyComponent;
+export default MyComponent
