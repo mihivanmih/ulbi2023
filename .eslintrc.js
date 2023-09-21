@@ -6,7 +6,8 @@ module.exports = {
     "extends": [
         "plugin:react-hooks/recommended",
         "standard-with-typescript",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:i18next/recommended"
     ],
     "overrides": [
         {
@@ -28,7 +29,7 @@ module.exports = {
     "plugins": [
         "react",
         "react-hooks",
-        "i18next"
+        "i18next",
     ],
     rules: {
         indent: [2, 4, { MemberExpression: 1 }],
