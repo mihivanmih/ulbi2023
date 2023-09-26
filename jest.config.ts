@@ -23,13 +23,6 @@ export default {
     coveragePathIgnorePatterns: [
         '\\\\node_modules\\\\'
     ],
-    moduleDirectories: [
-        'node_modules',
-        'src'
-    ],
-    modulePaths: [
-        '<rootDir>/src'
-    ],
     moduleFileExtensions: [
         'js',
         'jsx',
@@ -38,16 +31,26 @@ export default {
         'json',
         'node'
     ],
+    moduleDirectories: [
+        'node_modules',
+        'src'
+    ],
+    modulePaths: [
+        '<rootDir>/src'
+    ],
     testMatch: [
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     ],
     setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
     moduleNameMapper: {
-        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.(scss|less)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-    },
-    transformIgnorePatterns: ['node_modules/(?!axios)']
-    // rootDir: '../../'
+    }
+    // moduleNameMapper: {
+    //     '^/(.*)$': '<rootDir>/src/$1'
+    // },
+    // transformIgnorePatterns: ['node_modules/(?!axios)']
+    // rootDir: '../../',
 
     // Indicates whether the coverage information should be collected while executing the test
     // collectCoverage: false,

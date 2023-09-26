@@ -41,7 +41,13 @@ module.exports = {
         '@typescript-eslint/ban-ts-comment': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/consistent-type-assertions': 'warn',
-        'i18next/no-literal-string': 'warn',
+        'i18next/no-literal-string': [
+            'warn',
+            {
+                markupOnly: true,
+                ignoreAttribute: ['data-testid']
+            }
+        ],
         'react/display-name': 'off',
         "@typescript-eslint/no-floating-promises": ["warn"],
         '@typescript-eslint/prefer-includes': 'off',
@@ -60,4 +66,12 @@ module.exports = {
             }
         ]
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts, tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off'
+            }
+        }
+    ]
 }
