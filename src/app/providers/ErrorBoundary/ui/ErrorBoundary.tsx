@@ -1,7 +1,6 @@
 import type { ErrorInfo, ReactNode } from 'react'
 import React, { Suspense } from 'react'
 import { PageError } from 'widgets/PageError'
-import { log } from 'node:util'
 
 interface ErrorBoundaryProps {
     children: ReactNode
