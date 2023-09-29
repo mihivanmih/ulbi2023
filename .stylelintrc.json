@@ -3,7 +3,10 @@
   "customSyntax": "postcss-scss",
   "rules": {
     "indentation": [2],
-    "selector-class-pattern": null,
-    "color-function-notation": null
+    "color-function-notation": null,
+    "function-disallowed-list": ["/^rgb/", "/^hsl/"],
+    "color-named": "never",
+    "selector-pseudo-element-no-unknown": [true, { "ignorePseudoElements": ["ng-deep"] }],
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^noUi-|calenderMatMenu"
   }
 }
