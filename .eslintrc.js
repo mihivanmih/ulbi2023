@@ -10,7 +10,7 @@ module.exports = {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname
     },
-    plugins: ['react', 'react-hooks', 'i18next'],
+    plugins: ['react', 'react-hooks', 'i18next', 'react-hooks'],
     rules: {
         indent: [2, 4, {
             MemberExpression: 1
