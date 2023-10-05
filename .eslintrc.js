@@ -40,7 +40,8 @@ module.exports = {
         'react/self-closing-comp': ['error', {
             component: true,
             html: true
-        }]
+        }],
+        'no-param-reassing': 'off'
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts, tsx}'],

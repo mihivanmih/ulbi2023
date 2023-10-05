@@ -18,6 +18,9 @@ export default {
     // Automatically clear mock calls, instances and results before every test
 
     // "unit": "jest --config jest.config.ts"
+    globals: {
+        '__IS_DEV__': true
+    },
     clearMocks: true,
     testEnvironment: 'jsdom',
     coveragePathIgnorePatterns: [
