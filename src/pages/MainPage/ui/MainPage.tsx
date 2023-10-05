@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { BugButton } from 'widgets/PageError'
+import { Counter } from 'entities/Counter'
 
 const MyComponent = () => {
     const { t } = useTranslation()
@@ -10,6 +11,8 @@ const MyComponent = () => {
             {t('Главная страница')}
 
             <BugButton />
+
+            <Counter />
 
         </div>
     )
