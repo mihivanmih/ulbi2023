@@ -8,9 +8,7 @@ const MyComponent = () => {
     return (
         <div>
             {t('Главная страница')}
-
             <BugButton />
-
         </div>
     )
 }
