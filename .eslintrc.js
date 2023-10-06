@@ -41,7 +41,8 @@ module.exports = {
             component: true,
             html: true
         }],
-        'no-param-reassing': 'off'
+        'no-param-reassing': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off'
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts, tsx}'],

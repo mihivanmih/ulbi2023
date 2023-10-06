@@ -22,7 +22,7 @@ export const Navbar = ({ className = '' }: NavbarProps) => {
     }, [])
 
     return (
-        <div className={classNames(styles.Navbar, {}, [className!])}>
+        <div className={classNames(styles.Navbar, {}, [className])}>
             <div className={styles.links}>
                 <Button theme={ThemeButton.CLEAR_INVERTED} onClick={onShowModal} >
                     {t('войти')}
