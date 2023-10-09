@@ -1,6 +1,4 @@
 import {Preview} from "@storybook/react";
-// import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
-// import {Theme} from "../../src/app/providers/ThemeProvider";
 import 'app/styles/index.scss'
 import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../src/app/providers/ThemeProvider";
