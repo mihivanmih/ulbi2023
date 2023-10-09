@@ -19,19 +19,19 @@ export const Light = Template.bind({})
 Light.args = {
 }
 Light.decorators = [StoreDecorator({
-    loginForm: { username: '123', password: '222' }
+    loginForm: { username: '123', password: '222', isLoading: false }
 })]
 
 export const Dark = Template.bind({})
 Dark.args = {
 }
 Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    loginForm: { username: '123', password: '222' }
+    loginForm: { username: '123', password: '222', isLoading: false }
 })]
 
 export const AuthNavbar = Template.bind({})
 AuthNavbar.args = {
 }
 AuthNavbar.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    user: { authData: {} }
+    user: { authData: { username: '123', id: '1' } }
 })]
