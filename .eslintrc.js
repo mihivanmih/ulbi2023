@@ -42,7 +42,8 @@ module.exports = {
             html: true
         }],
         'no-param-reassing': 'off',
-        '@typescript-eslint/no-non-null-assertion': 'off'
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-dynamic-delete': 'off'
     },
     overrides: [{
         files: ['**/src/**/*.test.{ts, tsx}'],
