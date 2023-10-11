@@ -19,7 +19,8 @@ export default {
 
     // "unit": "jest --config jest.config.ts"
     globals: {
-        '__IS_DEV__': true
+        '__IS_DEV__': true,
+        '__API__': ''
     },
     clearMocks: true,
     testEnvironment: 'jsdom',

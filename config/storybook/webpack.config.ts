@@ -5,7 +5,7 @@ import { buildCssLoader } from '../build/loaders/buildCssLoader'
 import type { RuleSetRule } from 'webpack'
 import {DefinePlugin} from "webpack";
 
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config, apiUrl }: { config: webpack.Configuration }) => {
     const paths: BuildPaths = {
         build: '',
         html: '',
@@ -39,6 +39,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     }
 
     config.plugins.push(new DefinePlugin({
+        __API__: JSON.stringify(apiUrl),
         __IS_DEV__: true
     }))
 
