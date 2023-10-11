@@ -11,7 +11,11 @@ const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
     name: 'profile',
     initialState,
-    reducers: {}
+    reducers: {
+        setAutData: () => {
+            console.log('1')
+        }
+    }
 })
 
 export const { actions: profileActions } = profileSlice
