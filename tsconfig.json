@@ -16,6 +16,7 @@
     "allowJs": true,
     // 99% случаев тут Node
     "moduleResolution": "node",
+    "strict": true,
     // Для абсолютного импорта
     "baseUrl": ".",
     "paths": {
