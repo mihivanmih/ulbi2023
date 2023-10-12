@@ -1,5 +1,5 @@
 import React from 'react'
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { ComponentStory } from '@storybook/react'
 
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
@@ -11,13 +11,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Input>
+}
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-    label: 'Введите текст',
     value: 'Текст'
 }
 Primary.decorators = [ThemeDecorator(Theme.DARK)]

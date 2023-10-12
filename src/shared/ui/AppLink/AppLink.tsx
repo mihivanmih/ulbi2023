@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './AppLink.module.scss'
-import type { FC, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import type { LinkProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import { memo } from 'react'
