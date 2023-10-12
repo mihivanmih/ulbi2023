@@ -27,6 +27,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useDispatch()
 
     useEffect(() => {
+        // @ts-expect-error
         Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
             store.reducerManager.add(name, reducer)
             dispatch({ type: `@INIT ${name} reducer` })
@@ -34,6 +35,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
         return () => {
             if (removeAfterUnmount) {
+                // @ts-expect-error
                 Object.entries(reducers).forEach(([name, reducer]: ReducersListEntry) => {
                     store.reducerManager.remove(name)
                     dispatch({ type: `@DESTROY ${name} reducer` })

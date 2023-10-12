@@ -42,11 +42,13 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
         dispatch(loginActions.setPassword(value))
     }, [dispatch])
 
-    const onLoginClick = useCallback(async (value) => {
-        const result = await dispatch(loginByUsername({ username, password }))
-        if (result.meta.requestStatus === 'fulfilled') {
-            onSuccess()
-        }
+    const onLoginClick = useCallback(() => {
+        void (async () => {
+            const result = await dispatch(loginByUsername({ username, password }))
+            if (result.meta.requestStatus === 'fulfilled') {
+                onSuccess()
+            }
+        })()
     }, [dispatch, onSuccess, password, username])
 
     return (

@@ -1,5 +1,5 @@
 import React from 'react'
-import type { ComponentStory, ComponentMeta } from '@storybook/react'
+import type { ComponentStory } from '@storybook/react'
 
 import { Text, TextTheme } from './Text'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
@@ -11,7 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof Text>
+}
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
 
@@ -28,13 +28,13 @@ Error.args = {
     theme: TextTheme.ERROR
 }
 
-export const onlyTitle = Template.bind({})
-onlyTitle.args = {
+export const OnlyTitle = Template.bind({})
+OnlyTitle.args = {
     title: 'Текст'
 }
 
-export const onlyText = Template.bind({})
-onlyText.args = {
+export const OnlyText = Template.bind({})
+OnlyText.args = {
     text: 'lorem'
 }
 
@@ -45,14 +45,14 @@ PrimaryDark.args = {
 }
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const onlyTitleDark = Template.bind({})
-onlyTitleDark.args = {
+export const OnlyTitleDark = Template.bind({})
+OnlyTitleDark.args = {
     title: 'Текст'
 }
-onlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const onlyTextDark = Template.bind({})
-onlyTextDark.args = {
+export const OnlyTextDark = Template.bind({})
+OnlyTextDark.args = {
     text: 'lorem'
 }
-onlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
+OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]

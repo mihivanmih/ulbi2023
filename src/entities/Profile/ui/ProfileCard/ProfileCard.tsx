@@ -27,7 +27,7 @@ export const ProfileCard = ({ className = '' }: ProfileCardProps) => {
                 <Button theme={ThemeButton.OUTLINE} className={styles.editBtn}>
                     {t('Редактировать')}
                 </Button>
-
+                {error && <div>{isLoading}</div>}
                 <div className={styles.data} >
                     <Input
                         value={data?.first}

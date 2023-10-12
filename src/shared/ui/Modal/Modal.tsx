@@ -1,6 +1,7 @@
+import type { Mods } from 'shared/lib/classNames/classNames'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
-import type { ReactNode } from 'react'
+import type { MutableRefObject, ReactNode } from 'react'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Portal } from 'shared/ui/Portal/Portal'
 import { useTheme } from 'app/providers/ThemeProvider'
@@ -18,7 +19,7 @@ const ANIMATION_DELAY = 300
 export const Modal = (props: ModalProps) => {
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>()
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
     const { theme } = useTheme()
 
     const {
@@ -66,7 +67,7 @@ export const Modal = (props: ModalProps) => {
         }
     }, [isOpen, onKeyDown])
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [styles.opened]: isOpen,
         [styles.isClosing]: isClosing
     }

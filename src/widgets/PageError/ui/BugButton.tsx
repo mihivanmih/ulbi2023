@@ -21,8 +21,9 @@ export const BugButton = ({ className = '' }: BugButtonProps) => {
     return (
         <Button
             onClick={onThrow}
-            className={classNames('', {}, [className])}>
-            throw error
+            className={classNames('', {}, [className])}
+        >
+            +++
         </Button>
     )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import type { ComponentMeta, ComponentStory } from '@storybook/react'
+import type { ComponentStory } from '@storybook/react'
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 import LoginForm from './LoginForm'
 
@@ -9,7 +9,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     }
-} as ComponentMeta<typeof LoginForm>
+}
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />
 
@@ -19,9 +19,9 @@ Primary.decorators = [StoreDecorator({
     loginForm: { username: '123', password: '222', isLoading: false }
 })]
 
-export const withError = Template.bind({})
-withError.args = {}
-withError.decorators = [StoreDecorator({
+export const WithError = Template.bind({})
+WithError.args = {}
+WithError.decorators = [StoreDecorator({
     loginForm: { username: '123', password: '222', error: '123', isLoading: false }
 })]
 
