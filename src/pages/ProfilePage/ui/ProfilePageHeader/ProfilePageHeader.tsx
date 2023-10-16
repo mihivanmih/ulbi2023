@@ -28,7 +28,7 @@ export const ProfilePageHeader = ({ className = '' }: ProfilePageHeaderProps) =>
     }, [dispatch])
 
     const onSave = useCallback(() => {
-        dispatch(updateProfileData())
+        dispatch(updateProfileData({}))
     }, [dispatch])
 
     return (

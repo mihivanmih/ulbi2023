@@ -10,5 +10,10 @@
   "Ваш город": "Your city",
   "Ваш никнейм": "Your nickname",
   "Ваш ссылку на аватар": "Your link to avatar",
-  "Укажите валюту": "Specify currency"
+  "Укажите валюту": "Specify currency",
+  "Серверная ошибка при сохранении": "Server error when saving",
+  "Некорректный регион": "Incorrect region",
+  "Данные не указаны": "Data not specified",
+  "Некорректный возраст": "Incorrect age",
+  "Имя и фамилия обязательны": "First and last name are required"
 }
