@@ -14,5 +14,9 @@
   "Введите пароль": "Enter password",
   "Вы ввели неверный логин или пароль": "You have entered an incorrect username or password",
   "Выйти": "Go out",
-  "Профиль": "Profile"
+  "Профиль": "Profile",
+  "Отменить": "Cancel",
+  "Редактировать": "Edit",
+  "Сохранить": "Save",
+  "Укажите страну": "Specify country"
 }
