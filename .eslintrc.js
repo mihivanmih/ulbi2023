@@ -44,7 +44,7 @@ module.exports = {
         'no-param-reassing': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
-        'indent': 'off'
+        '@typescript-eslint/indent': 'off'
     },
     globals: {
         __IS_DEV__: true,
