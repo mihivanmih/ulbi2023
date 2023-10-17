@@ -7,10 +7,10 @@ import { Input, TypeButton } from 'shared/ui/Input/Input'
 import type { Profile } from '../../model/types/profile'
 import { Loader } from 'shared/ui/Loader/Loader'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
-import type { Currency } from 'entities/Currency/'
-import { CurrencySelect } from 'entities/Currency/'
 import type { Country } from 'entities/Country/model/types/country'
-import { CountrySelect } from 'entities/Country'
+import type { Currency } from 'entities/Currency'
+import { CurrencySelect } from '../../../../entities/Currency'
+import { CountrySelect } from '../../../../entities/Country'
 
 interface ProfileCardProps {
     className?: string
