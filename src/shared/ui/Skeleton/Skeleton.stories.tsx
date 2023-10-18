@@ -3,7 +3,6 @@ import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import { Skeleton } from './Skeleton'
-import ProfilePage from 'pages/ProfilePage/ui/ProfilePage'
 
 export default {
     title: 'shared/Skeleton',
