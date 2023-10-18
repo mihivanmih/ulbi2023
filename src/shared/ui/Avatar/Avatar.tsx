@@ -11,7 +11,14 @@ interface AvatarProps {
     alt?: string
 }
 
-export const Avatar = ({ className = '', src, alt, size }: AvatarProps) => {
+export const Avatar = (props: AvatarProps) => {
+    const {
+        className = '',
+        src = 'https://mirtex.ru/wp-content/uploads/2023/04/unnamed.jpg',
+        alt,
+        size
+    } = props
+
     const mods: Mods = {}
 
     const stylesInline = useMemo<CSSProperties>(() => ({
