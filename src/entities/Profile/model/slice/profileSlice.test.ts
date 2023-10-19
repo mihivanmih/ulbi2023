@@ -33,7 +33,7 @@ describe('profileSlice.test', () => {
     })
     test('test update profile service fulfilled', () => {
         const state: DeepPartial<ProfileSchema> = { isLoading: true }
-        // @ts-expect-error
+        // @ts-nocheck
         expect(profileReducer(state as ProfileSchema, updateProfileData.fulfilled(data, ''))).toStrictEqual({ isLoading: false, validateErrors: undefined, readonly: true, form: data, data })
     })
 })

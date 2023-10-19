@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider'
 import { CommentCard } from './CommentCard'
 
 export default {
-    title: 'pages/CommentCard',
+    title: 'entities/Comment/CommentCard',
     component: CommentCard,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -14,7 +14,22 @@ export default {
 const Template: ComponentStory<typeof CommentCard> = (args: any) => <CommentCard {...args} />
 
 export const Normal = Template.bind({})
-Normal.args = {}
+Normal.args = {
+    comment: {
+        user: { id: '1', username: 'Vasya' },
+        text: 'Привет)',
+        id: 'BtFJoJH'
+    }
+}
+Normal.decorators = [ThemeDecorator(Theme.DARK)]
 
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+export const isLoading = Template.bind({})
+isLoading.args = {
+    comment: {
+        user: { id: '1', username: 'Vasya' },
+        text: 'Привет)',
+        id: 'BtFJoJH'
+    },
+    isLoading: true
+}
+isLoading.decorators = [ThemeDecorator(Theme.DARK)]
