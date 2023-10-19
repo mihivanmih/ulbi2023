@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -99,7 +101,37 @@
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "fdsfsdf",
+      "id": "Y4-PAnn"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "7867",
+      "id": "rGodjHd"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Привет)",
+      "id": "BtFJoJH"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Мвахахахаххаа",
+      "id": "CU317BS"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "еееее",
+      "id": "QhQ3REQ"
     }
   ],
   "users": [
@@ -115,17 +147,31 @@
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
     }
   ],
-  "profile": {
-    "first": "Иван",
-    "lastname": "Михайлов",
-    "age": 34,
-    "currency": "RUB",
-    "country": "Russia",
-    "city": "Москва",
-    "username": "admin",
-    "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Иван",
+      "lastname": "Михайлов",
+      "age": 34,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Москва",
+      "username": "admin",
+      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    },
+    {
+      "id": "2",
+      "first": "Олег",
+      "lastname": "Олегович",
+      "age": 89,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Москва",
+      "username": "userName",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
+    }
+  ]
 }

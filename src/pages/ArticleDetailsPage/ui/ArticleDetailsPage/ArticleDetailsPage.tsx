@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './ArticleDetailsPage.module.scss'
-import { memo } from 'react'
+import { memo, useCallback } from 'react'
 import { ArticleDetails } from 'entities/Article'
 import { useParams } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
@@ -14,6 +14,8 @@ import { getArticleCommentsIsLoading } from '../../model/selectors/comments'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId'
+import { AddCommentForm } from 'features/addCommentForm'
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -35,6 +37,10 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
         dispatch(fetchCommentsByArticleId(id))
     })
 
+    const onSendComment = useCallback((text: string) => {
+        dispatch(addCommentForArticle(text))
+    }, [dispatch])
+
     if (!id) {
         return (
             <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
@@ -48,7 +54,11 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
             <div className={classNames(styles.ArticleDetailsPage, {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text title={t('Комментарии')} className={styles.commentTitle} />
-                <CommentLists isLoading={commentsIsLoading} comments={comments}/>
+                <AddCommentForm onSendComment={onSendComment}/>
+                <CommentLists
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
             </div>
         </DynamicModuleLoader>
     )

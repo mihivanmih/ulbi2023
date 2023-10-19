@@ -5,7 +5,8 @@ import { ValidateProfileError } from '../../types/profile'
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
 
-export const updateProfileData = createAsyncThunk<Profile, { ts?: string }, ThunkConfig<ValidateProfileError[]>>(
+// eslint-disable-next-line @typescript-eslint/no-invalid-void-type
+export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
     'profile/updateProfileData',
     async (_, thunkApi) => {
         const { extra, rejectWithValue, getState } = thunkApi
@@ -19,7 +20,7 @@ export const updateProfileData = createAsyncThunk<Profile, { ts?: string }, Thun
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profile', formData)
+            const response = await extra.api.put<Profile>(`/profile/${formData?.id}`, formData)
 
             if (!response.data) {
                 throw new Error()
