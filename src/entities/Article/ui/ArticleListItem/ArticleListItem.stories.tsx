@@ -1,14 +1,19 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import styles from './ArticlesPage.module.scss'
-import { memo } from 'react'
+import React from 'react'
+import type { ComponentStory } from '@storybook/react'
+import { ArticleListItem } from './ArticleListItem'
 import type { Article } from 'entities/Article'
-import { ArticleList, ArticleView } from 'entities/Article'
+import { ArticleView } from 'entities/Article'
 
-interface ArticlesPageProps {
-    className?: string
+export default {
+    title: 'entities/Article/ArticleListItem',
+    component: ArticleListItem,
+    argTypes: {
+        backgroundColor: { control: 'color' }
+    }
 }
+const Template: ComponentStory<typeof ArticleListItem> = (args: any) => <ArticleListItem {...args} />
 
-const articles = {
+const article = {
     id: '1',
     title: 'Javascript news',
     subtitle: 'Что нового в JS за 2022 год?',
@@ -85,21 +90,14 @@ const articles = {
     ]
 } as Article
 
-const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
-    return (
-        <div className={classNames(styles.ArticlesPage, {}, [className])}>
-            <ArticleList
-                isLoading
-                view={ArticleView.BIG}
-                articles={
-                    new Array(16)
-                        .fill(0)
-                        .map((item, index) => ({
-                            ...articles,
-                            id: String(index)
-                        }))} />
-        </div>
-    )
+export const Big = Template.bind({})
+Big.args = {
+    view: ArticleView.BIG,
+    article
 }
 
-export default memo(ArticlesPage)
+export const Small = Template.bind({})
+Small.args = {
+    view: ArticleView.SMALL,
+    article
+}
