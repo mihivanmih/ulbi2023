@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames'
-import styles from './ARticleViewSelector.module.scss'
+import styles from './ArticleViewSelector.module.scss'
 import { memo } from 'react'
 import { ArticleView } from '../../model/types/article'
 import ListIcon from 'shared/assets/icons/list-24-24.svg'
