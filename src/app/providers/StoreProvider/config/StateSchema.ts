@@ -8,11 +8,12 @@ import type { ArticleDetailsSchema } from 'entities/Article'
 import type { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
 import type { AddCommentFormSchema } from 'features/addCommentForm'
 import type { ArticlePageSchema } from 'pages/ArticlesPage'
+import type { UIShema } from 'features/UI'
 
 export interface StateSchema {
     counter: CounterSchema
     user: UserSchema
-
+    ui: UIShema
     // Асинхронные редюсеры
     loginForm?: LoginSchema
     profile?: ProfileSchema
