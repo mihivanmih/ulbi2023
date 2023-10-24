@@ -8,14 +8,14 @@ import { articlesPageSliceAction, articlesPageSliceReducer, getArticle } from '.
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList'
 import {
     getArticlePageError,
     getArticlePageIsLoading,
     getArticlePageView
 } from '../model/selectors/articlesPageSelectors'
 import { Page } from 'shared/ui/Page/Page'
-import { fetchArticlesPage } from 'pages/ArticlesPage/model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { fetchArticlesPage } from '../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage'
 
 interface ArticlesPageProps {
     className?: string
@@ -41,14 +41,11 @@ const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
     }, [dispatch])
 
     useInitialEffect(() => {
-        dispatch(articlesPageSliceAction.initState())
-        dispatch(fetchArticlesList({
-            page: 1
-        }))
+        dispatch(initArticlesPage({}))
     })
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className])}>
                 {error}
                 <ArticleViewSelector
