@@ -5,7 +5,9 @@ import type { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, Reduce
 import type { ProfileSchema } from 'entities/Profile'
 import type { AxiosInstance } from 'axios'
 import type { ArticleDetailsSchema } from 'entities/Article'
-import type { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage'
+import type {
+    ArticleDetailsPageSchema
+} from 'pages/ArticleDetailsPage'
 import type { AddCommentFormSchema } from 'features/addCommentForm'
 import type { ArticlePageSchema } from 'pages/ArticlesPage'
 import type { UIShema } from 'features/UI'
@@ -18,9 +20,9 @@ export interface StateSchema {
     loginForm?: LoginSchema
     profile?: ProfileSchema
     articleDetails?: ArticleDetailsSchema
-    articleDetailsComments?: ArticleDetailsCommentsSchema
     addCommentForm?: AddCommentFormSchema
     articlesPage?: ArticlePageSchema
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
