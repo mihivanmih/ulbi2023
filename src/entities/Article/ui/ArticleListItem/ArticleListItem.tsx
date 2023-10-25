@@ -1,40 +1,38 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './ArticleListItem.module.scss'
 import { useTranslation } from 'react-i18next'
-import { memo, useCallback } from 'react'
+import type { HTMLAttributeAnchorTarget } from 'react'
+import { memo } from 'react'
 import type { Article, ArticleTextBlock } from '../../model/types/article'
 import { ArticleBlockType, ArticleView } from '../../model/types/article'
 import { Text } from 'shared/ui/Text/Text'
 import { Icon } from 'shared/ui/Icon/Icon'
+import { AppLink } from 'shared/ui/AppLink/AppLink'
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import { Card } from 'shared/ui/Card/Card'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
-import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/roteConfig/routeConfig'
 
 interface ArticleListItemProps {
     className?: string
     article: Article
     view: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
     const {
         className = '',
         article,
-        view = ArticleView.SMALL
+        view = ArticleView.SMALL,
+        target
     } = props
 
     const { t } = useTranslation()
 
-    const navigate = useNavigate()
-    const onOpenArticle = useCallback(() => {
-        navigate(RoutePath.articles_details + article.id)
-    }, [article.id, navigate])
-
-    const types = <Text text={article.type.join(', ')} className={styles.types}/>
+    const types = <Text text={article.type?.join(', ')} className={styles.types}/>
     const viewsArticle = <>
         <Text text={String(article.views)} className={styles.views}/>
         <Icon Svg={EyeIcon} />
@@ -60,11 +58,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         <ArticleTextBlockComponent block={textBlock} className={styles.textBlock}/>
                     )}
                     <div className={styles.footer}>
-                        <Button theme={ThemeButton.OUTLINE}
-                            onClick={onOpenArticle}
+                        <AppLink
+                            target={target}
+                            to={RoutePath.articles_details + article.id}
                         >
-                            {t('Читать далее...')}
-                        </Button>
+                            <Button theme={ThemeButton.OUTLINE}>
+                                {t('Читать далее...')}
+                            </Button>
+                        </AppLink>
                         {viewsArticle}
                     </div>
                 </Card>
@@ -73,8 +74,12 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     }
 
     return (
-        <div className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}>
-            <Card className={styles.card} onClick={onOpenArticle}>
+        <AppLink
+            target={target}
+            to={RoutePath.articles_details + article.id}
+            className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
+        >
+            <Card className={styles.card}>
                 <div className={styles.imageWrapper} >
                     <img src={article.img} alt={article.title} className={styles.img} />
                     <Text text={article.createdAt} className={styles.date} />
@@ -85,6 +90,6 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                 </div>
                 <Text text={article.title} className={styles.title}/>
             </Card>
-        </div>
+        </AppLink>
     )
 })

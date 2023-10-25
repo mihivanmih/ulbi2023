@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { Text, TextSize } from 'shared/ui/Text/Text'
 import styles from './ArticleList.module.scss'
+import type { HTMLAttributeAnchorTarget } from 'react'
 import { memo } from 'react'
 import type { Article } from '../../model/types/article'
 import { ArticleView } from '../../model/types/article'
@@ -13,6 +14,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean
     view?: ArticleView
+    target?: HTMLAttributeAnchorTarget
 }
 
 const getAkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -27,7 +29,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         className = '',
         articles,
         isLoading,
-        view = ArticleView.SMALL
+        view = ArticleView.SMALL,
+        target
     } = props
 
     const renderArticle = (article: Article) => (
@@ -36,6 +39,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
             view={view}
             className={styles.card}
             key={article.id}
+            target={target}
         />
     )
 
