@@ -2,19 +2,19 @@ import React from 'react'
 import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
-import ArticlesPage from './ArticlesPage'
+import { ArticleSortSelector } from './ArticleSortSelector'
 
 export default {
-    title: 'pages/ArticlesPage',
-    component: ArticlesPage,
+    title: 'entities/Article/ArticleSortSelector',
+    component: ArticleSortSelector,
     argTypes: {
         backgroundColor: { control: 'color' }
     }
 }
-
-const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage/>
+const Template: ComponentStory<typeof ArticleSortSelector> = (args: any) => <ArticleSortSelector {...args} />
 
 export const Normal = Template.bind({})
+Normal.args = {}
 
 export const Dark = Template.bind({})
 Dark.decorators = [ThemeDecorator(Theme.DARK)]
