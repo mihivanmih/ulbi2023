@@ -5,6 +5,7 @@ import { Text } from 'shared/ui/Text/Text'
 import { CommentCard } from '../../ui/CommentCard/CommentCard'
 import { useTranslation } from 'react-i18next'
 import type { Comment } from '../../model/types/comment'
+import { VStack } from 'shared/ui/Stack'
 
 interface CommentListsProps {
     className?: string
@@ -22,26 +23,25 @@ export const CommentLists = memo((props: CommentListsProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(styles.CommentLists, {}, [className])}>
+            <VStack gap={'16'} max className={classNames(styles.CommentLists, {}, [className])}>
                 <CommentCard isLoading />
                 <CommentCard isLoading />
                 <CommentCard isLoading />
-            </div>
+            </VStack>
         )
     }
 
     return (
-        <div className={classNames(styles.CommentLists, {}, [className])}>
+        <VStack gap={'16'} max className={classNames(styles.CommentLists, {}, [className])}>
             {comments?.length
                 ? comments.map(comment => (
                     <CommentCard
                         comment={comment}
-                        className={styles.comment}
                         key={comment.id}
                         isLoading={isLoading}
                     />
                 ))
                 : <Text text={t('Комментарии отсутствуют')} />}
-        </div>
+        </VStack>
     )
 })
