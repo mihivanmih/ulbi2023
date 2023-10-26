@@ -1,7 +1,7 @@
 import type { Mods } from 'shared/lib/classNames/classNames'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Flex.module.scss'
-import type { ReactNode } from 'react'
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
 
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'
@@ -33,7 +33,9 @@ const gapClasses: Record<FlexGap, string> = {
     32: styles.gap32
 }
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+
+export interface FlexProps extends DivProps {
     className?: string
     children: ReactNode
     justify?: FlexJustify
@@ -51,7 +53,8 @@ export const Flex = (props: FlexProps) => {
         align = 'center',
         direction = 'row',
         gap,
-        max
+        max,
+        ...arg
     } = props
 
     const classes = [
@@ -67,7 +70,7 @@ export const Flex = (props: FlexProps) => {
     }
 
     return (
-        <div className={classNames(styles.Flex, mods, classes)}>
+        <div className={classNames(styles.Flex, mods, classes)} {...arg}>
             {children}
         </div>
     )
