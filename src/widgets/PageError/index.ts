@@ -1,5 +1,5 @@
-import { PageError } from 'widgets/PageError/ui/PageError'
-import { BugButton } from 'widgets/PageError/ui/BugButton'
+import { PageError } from './ui/PageError'
+import { BugButton } from './ui/BugButton'
 
 export {
     PageError,

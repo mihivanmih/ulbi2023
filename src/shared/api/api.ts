@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
-import config from 'eslint-config-standard-with-typescript'
+// import config from 'eslint-config-standard-with-typescript'
 
 export const $api = axios.create({
     baseURL: __API__

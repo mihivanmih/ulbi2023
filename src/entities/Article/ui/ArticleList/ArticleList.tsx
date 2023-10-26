@@ -36,15 +36,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target
     } = props
 
-    const renderArticle = (article: Article) => (
-        <ArticleListItem
-            article={article}
-            view={view}
-            className={styles.card}
-            key={article.id}
-            target={target}
-        />
-    )
+    // const renderArticle = (article: Article) => (
+    //     <ArticleListItem
+    //         article={article}
+    //         view={view}
+    //         className={styles.card}
+    //         key={article.id}
+    //         target={target}
+    //     />
+    // )
 
     const isBig = view === ArticleView.BIG
 
