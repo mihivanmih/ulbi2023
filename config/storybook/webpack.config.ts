@@ -10,7 +10,9 @@ export default ({ config, apiUrl }: { config: webpack.Configuration }) => {
         build: '',
         html: '',
         entry: '',
-        src: path.resolve(__dirname, '..', '..', 'src')
+        src: path.resolve(__dirname, '..', '..', 'src'),
+        locales: '',
+        buildLocales: ''
     }
 
     if (config.resolve) {
