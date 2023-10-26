@@ -3,7 +3,7 @@ import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
 import type { MutableRefObject, ReactNode } from 'react'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Portal } from 'shared/ui/Portal/Portal'
+import { Portal } from '../Portal/Portal'
 import { useTheme } from 'app/providers/ThemeProvider'
 
 interface ModalProps {

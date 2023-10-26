@@ -10,7 +10,7 @@ module.exports = {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname
     },
-    plugins: ['react', 'react-hooks', 'i18next', 'react-hooks'],
+    plugins: ['react', 'react-hooks', 'i18next', 'react-hooks', 'test-fsd-2023'],
     rules: {
         indent: [2, 4, {
             MemberExpression: 1
@@ -44,7 +44,8 @@ module.exports = {
         'no-param-reassing': 'off',
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
-        '@typescript-eslint/indent': 'off'
+        '@typescript-eslint/indent': 'off',
+        'test-fsd-2023/path-checker': 'error'
     },
     globals: {
         __IS_DEV__: true,

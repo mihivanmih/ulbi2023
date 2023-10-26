@@ -1,7 +1,7 @@
-import type { ProfileSchema } from 'entities/Profile'
+import type { ProfileSchema } from '../types/profile'
 import { profileActions, profileReducer } from './profileSlice'
-import { Country } from '../../../../entities/Country'
-import { Currency } from '../../../../entities/Currency'
+import { Country } from '../../../Country'
+import { Currency } from '../../../Currency'
 import { updateProfileData, ValidateProfileError } from '../../../../entities/Profile'
 
 const data = {

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { RoutePath } from 'shared/config/roteConfig/routeConfig'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { useSelector } from 'react-redux'
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/article'
+import { getCanEditArticle } from '../../model/selectors/article'
 import { getArticleDetailsData } from 'entities/Article'
 
 interface ArticleDetailPageHeaderProps {

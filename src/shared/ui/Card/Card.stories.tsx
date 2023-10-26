@@ -1,7 +1,7 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
-import { Text } from 'shared/ui/Text/Text'
-import { Card } from 'shared/ui/Card/Card'
+import { Text } from '../Text/Text'
+import { Card } from '../Card/Card'
 
 export default {
     title: 'shared/Card',
