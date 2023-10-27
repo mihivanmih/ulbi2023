@@ -15,10 +15,10 @@ export const Row = Template.bind({})
 Row.args = {
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -28,10 +28,10 @@ Column.args = {
     direction: 'column',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -41,10 +41,10 @@ Gap4.args = {
     gap: '4',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -54,10 +54,10 @@ Gap8.args = {
     gap: '8',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -67,10 +67,10 @@ Gap16.args = {
     gap: '16',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -80,10 +80,10 @@ Gap32.args = {
     gap: '32',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
@@ -94,10 +94,10 @@ Gap32.args = {
     direction: 'column',
     children: (
         <>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
-            <div>first</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </>
     )
 }
