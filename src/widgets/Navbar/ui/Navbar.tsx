@@ -9,6 +9,8 @@ import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserAuthData, userActions } from 'entities/User'
 import { RoutePath } from 'shared/config/roteConfig/routeConfig'
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 
 interface NavbarProps {
     className?: string
@@ -47,11 +49,21 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
                 >
                     {t('Создать статью')}
                 </AppLink>
-                <div className={styles.links}>
-                    <Button theme={ThemeButton.CLEAR_INVERTED} onClick={onLogoutModal} >
-                        {t('Выйти')}
-                    </Button>
-                </div>
+                <Dropdown
+                    direction={'bottom left'}
+                    className={styles.dropdown}
+                    items={[
+                        {
+                            content: t('Профиль'),
+                            href: RoutePath.profile + authData.id
+                        },
+                        {
+                            content: t('Выйти'),
+                            onClick: onLogoutModal
+                        }
+                    ]}
+                    trigger={<Avatar size={30} src={authData.avatar} />}
+                />
             </header>
         )
     }
