@@ -21,7 +21,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
 
     console.log(articles)
 
-    if (isLoading || error) {
+    if (isLoading ?? error ?? !articles) {
         return null
     }
 
