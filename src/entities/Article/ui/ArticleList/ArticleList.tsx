@@ -18,6 +18,7 @@ interface ArticleListProps {
     isLoading?: boolean
     view?: ArticleView
     target?: HTMLAttributeAnchorTarget
+    virtualized?: boolean
 }
 
 const getAkeletons = (view: ArticleView) => new Array(view === ArticleView.SMALL ? 9 : 3)
@@ -33,18 +34,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         isLoading,
         view = ArticleView.SMALL,
-        target
+        target,
+        virtualized = false
     } = props
-
-    // const renderArticle = (article: Article) => (
-    //     <ArticleListItem
-    //         article={article}
-    //         view={view}
-    //         className={styles.card}
-    //         key={article.id}
-    //         target={target}
-    //     />
-    // )
 
     const isBig = view === ArticleView.BIG
 
@@ -97,17 +89,33 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     ref={registerChild}
                     className={classNames(styles.ArticleList, {}, [className, styles[view]])}
                 >
-                    <List
-                        height={height ?? 700}
-                        rowCount={rowCount}
-                        rowHeight={isBig ? 700 : 330}
-                        rowRenderer={rowRenderer}
-                        width={width ? width - 80 : 700}
-                        autoHeight
-                        onScroll={onChildScroll}
-                        isScrolling={isScrolling}
-                        scrollTop={scrollTop}
-                    />
+                    {virtualized
+                        ? (
+                            <List
+                                height={height ?? 700}
+                                rowCount={rowCount}
+                                rowHeight={isBig ? 700 : 330}
+                                rowRenderer={rowRenderer}
+                                width={width ? width - 80 : 700}
+                                autoHeight
+                                onScroll={onChildScroll}
+                                isScrolling={isScrolling}
+                                scrollTop={scrollTop}
+                            />
+                        )
+                        : (
+                            articles.map(item => (
+                                <ArticleListItem
+                                    article={item}
+                                    view={view}
+                                    className={styles.card}
+                                    key={item.id}
+                                    target={target}
+                                />
+                            ))
+                        )
+                    }
+
                     {isLoading && getAkeletons(view)}
                 </div>
             )}

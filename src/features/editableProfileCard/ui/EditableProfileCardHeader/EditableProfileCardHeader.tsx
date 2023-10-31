@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
-import { getUserAuthData } from 'entities/User'
+import { getUserAuthData } from '../../../../entities/User'
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { HStack } from 'shared/ui/Stack'
 import { Text } from 'shared/ui/Text/Text'
@@ -43,6 +43,7 @@ export const EditableProfileCardHeader = memo(() => {
                         ? (<Button
                             theme={ThemeButton.OUTLINE}
                             onClick={onEdit}
+                            data-testid={'EditableProfileCardHeader.EditButton'}
                         >
                             {t('Редактировать')}
                         </Button>)
@@ -51,6 +52,7 @@ export const EditableProfileCardHeader = memo(() => {
                                 <Button
                                     theme={ThemeButton.OUTLINE_RED}
                                     onClick={onCancelEdit}
+                                    data-testid={'EditableProfileCardHeader.CancelButton'}
                                 >
                                     {t('Отменить')}
                                 </Button>
@@ -58,6 +60,7 @@ export const EditableProfileCardHeader = memo(() => {
                                 <Button
                                     theme={ThemeButton.OUTLINE}
                                     onClick={onSave}
+                                    data-testid={'EditableProfileCardHeader.SaveButton'}
                                 >
                                     {t('Сохранить')}
                                 </Button>
