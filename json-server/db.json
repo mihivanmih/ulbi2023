@@ -589,6 +589,12 @@
       "userId": "1",
       "text": "hfghf",
       "id": "VA2WNbK"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "99",
+      "id": "Vug35Nb"
     }
   ],
   "users": [
@@ -612,7 +618,7 @@
       "id": "1",
       "first": "Иван",
       "lastname": "Михайлов",
-      "age": 29,
+      "age": 34,
       "currency": "RUB",
       "country": "Russia",
       "city": "Москва",

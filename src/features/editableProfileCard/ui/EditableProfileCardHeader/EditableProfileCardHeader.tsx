@@ -1,20 +1,17 @@
-import { classNames } from 'shared/lib/classNames/classNames'
-import styles from './ProfilePageHeader.module.scss'
 import { useTranslation } from 'react-i18next'
+import { memo, useCallback } from 'react'
+import { useSelector } from 'react-redux'
+import { getUserAuthData } from 'entities/User'
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { HStack } from 'shared/ui/Stack'
 import { Text } from 'shared/ui/Text/Text'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
-import { useSelector } from 'react-redux'
-import { getProfileFirstData, getProfileReadonly, profileActions, updateProfileData } from 'entities/Profile'
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { useCallback } from 'react'
-import { getUserAuthData } from 'entities/User'
-import { HStack } from 'shared/ui/Stack/HStack/HStack'
+import { getProfileFirstData } from '../../model/selectors/getProfileFirstData/getProfileFirstData'
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
+import { profileActions } from '../../model/slice/profileSlice'
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
 
-interface ProfilePageHeaderProps {
-    className?: string
-}
-
-export const ProfilePageHeader = ({ className = '' }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = memo(() => {
     const { t } = useTranslation()
     const authData = useSelector(getUserAuthData)
     const profileData = useSelector(getProfileFirstData)
@@ -38,7 +35,7 @@ export const ProfilePageHeader = ({ className = '' }: ProfilePageHeaderProps) =>
     }, [dispatch])
 
     return (
-        <HStack justify={'between'} max className={classNames(styles.ProfilePageHeader, {}, [className])}>
+        <HStack justify={'between'} max>
             <Text title={t('Профиль')} />
             {canEdit && (
                 <>
@@ -72,4 +69,4 @@ export const ProfilePageHeader = ({ className = '' }: ProfilePageHeaderProps) =>
             )}
         </HStack>
     )
-}
+})
