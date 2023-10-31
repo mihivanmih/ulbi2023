@@ -3,8 +3,8 @@ import styles from './ArticleTypeTabs.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useMemo } from 'react'
 import type { TabItem } from 'shared/ui/Tabs/Tabs'
-import { ArticleType } from '../../model/types/article'
 import { Tabs } from 'shared/ui/Tabs/Tabs'
+import { ArticleType } from '../../model/consts/consts'
 
 interface ArticleTypeTabsProps {
     className?: string

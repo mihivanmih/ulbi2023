@@ -13,13 +13,13 @@ import { getProfileError } from '../../model/selectors/getProfileError/getProfil
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading'
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly'
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors'
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema'
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData'
 import { profileActions, profileReducer } from '../../model/slice/profileSlice'
 import { ProfileCard } from '../../../../entities/Profile'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader'
 import { VStack } from 'shared/ui/Stack'
+import { ValidateProfileError } from '../../model/consts/consts'
 
 interface EditableProfileCardProps {
     className?: string

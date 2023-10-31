@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next'
 import type { HTMLAttributeAnchorTarget } from 'react'
 import { memo } from 'react'
 import type { Article, ArticleTextBlock } from '../../model/types/article'
-import { ArticleBlockType, ArticleView } from '../../model/types/article'
 import { Text } from 'shared/ui/Text/Text'
 import { Icon } from 'shared/ui/Icon/Icon'
 import { AppLink } from 'shared/ui/AppLink/AppLink'
@@ -14,6 +13,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar'
 import { Button, ThemeButton } from 'shared/ui/Button/Button'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { RoutePath } from 'shared/config/roteConfig/routeConfig'
+import { ArticleBlockType, ArticleView } from '../../model/consts/consts'
 
 interface ArticleListItemProps {
     className?: string

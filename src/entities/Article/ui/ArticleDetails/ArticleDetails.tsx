@@ -20,11 +20,11 @@ import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 import { Icon } from 'shared/ui/Icon/Icon'
 import type { ArticleBlock } from '../../model/types/article'
-import { ArticleBlockType } from '../../model/types/article'
 import { ArticleBlockComponent } from '../ArticleBlockComponent/ArticleBlockComponent'
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent'
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent'
 import { HStack, VStack } from 'shared/ui/Stack'
+import { ArticleBlockType } from '../../model/consts/consts'
 
 interface ArticleDetailsProps {
     className?: string
