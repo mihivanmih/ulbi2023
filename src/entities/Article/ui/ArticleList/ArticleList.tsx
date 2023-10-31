@@ -4,10 +4,10 @@ import styles from './ArticleList.module.scss'
 import type { HTMLAttributeAnchorTarget } from 'react'
 import { memo } from 'react'
 import type { Article } from '../../model/types/article'
-import { ArticleView } from '../../model/types/article'
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { useTranslation } from 'react-i18next'
+import { ArticleView } from '../../model/consts/consts'
 
 interface ArticleListProps {
     className?: string

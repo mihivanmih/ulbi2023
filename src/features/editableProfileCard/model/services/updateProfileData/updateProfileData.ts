@@ -3,7 +3,7 @@ import type { ThunkConfig } from 'app/providers/StoreProvider'
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
 import { Profile } from 'entities/Profile'
-import { ValidateProfileError } from '../../types/editableProfileCardSchema'
+import { ValidateProfileError } from '../../consts/consts'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
