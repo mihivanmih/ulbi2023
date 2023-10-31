@@ -7,7 +7,7 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from 'features/AuthByUsername'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, userActions } from 'entities/User'
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'entities/User'
 import { RoutePath } from 'shared/config/roteConfig/routeConfig'
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown'
 import { Avatar } from 'shared/ui/Avatar/Avatar'
@@ -21,6 +21,10 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
     const { t } = useTranslation()
     const authData = useSelector(getUserAuthData)
     const dispatch = useDispatch()
+
+    const isAdmin = useSelector(isUserAdmin)
+    const isManager = useSelector(isUserManager)
+    const isAdminPanelAvailable = isAdmin ?? isManager
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false)
@@ -53,6 +57,12 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
                     direction={'bottom left'}
                     className={styles.dropdown}
                     items={[
+                        ...(isAdminPanelAvailable
+                            ? [{
+                                content: t('Админка'),
+                                href: RoutePath.admin_panel
+                            }]
+                            : []),
                         {
                             content: t('Профиль'),
                             href: RoutePath.profile + authData.id
