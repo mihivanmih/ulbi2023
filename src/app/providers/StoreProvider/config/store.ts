@@ -6,6 +6,7 @@ import { userReducer } from '../../../../entities/User'
 import { createReducerManager } from 'app/providers/StoreProvider/config/reduserManager'
 import { $api } from 'shared/api/api'
 import { uiReducer } from '../../../../features/UI'
+import { rtkApi } from 'shared/api/rtkApi'
 
 export function createReduxStore (
     initialState?: StateSchema,
@@ -15,7 +16,8 @@ export function createReduxStore (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        ui: uiReducer
+        ui: uiReducer,
+        [rtkApi.reducerPath]: rtkApi.reducer
     }
 
     const reducerManager = createReducerManager(rootRedusers)

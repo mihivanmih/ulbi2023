@@ -45,6 +45,7 @@ module.exports = {
         '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-dynamic-delete': 'off',
         '@typescript-eslint/indent': 'off',
+        '@typescript-eslint/consistent-type-imports': 'off',
         'test-fsd-2023/path-checker': 'error'
     },
     globals: {

@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import type { ThunkConfig } from 'app/providers/StoreProvider'
-import type { Profile } from '../../types/profile'
-import { ValidateProfileError } from '../../types/profile'
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm'
 import { validateProfileData } from '../validateProfileData/validateProfileData'
+import { Profile } from 'entities/Profile'
+import { ValidateProfileError } from '../../types/editableProfileCardSchema'
 
 // eslint-disable-next-line @typescript-eslint/no-invalid-void-type
 export const updateProfileData = createAsyncThunk<Profile, void, ThunkConfig<ValidateProfileError[]>>(
