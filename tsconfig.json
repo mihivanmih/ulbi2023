@@ -30,7 +30,8 @@
     // вместо такого импорта import * as React from 'react'
     // можно писать такой import React from 'react'
     "allowSyntheticDefaultImports": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {
