@@ -89,7 +89,7 @@ Gap32.args = {
 }
 
 export const ColumnGap32 = Template.bind({})
-Gap32.args = {
+ColumnGap32.args = {
     gap: '32',
     direction: 'column',
     children: (

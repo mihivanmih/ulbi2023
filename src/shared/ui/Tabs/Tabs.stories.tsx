@@ -1,7 +1,5 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from 'app/providers/ThemeProvider'
 import { Tabs } from './Tabs'
 import { action } from '@storybook/addon-actions'
 
@@ -33,6 +31,3 @@ Normal.args = {
     value: 'tab 2',
     onTabClick: action('onTabClick')
 }
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]

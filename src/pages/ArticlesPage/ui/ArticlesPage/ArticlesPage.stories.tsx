@@ -3,6 +3,7 @@ import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Theme } from 'app/providers/ThemeProvider'
 import ArticlesPage from './ArticlesPage'
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
     title: 'pages/Article/ArticlesPage',
@@ -15,6 +16,11 @@ export default {
 const Template: ComponentStory<typeof ArticlesPage> = () => <ArticlesPage/>
 
 export const Normal = Template.bind({})
+Normal.decorators = [StoreDecorator({
+
+})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+
+})]
