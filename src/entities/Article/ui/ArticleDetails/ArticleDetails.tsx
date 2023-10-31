@@ -66,13 +66,13 @@ export const ArticleDetails = memo(({ className = '', id }: ArticleDetailsProps)
 
     if (isLoading) {
         content = (
-            <div>
+            <VStack max gap={'8'}>
                 <Skeleton className={styles.avatar} width={200} height={200} border={'50%'}/>
                 <Skeleton className={styles.title} width={300} height={32}/>
                 <Skeleton className={styles.skeleton} width={600} height={24}/>
                 <Skeleton className={styles.skeleton} width={'100%'} height={200}/>
                 <Skeleton className={styles.skeleton} width={'100%'} height={200}/>
-            </div>
+            </VStack>
         )
     } else if (error) {
         content = (
@@ -116,7 +116,7 @@ export const ArticleDetails = memo(({ className = '', id }: ArticleDetailsProps)
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-            <VStack gap={'16'} className={classNames(styles.ArticleDetails, {}, [className])}>
+            <VStack gap={'16'} max className={classNames(styles.ArticleDetails, {}, [className])}>
                 { content }
             </VStack>
         </DynamicModuleLoader>
