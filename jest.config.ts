@@ -50,7 +50,16 @@ export default {
     moduleNameMapper: {
         '\\.(scss|less)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx')
-    }
+    },
+    "reporters": [
+        "default",
+        ["jest-html-reporters", {
+            "publicPath": "<rootDir>/reports/unit",
+            "filename": "report.html",
+            "openReport": true,
+            inlineSource: true
+        }]
+    ]
     // moduleNameMapper: {
     //     '^/(.*)$': '<rootDir>/src/$1'
     // },
