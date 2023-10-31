@@ -3,6 +3,7 @@ import 'app/styles/index.scss'
 import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator";
 import {Theme} from "../../src/app/providers/ThemeProvider";
 import {RouteDecorator} from "../../src/shared/config/storybook/RouteDecorator/RouteDecorator";
+import {SuspenseDecorator} from "../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator";
 
 export const preview: Preview = {
     parameters: {
@@ -16,4 +17,4 @@ export const preview: Preview = {
     }
 };
 
-export const decorators = [ThemeDecorator(Theme.LIGHT), RouteDecorator]
+export const decorators = [ThemeDecorator(Theme.LIGHT), RouteDecorator, SuspenseDecorator]

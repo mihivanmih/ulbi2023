@@ -3,7 +3,6 @@ import styles from './ArticleDetailsPage.module.scss'
 import { memo } from 'react'
 import { ArticleDetails } from 'entities/Article'
 import { useParams } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
 import type { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { Page } from 'widgets/Page/Page'
@@ -22,16 +21,7 @@ const reducers: ReducersList = {
 }
 
 const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
-    const { t } = useTranslation('article-details')
     const { id } = useParams<{ id: string }>()
-
-    if (!id) {
-        return (
-            <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
-                {t('Статья не найдена')}
-            </Page>
-        )
-    }
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
