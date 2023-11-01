@@ -1,0 +1,10 @@
+.NotificationButton {
+  position: relative;
+}
+
+.notifications {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: auto;
+  min-width: 500px;
+}
