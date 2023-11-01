@@ -1,10 +1,12 @@
 import { Menu } from '@headlessui/react'
 import styles from './Dropdown.module.scss'
-import { classNames } from '../../lib/classNames/classNames'
+import { classNames } from '../../../../lib/classNames/classNames'
 import type { ReactNode } from 'react'
 import { Fragment } from 'react'
 import type { DropdownDirection } from 'shared/types/ui'
-import { AppLink } from '../AppLink/AppLink'
+import { AppLink } from '../../../AppLink/AppLink'
+import { mapDirectionClass } from '../../styles/consts'
+import popupCls from '../../styles/popup.module.scss'
 
 export interface DropdownItem {
     disabled?: boolean
@@ -20,13 +22,6 @@ interface DropdownProps {
     direction?: DropdownDirection
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': styles.optionsBottomLeft,
-    'bottom right': styles.optionsBottomRight,
-    'top left': styles.optionsTopLeft,
-    'top right': styles.optionsTopRight
-}
-
 export function Dropdown (props: DropdownProps) {
     const {
         className,
@@ -37,9 +32,9 @@ export function Dropdown (props: DropdownProps) {
     const menuClasses = [mapDirectionClass[direction]]
 
     return (
-        <Menu as={'div'} className={classNames(styles.Dropdown, {}, [className])}>
+        <Menu as={'div'} className={classNames(styles.Dropdown, {}, [className, popupCls.popup])}>
             <Menu.Button
-                className={styles.btn}
+                className={popupCls.trigger}
             >
                 {trigger}
             </Menu.Button>
@@ -50,7 +45,7 @@ export function Dropdown (props: DropdownProps) {
                             type={'button'}
                             onClick={item.onClick}
                             disabled={item.disabled}
-                            className={classNames(styles.item, { [styles.active]: active })}
+                            className={classNames(styles.item, { [popupCls.active]: active })}
                         >
                             {item.content}
                         </button>
