@@ -1,11 +1,12 @@
 import type { Mods } from 'shared/lib/classNames/classNames'
 import { classNames } from 'shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
-import type { MutableRefObject, ReactNode } from 'react'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import type { ReactNode } from 'react'
+import React from 'react'
 import { Portal } from '../Portal/Portal'
 import { useTheme } from 'app/providers/ThemeProvider'
 import { Overlay } from '../Overlay/Overlay'
+import { useModel } from 'shared/lib/hooks/useModel/useModel'
 
 interface ModalProps {
     className?: string
@@ -15,12 +16,7 @@ interface ModalProps {
     lazy?: boolean
 }
 
-const ANIMATION_DELAY = 300
-
 export const Modal = (props: ModalProps) => {
-    const [isClosing, setIsClosing] = useState(false)
-    const [isMounted, setIsMounted] = useState(false)
-    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
     const { theme } = useTheme()
 
     const {
@@ -31,38 +27,15 @@ export const Modal = (props: ModalProps) => {
         onClose
     } = props
 
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true)
-        }
-    }, [isOpen])
-
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsClosing(true)
-            timerRef.current = setTimeout(() => {
-                onClose()
-                setIsClosing(false)
-            }, ANIMATION_DELAY)
-        }
-    }, [onClose])
-
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            closeHandler()
-        }
-    }, [closeHandler])
-
-    useEffect(() => {
-        if (isOpen) {
-            window.addEventListener('keydown', onKeyDown)
-        }
-
-        return () => {
-            clearTimeout(timerRef.current)
-            window.removeEventListener('keydown', onKeyDown)
-        }
-    }, [isOpen, onKeyDown])
+    const {
+        isClosing,
+        close,
+        isMounted
+    } = useModel({
+        animationDelay: 300,
+        onClose,
+        isOpen
+    })
 
     const mods: Mods = {
         [styles.opened]: isOpen,
@@ -76,7 +49,7 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(styles.Modal, mods, [className, theme])}>
-                <Overlay onClick={closeHandler}/>
+                <Overlay onClick={close}/>
                 <div
                     className={styles.content}
                 >
