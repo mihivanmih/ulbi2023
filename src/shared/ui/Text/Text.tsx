@@ -1,5 +1,5 @@
-import type { Mods } from 'shared/lib/classNames/classNames'
-import { classNames } from 'shared/lib/classNames/classNames'
+import type { Mods } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Text.module.scss'
 import { memo } from 'react'
 

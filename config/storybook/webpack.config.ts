@@ -22,7 +22,9 @@ export default ({ config, apiUrl }: { config: webpack.Configuration }) => {
         if (config.resolve.extensions) {
             config.resolve.extensions.push('.ts', '.tsx')
         }
+        config.resolve!.alias = { '@': paths.src }
     }
+
 
     if (config.module) {
         if (config.module.rules) {

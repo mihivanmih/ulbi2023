@@ -1,4 +1,4 @@
-import type { StateSchema } from 'app/providers/StoreProvider'
+import type { StateSchema } from '@/app/providers/StoreProvider'
 import { getProfileForm } from './getProfileForm'
 import { Country } from '../../../../../entities/Country'
 import { Currency } from '../../../../../entities/Currency'
