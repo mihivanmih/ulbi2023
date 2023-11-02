@@ -1,5 +1,5 @@
-import type { Mods } from 'shared/lib/classNames/classNames'
-import { classNames } from 'shared/lib/classNames/classNames'
+import type { Mods } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Select.module.scss'
 import type { ChangeEvent } from 'react'
 import { memo, useMemo } from 'react'

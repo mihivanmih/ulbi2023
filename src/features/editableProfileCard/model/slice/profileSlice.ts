@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { ProfileSchema } from '../types/editableProfileCardSchema'
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData'
-import { Profile } from 'entities/Profile'
+import { Profile } from '@/entities/Profile'
 
 const initialState: ProfileSchema = {
     readonly: true,

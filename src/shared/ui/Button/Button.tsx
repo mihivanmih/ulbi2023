@@ -1,5 +1,5 @@
-import type { Mods } from 'shared/lib/classNames/classNames'
-import { classNames } from 'shared/lib/classNames/classNames'
+import type { Mods } from '@/shared/lib/classNames/classNames'
+import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { memo } from 'react'

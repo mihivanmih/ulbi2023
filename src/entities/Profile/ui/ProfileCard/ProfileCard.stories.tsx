@@ -1,8 +1,8 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
 import { ProfileCard } from './ProfileCard'
-import { Country } from 'entities/Country'
-import { Currency } from 'entities/Currency'
+import { Country } from '@/entities/Country'
+import { Currency } from '@/entities/Currency'
 import Avatar from '../../../../shared/assets/test/storybook.jpg'
 
 export default {
