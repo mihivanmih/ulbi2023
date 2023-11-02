@@ -5,7 +5,7 @@ import { Popover } from '@/shared/ui/Popups'
 import { Button, ThemeButton } from '@/shared/ui/Button/Button'
 import { Icon } from '@/shared/ui/Icon/Icon'
 import { NotificationList } from '@/entities/Notification'
-import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg'
+import NotificationIcon from '@/shared/assets/icons/notification-20-20.svg?react'
 import { Drawer } from '@/shared/ui/Drawer/Drawer'
 import { BrowserView, MobileView } from 'react-device-detect'
 
