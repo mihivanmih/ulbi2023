@@ -1,11 +1,10 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { Theme } from '@/app/providers/ThemeProvider'
 import { NotificationList } from './NotificationList'
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
 
 export default {
-    title: 'pages/NotificationList',
+    title: 'entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -15,6 +14,31 @@ const Template: ComponentStory<typeof NotificationList> = (args: any) => <Notifi
 
 export const Normal = Template.bind({})
 Normal.args = {}
-
-export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+Normal.decorators = [StoreDecorator({
+    user: {
+        authData: {
+            id: '1'
+        }
+    }
+})]
+Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: [
+                {
+                    id: '1',
+                    title: 'Уведомление',
+                    description: 'Поставь лайк'
+                },
+                {
+                    id: '2',
+                    title: 'Уведомление 2',
+                    description: 'Поставь лайк'
+                }
+            ]
+        }
+    ]
+}
