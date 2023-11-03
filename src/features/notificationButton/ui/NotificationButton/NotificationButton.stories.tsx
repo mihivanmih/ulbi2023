@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/ThemeProvider'
 import { NotificationButton } from './NotificationButton'
 
 export default {
-    title: 'pages/NotificationButton',
+    title: 'features/NotificationButton',
     component: NotificationButton,
     argTypes: {
         backgroundColor: { control: 'color' }

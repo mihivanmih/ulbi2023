@@ -22,7 +22,10 @@ export default ({ config, apiUrl }: { config: webpack.Configuration }) => {
         if (config.resolve.extensions) {
             config.resolve.extensions.push('.ts', '.tsx')
         }
-        config.resolve!.alias = { '@': paths.src }
+        config.resolve!.alias = {
+            ...config!.resolve!.alias,
+            '@': paths.src
+        }
     }
 
 
@@ -43,7 +46,7 @@ export default ({ config, apiUrl }: { config: webpack.Configuration }) => {
     }
 
     config.plugins.push(new DefinePlugin({
-        __API__: JSON.stringify('https://testapi.ru'),
+        __API__: JSON.stringify('http://localhost:8000'),
         __IS_DEV__: true,
         __PROJECT__: JSON.stringify('storybook')
     }))

@@ -5,7 +5,7 @@ import { Theme } from '@/app/providers/ThemeProvider'
 import { avatarDropdown as AvatarDropdown } from './avatarDropdown'
 
 export default {
-    title: 'pages/avatarDropdown',
+    title: 'features/avatarDropdown',
     component: AvatarDropdown,
     argTypes: {
         backgroundColor: { control: 'color' }
