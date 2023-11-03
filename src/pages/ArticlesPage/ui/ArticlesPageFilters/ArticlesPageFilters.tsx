@@ -11,10 +11,10 @@ import {
 import type { ArticleView, ArticleSortField } from '@/entities/Article'
 import { articlesPageSliceAction } from '../../model/slices/articlePageSlice'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
-import { ArticleType, ArticleTypeTabs, ArticleViewSelector } from '@/entities/Article'
+import { ArticleType, ArticleTypeTabs, ArticleViewSelector, ArticleSortSelector } from '@/entities/Article'
 import { Card } from '@/shared/ui/Card/Card'
 import { Input } from '@/shared/ui/Input/Input'
-import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector'
+
 import type { SortOrder } from '@/shared/types'
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList'
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce'

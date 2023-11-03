@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
     getArticlePageError
 } from '../../model/selectors/articlesPageSelectors'
-import { Page } from '@/widgets/Page/Page'
+import { Page } from '@/widgets/Page'
 import { fetchArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
