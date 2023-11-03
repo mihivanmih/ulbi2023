@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next'
 import { LoginModal } from '@/features/AuthByUsername'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { RoutePath } from '@/shared/config/roteConfig/routeConfig'
 import { HStack } from '@/shared/ui/Stack'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
+import { RoutePath } from '@/shared/const/router'
 
 interface NavbarProps {
     className?: string
