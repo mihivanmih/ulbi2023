@@ -47,7 +47,12 @@ module.exports = {
         '@typescript-eslint/indent': 'off',
         '@typescript-eslint/consistent-type-imports': 'off',
         'test-fsd-2023/path-checker': ['error', { alias: '@' }],
-        'test-fsd-2023/public-api-imports-fsd-2023': ['error', { alias: '@' }],
+        'test-fsd-2023/public-api-imports-fsd-2023': [
+            'error', {
+                alias: '@',
+                testFilesPatterns: ['**/&.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
+            }
+        ],
         '@typescript-eslint/no-invalid-void-type': ['warn']
     },
     globals: {

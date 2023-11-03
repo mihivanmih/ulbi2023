@@ -2,17 +2,12 @@ import type { Story } from '@storybook/react'
 // todo
 import type { StateSchema } from '@/app/providers/StoreProvider'
 import { StoreProvider } from '@/app/providers/StoreProvider'
-// eslint-disable-next-line test-fsd-2023/public-api-imports-fsd-2023
-import { loginReducer } from '@/features/AuthByUsername/model/slice/LoginSlice'
+import { loginReducer } from '@/features/AuthByUsername/testing'
 import type { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-// eslint-disable-next-line test-fsd-2023/public-api-imports-fsd-2023
-import { articleDetailsReducer } from '@/entities/Article/model/slice/articleDetailsSlice'
-// eslint-disable-next-line test-fsd-2023/public-api-imports-fsd-2023
-import { addCommentFormReducer } from '@/features/addCommentForm/model/slices/AddCommentFormSlice'
-// eslint-disable-next-line test-fsd-2023/public-api-imports-fsd-2023
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slices'
-// eslint-disable-next-line test-fsd-2023/public-api-imports-fsd-2023
-import { profileReducer } from '@/features/editableProfileCard/model/slice/profileSlice'
+import { articleDetailsReducer } from '@/entities/Article/testing'
+import { addCommentFormReducer } from '@/features/addCommentForm/testing'
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing'
+import { profileReducer } from '@/features/editableProfileCard/testing'
 
 const defaulAsyncReducers: ReducersList = {
     loginForm: loginReducer,
