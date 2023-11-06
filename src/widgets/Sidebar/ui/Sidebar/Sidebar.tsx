@@ -3,11 +3,11 @@ import styles from './Sidebar.module.scss'
 import React, { memo, useMemo, useState } from 'react'
 import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { LangSwitcher } from '@/features/LangSwitcher'
-import { Button, ButtonSize, ThemeButton } from '@/shared/ui/Button/Button'
+import { Button, ButtonSize, ThemeButton } from '@/shared/ui/Button'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
-import { VStack } from '@/shared/ui/Stack/VStack/VStack'
+import { VStack } from '@/shared/ui/Stack'
 
 interface SidebarProps {
     className?: string

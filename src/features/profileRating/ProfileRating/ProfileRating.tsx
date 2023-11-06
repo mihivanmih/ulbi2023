@@ -5,7 +5,7 @@ import { memo, useCallback } from 'react'
 import { RatingCard } from '@/entities/Rating'
 import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton'
+import { Skeleton } from '@/shared/ui/Skeleton'
 import { useProfileRating, useRateProfile } from '../api/profileRatingApi'
 
 export interface ProfileRatingProps {
