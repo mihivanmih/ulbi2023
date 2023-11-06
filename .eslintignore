@@ -2,6 +2,6 @@
 webpack.config.ts
 jestEmptyComponent.tsx
 jest.config.ts
-/scripts/viteSvgWebpack.ts
+/scripts/refactoring/
 vite.config.ts
 
