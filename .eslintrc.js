@@ -53,6 +53,12 @@ module.exports = {
                 testFilesPatterns: ['**/&.test.*', '**/*.story.*', '**/StoreDecorator.tsx']
             }
         ],
+        'test-fsd-2023/layer-imports': [
+            'error', {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing']
+            }
+        ],
         '@typescript-eslint/no-invalid-void-type': ['warn']
     },
     globals: {

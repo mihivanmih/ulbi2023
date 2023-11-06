@@ -4,9 +4,9 @@ import styles from './Modal.module.scss'
 import type { ReactNode } from 'react'
 import React from 'react'
 import { Portal } from '../Portal/Portal'
-import { useTheme } from '@/app/providers/ThemeProvider'
 import { Overlay } from '../Overlay/Overlay'
 import { useModel } from '@/shared/lib/hooks/useModel/useModel'
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
 
 interface ModalProps {
     className?: string
