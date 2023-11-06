@@ -10,7 +10,7 @@ module.exports = {
         project: './tsconfig.json',
         tsconfigRootDir: __dirname
     },
-    plugins: ['react', 'react-hooks', 'i18next', 'react-hooks', 'test-fsd-2023'],
+    plugins: ['react', 'react-hooks', 'i18next', 'react-hooks', 'test-fsd-2023', 'unused-imports'],
     rules: {
         indent: [2, 4, {
             MemberExpression: 1
@@ -59,7 +59,8 @@ module.exports = {
                 ignoreImportPatterns: ['**/StoreProvider', '**/testing']
             }
         ],
-        '@typescript-eslint/no-invalid-void-type': ['warn']
+        '@typescript-eslint/no-invalid-void-type': ['warn'],
+        'unused-imports/no-unused-imports': 'error'
     },
     globals: {
         __IS_DEV__: true,

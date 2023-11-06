@@ -2,6 +2,7 @@ import React from 'react'
 import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { Code } from './Code'
+import { Theme } from '@/shared/const/theme'
 
 export default {
     title: 'shared/Code',

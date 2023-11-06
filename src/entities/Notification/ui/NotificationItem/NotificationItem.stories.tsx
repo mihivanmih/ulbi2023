@@ -2,6 +2,7 @@ import React from 'react'
 import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { NotificationItem } from './NotificationItem'
+import { Theme } from '@/shared/const/theme'
 
 export default {
     title: 'entities/Notification/NotificationItem',

@@ -1,7 +1,8 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ArticleSortSelector } from './ArticleSortSelector'
+import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 export default {
     title: 'entities/Article/ArticleSortSelector',
