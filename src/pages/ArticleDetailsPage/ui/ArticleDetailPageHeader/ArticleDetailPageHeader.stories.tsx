@@ -3,7 +3,7 @@ import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { ArticleDetailPageHeader } from './ArticleDetailPageHeader'
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator'
-import {Theme} from "@/shared/const/theme";
+import { Theme } from '@/shared/const/theme'
 
 export default {
     title: 'pages/Article/ArticleDetailPageHeader',

@@ -1,8 +1,8 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
-import { ProfileRating } from './ProfileRating'
-import {Theme} from "@/shared/const/theme";
+import ProfileRating from './ProfileRating'
+import { Theme } from '@/shared/const/theme'
 
 export default {
     title: 'pages/ProfileRating',
