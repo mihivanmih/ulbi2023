@@ -5,7 +5,7 @@ import { memo, useMemo } from 'react'
 import type { SelectOption } from '@/shared/ui/Select'
 import { Select } from '@/shared/ui/Select'
 import type { SortOrder } from '@/shared/types'
-import { ArticleSortField } from '../../model/consts/consts'
+import { ArticleSortField } from '@/entities/Article'
 
 interface ArticleSortSelectorProps {
     className?: string
