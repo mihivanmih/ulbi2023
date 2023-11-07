@@ -21,8 +21,8 @@ files.forEach(sourceFile => {
             const webPack = value.replace(react, '')
             const vite = value + react
             //console.log("value", value)
-            //importDeclaration.setModuleSpecifier(webPack)
-            importDeclaration.setModuleSpecifier(vite)
+            importDeclaration.setModuleSpecifier(webPack)
+            //importDeclaration.setModuleSpecifier(vite)
         }
     })
 })

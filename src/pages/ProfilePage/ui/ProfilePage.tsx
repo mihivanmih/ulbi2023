@@ -8,6 +8,10 @@ import { ProfileRating } from '@/features/profileRating'
 const ProfilePage = () => {
     const { id } = useParams<{ id: string }>()
 
+    if (!id) {
+        return null
+    }
+
     return (
         <Page className={classNames('', {}, [])}>
             <VStack gap={'16'} >

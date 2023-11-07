@@ -1,8 +1,8 @@
 import React from 'react'
 import type { ComponentStory } from '@storybook/react'
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator'
 import { StarRating } from './StarRating'
 import { Theme } from '@/shared/const/theme'
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator'
 
 export default {
     title: 'pages/StarRating',
