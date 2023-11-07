@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
-import type { ReduxStoreWithManager, StateSchemaKey } from '@/app/providers/StoreProvider'
+import type { ReduxStoreWithManager, StateSchema, StateSchemaKey } from '@/app/providers/StoreProvider'
 import type { Reducer } from '@reduxjs/toolkit'
 
 export type ReducersList = {
-    [name in StateSchemaKey]?: Reducer
+    [name in StateSchemaKey]?: Reducer<NonNullable<StateSchema[name]>>
 }
 
 type ReducersListEntry = [StateSchemaKey, Reducer]
