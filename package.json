@@ -27,8 +27,7 @@
     "build-storybook": "storybook build -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "ts-node": "ts-node .\\scripts\\refactoring\\createPublicApiForSharedUi.ts",
-    "postinstall": "rmdir /s /q .\\node_modules\\.cache"
+    "ts-node": "ts-node .\\scripts\\refactoring\\createPublicApiForSharedUi.ts"
   },
   "keywords": [],
   "author": "",
