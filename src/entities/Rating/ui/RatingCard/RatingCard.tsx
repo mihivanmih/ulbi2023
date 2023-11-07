@@ -94,7 +94,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                 </Modal>
             </BrowserView>
             <MobileView>
-                <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
+                <Drawer isOpen={isModalOpen} onClose={cancelHandle}>
                     <VStack max gap={'32'}>
                         {modalContent}
                         <Button fullWidth size={ButtonSize.L} onClick={acceptHandle}>

@@ -26,7 +26,7 @@ export function RequireAuth ({ children, roles }: RequireAuthProps) {
         })
     }, [roles, userRoles])
 
-    if (!auth && !hasRequiredRoles) {
+    if (!auth) {
         return <Navigate to={getRouteMain()} state={{ from: location }} replace />
     }
 
