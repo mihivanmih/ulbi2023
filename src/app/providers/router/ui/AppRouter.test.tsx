@@ -25,7 +25,7 @@ describe('app/rooter/AppRouter', () => {
 
     test('Редирект неавторизованного пользователя', async () => {
         componentRender(<AppRouter />, {
-            route: getRouteProfile()
+            route: getRouteProfile('1')
         })
 
         const page = await screen.findByTestId('MainPage')
