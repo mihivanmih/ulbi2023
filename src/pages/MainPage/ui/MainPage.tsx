@@ -8,7 +8,7 @@ const MyComponent = () => {
     const { t } = useTranslation()
 
     return (
-        <Page>
+        <Page data-testid={'MainPage'}>
             {t('Главная страница')}
             <BugButton />
             <div>sdsdsd</div>

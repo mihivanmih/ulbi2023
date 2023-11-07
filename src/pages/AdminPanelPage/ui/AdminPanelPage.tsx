@@ -15,7 +15,7 @@ const AdminPanelPage = memo((props: ArticleEditPageProps) => {
     const { t } = useTranslation()
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page data-testid={'AdminPanelPage'} className={classNames('', {}, [className])}>
             {t('Админ панель')}
         </Page>
     )

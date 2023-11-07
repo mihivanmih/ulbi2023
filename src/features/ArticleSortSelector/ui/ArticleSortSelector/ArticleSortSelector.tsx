@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { memo, useMemo } from 'react'
 import type { SelectOption } from '@/shared/ui/Select'
 import { Select } from '@/shared/ui/Select'
-import type { SortOrder } from '@/shared/types'
+import type { SortOrder } from '@/shared/types/sort'
 import { ArticleSortField } from '@/entities/Article'
 
 interface ArticleSortSelectorProps {
