@@ -8,12 +8,13 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
       options: {
-        background: false
-      }
+        background: false, // 👈 disable the backgrounds addon
+      },
     },
+    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     'storybook-addon-mock',
-    'storybook-addon-themes'
+    'storybook/addon-themes'
   ],
 
   framework: {

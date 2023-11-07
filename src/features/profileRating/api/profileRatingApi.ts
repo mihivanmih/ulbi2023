@@ -3,7 +3,7 @@ import { Rating } from '@/entities/Rating'
 
 interface GetProfileRatingArg {
     userId: string
-    articleId: string
+    profileId: string
 }
 
 interface RateArticleArg {
