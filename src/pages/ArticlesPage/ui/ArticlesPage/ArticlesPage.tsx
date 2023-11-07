@@ -5,7 +5,7 @@ import type { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/D
 import { articlesPageSliceReducer } from '../../model/slices/articlePageSlice'
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import {
     getArticlePageError
 } from '../../model/selectors/articlesPageSelectors'
@@ -15,6 +15,7 @@ import { initArticlesPage } from '../../model/services/initArticlesPage/initArti
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { useSearchParams } from 'react-router-dom'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 
 interface ArticlesPageProps {
     className?: string
@@ -25,7 +26,7 @@ const reducers: ReducersList = {
 }
 
 const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
-    const dispatch = useDispatch()
+    const dispatch = useAppDispatch()
     const error = useSelector(getArticlePageError)
     const [searchParams] = useSearchParams()
 
