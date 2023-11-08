@@ -670,6 +670,15 @@
         "MANAGER"
       ],
       "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
     }
   ],
   "profile": [
