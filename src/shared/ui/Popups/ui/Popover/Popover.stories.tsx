@@ -8,10 +8,12 @@ export default {
     title: 'pages/Popover',
     component: Popover,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof Popover> = (args: any) => <Popover {...args} />
+const Template: ComponentStory<typeof Popover> = (args: any) => (
+    <Popover {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

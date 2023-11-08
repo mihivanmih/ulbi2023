@@ -1,8 +1,11 @@
-import {USER_LOCALSTORAGE_KEY} from "../../../src/shared/const/localstorage"
-import {User} from "../../../src/entities/User";
-import {selectByTestid} from "../../helpers/selectByTestid";
+import { USER_LOCALSTORAGE_KEY } from '../../../src/shared/const/localstorage'
+import { User } from '../../../src/entities/User'
+import { selectByTestid } from '../../helpers/selectByTestid'
 
-export const LoginE2E = (username:string = 'testuser', password:string = '123') => {
+export const LoginE2E = (
+    username: string = 'testuser',
+    password: string = '123',
+) => {
     cy.request({
         method: 'POST',
         url: `http://localhost:8000/login`,
@@ -10,7 +13,7 @@ export const LoginE2E = (username:string = 'testuser', password:string = '123') 
             username,
             password,
         },
-    }).then(({body}) => {
+    }).then(({ body }) => {
         window.localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(body))
         return body
     })

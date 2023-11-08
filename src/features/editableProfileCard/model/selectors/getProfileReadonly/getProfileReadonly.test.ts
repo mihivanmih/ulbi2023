@@ -5,8 +5,8 @@ describe('getProfileIsLoading', () => {
     test('should return counter value', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
-                readonly: true
-            }
+                readonly: true,
+            },
         }
 
         expect(getProfileReadonly(state as StateSchema)).toEqual(true)

@@ -21,11 +21,7 @@ interface PageProps extends TestsProps {
 export const PAGE_ID = 'PAGE_ID'
 
 export const Page = (props: PageProps) => {
-    const {
-        className = '',
-        children,
-        onScrollEnd
-    } = props
+    const { className = '', children, onScrollEnd } = props
 
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
@@ -35,19 +31,23 @@ export const Page = (props: PageProps) => {
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
-        callback: onScrollEnd
+        callback: onScrollEnd,
     })
 
-    const scrollPosition = useSelector((state: StateSchema) => getUIScrollByPath(state, pathname))
+    const scrollPosition = useSelector((state: StateSchema) =>
+        getUIScrollByPath(state, pathname),
+    )
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition
     })
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-        dispatch(uiActions.setScrollPosition({
-            position: e.currentTarget.scrollTop,
-            path: pathname
-        }))
+        dispatch(
+            uiActions.setScrollPosition({
+                position: e.currentTarget.scrollTop,
+                path: pathname,
+            }),
+        )
     }, 500)
 
     return (
@@ -59,7 +59,9 @@ export const Page = (props: PageProps) => {
             data-testid={props['data-testid'] ?? ['Page']}
         >
             {children}
-            {onScrollEnd ? <div ref={triggerRef} className={styles.trigger}/> : null}
+            {onScrollEnd ? (
+                <div ref={triggerRef} className={styles.trigger} />
+            ) : null}
         </main>
     )
 }

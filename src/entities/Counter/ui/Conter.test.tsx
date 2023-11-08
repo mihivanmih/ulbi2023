@@ -8,13 +8,13 @@ const user = userEvent.setup()
 describe('Counter test', () => {
     test('render', () => {
         componentRender(<Counter />, {
-            initialState: { counter: { value: 10 } }
+            initialState: { counter: { value: 10 } },
         })
         expect(screen.getByTestId('value-title')).toHaveTextContent('10')
     })
     test('increment', async () => {
         componentRender(<Counter />, {
-            initialState: { counter: { value: 10 } }
+            initialState: { counter: { value: 10 } },
         })
 
         await user.click(screen.getByTestId('increment-btn'))
@@ -22,7 +22,7 @@ describe('Counter test', () => {
     })
     test('decrement', async () => {
         componentRender(<Counter />, {
-            initialState: { counter: { value: 10 } }
+            initialState: { counter: { value: 10 } },
         })
         await user.click(screen.getByTestId('decrement-btn'))
         expect(screen.getByTestId('value-title')).toHaveTextContent('9')

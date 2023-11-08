@@ -1,11 +1,11 @@
 {
-  "id": "1",
-  "first": "Тестовый",
-  "lastname": "Чел",
-  "age": 19,
-  "currency": "RUB",
-  "country": "Russia",
-  "city": "Москва",
-  "username": "userName",
-  "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
+    "id": "1",
+    "first": "Тестовый",
+    "lastname": "Чел",
+    "age": 19,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Москва",
+    "username": "userName",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
 }

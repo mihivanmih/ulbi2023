@@ -16,11 +16,7 @@ interface CommentCardProps {
 }
 
 export const CommentCard = memo((props: CommentCardProps) => {
-    const {
-        className = '',
-        comment,
-        isLoading
-    } = props
+    const { className = '', comment, isLoading } = props
 
     if (isLoading) {
         return (
@@ -28,11 +24,18 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 data-testid={'CommentCard.Loading'}
                 gap={'8'}
                 max
-                className={classNames(styles.CommentCard, {}, [className, styles.loading])}
+                className={classNames(styles.CommentCard, {}, [
+                    className,
+                    styles.loading,
+                ])}
             >
                 <div className={styles.header}>
                     <Skeleton width={30} height={30} border={'50%'} />
-                    <Skeleton width={100} height={16} className={styles.username}/>
+                    <Skeleton
+                        width={100}
+                        height={16}
+                        className={styles.username}
+                    />
                 </div>
                 <Skeleton className={styles.text} width={'100%'} height={50} />
             </VStack>
@@ -50,9 +53,15 @@ export const CommentCard = memo((props: CommentCardProps) => {
             gap={'8'}
             className={classNames(styles.CommentCard, {}, [className])}
         >
-            <AppLink to={getRouteProfile(comment.user.id)} className={styles.header}>
-                <Avatar size={30} src={comment.user.avatar}/>
-                <Text className={styles.username} title={comment.user.username}/>
+            <AppLink
+                to={getRouteProfile(comment.user.id)}
+                className={styles.header}
+            >
+                <Avatar size={30} src={comment.user.avatar} />
+                <Text
+                    className={styles.username}
+                    title={comment.user.username}
+                />
             </AppLink>
             <Text text={comment.text} className={styles.text} />
         </VStack>

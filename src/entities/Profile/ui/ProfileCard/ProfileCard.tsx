@@ -43,14 +43,22 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeAvatar,
         onChangeCurrency,
         onChangeCountry,
-        isLoading
+        isLoading,
     } = props
 
     const { t } = useTranslation('profile')
 
     if (isLoading) {
         return (
-            <HStack justify={'center'} max className={classNames(styles.ProfileCard, { [styles.loading]: true }, [className])}>
+            <HStack
+                justify={'center'}
+                max
+                className={classNames(
+                    styles.ProfileCard,
+                    { [styles.loading]: true },
+                    [className],
+                )}
+            >
                 <Loader />
             </HStack>
         )
@@ -58,9 +66,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (error) {
         return (
-            <HStack justify={'center'} max className={classNames(styles.ProfileCard, {}, [className, styles.error])}>
+            <HStack
+                justify={'center'}
+                max
+                className={classNames(styles.ProfileCard, {}, [
+                    className,
+                    styles.error,
+                ])}
+            >
                 <Text
-                    title={ t('Произошла ошибка при загрузке профиля')}
+                    title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
                     theme={TextTheme.ERROR}
                     align={TextAlign.CENTER}
@@ -70,12 +85,16 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     const mods: Mods = {
-        [styles.editing]: !readonly
+        [styles.editing]: !readonly,
     }
 
     return (
-        <VStack gap={'16'} max className={classNames(styles.ProfileCard, mods, [className])}>
-            { data?.avatar && (
+        <VStack
+            gap={'16'}
+            max
+            className={classNames(styles.ProfileCard, mods, [className])}
+        >
+            {data?.avatar && (
                 <HStack justify={'center'} max>
                     <Avatar src={data?.avatar} />
                 </HStack>

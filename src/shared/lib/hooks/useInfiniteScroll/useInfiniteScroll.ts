@@ -7,12 +7,8 @@ export interface UseInfiniteScrollOptions {
     wrapperRef: MutableRefObject<HTMLElement>
 }
 
-export function useInfiniteScroll (props: UseInfiniteScrollOptions) {
-    const {
-        callback,
-        wrapperRef,
-        triggerRef
-    } = props
+export function useInfiniteScroll(props: UseInfiniteScrollOptions) {
+    const { callback, wrapperRef, triggerRef } = props
 
     useEffect(() => {
         let observer: IntersectionObserver | null = null
@@ -24,7 +20,7 @@ export function useInfiniteScroll (props: UseInfiniteScrollOptions) {
             const options = {
                 root: wrapperElement,
                 rootMargin: '0px',
-                threshold: 1.0
+                threshold: 1.0,
             }
             observer = new IntersectionObserver(([entry]) => {
                 if (entry.isIntersecting) {

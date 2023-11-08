@@ -10,7 +10,7 @@ const data = {
     lastname: 'test',
     first: 'asd',
     city: 'Moskow',
-    currency: Currency.EUR
+    currency: Currency.EUR,
 }
 
 describe('validateProfileData.test', () => {
@@ -37,6 +37,10 @@ describe('validateProfileData.test', () => {
 
     test('incorrect all', async () => {
         const result = validateProfileData({})
-        expect(result).toEqual([ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.INCORRECT_AGE, ValidateProfileError.INCORRECT_COUNTRY])
+        expect(result).toEqual([
+            ValidateProfileError.INCORRECT_USER_DATA,
+            ValidateProfileError.INCORRECT_AGE,
+            ValidateProfileError.INCORRECT_COUNTRY,
+        ])
     })
 })

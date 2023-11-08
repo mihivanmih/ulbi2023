@@ -9,11 +9,13 @@ export default {
     title: 'entities/ProfileCard',
     component: ProfileCard,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
-const Template: ComponentStory<typeof ProfileCard> = (args: any) => <ProfileCard {...args} />
+const Template: ComponentStory<typeof ProfileCard> = (args: any) => (
+    <ProfileCard {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
@@ -25,16 +27,16 @@ Normal.args = {
         first: 'asd',
         city: 'Moskow',
         currency: Currency.EUR,
-        avatar: Avatar
-    }
+        avatar: Avatar,
+    },
 }
 
 export const withError = Template.bind({})
 withError.args = {
-    error: 'true'
+    error: 'true',
 }
 
 export const Loading = Template.bind({})
 Loading.args = {
-    isLoading: true
+    isLoading: true,
 }

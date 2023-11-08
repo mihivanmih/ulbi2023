@@ -12,8 +12,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: true
-            }
+                hasMore: true,
+            },
         })
         await thunk.callThunk({})
         expect(thunk.dispatch).toBeCalledTimes(4)
@@ -26,8 +26,8 @@ describe('fetchNextArticlesPage.test', () => {
                 entities: {},
                 limit: 5,
                 isLoading: false,
-                hasMore: false
-            }
+                hasMore: false,
+            },
         })
         await thunk.callThunk({})
         expect(thunk.dispatch).toBeCalledTimes(2)

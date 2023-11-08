@@ -8,10 +8,12 @@ export default {
     title: 'pages/ProfileRating',
     component: ProfileRating,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof ProfileRating> = (args: any) => <ProfileRating {...args} />
+const Template: ComponentStory<typeof ProfileRating> = (args: any) => (
+    <ProfileRating {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

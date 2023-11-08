@@ -39,35 +39,37 @@ export const EditableProfileCardHeader = memo(() => {
             <Text title={t('Профиль')} />
             {canEdit && (
                 <>
-                    { readonly
-                        ? (<Button
+                    {readonly ? (
+                        <Button
                             theme={ThemeButton.OUTLINE}
                             onClick={onEdit}
                             data-testid={'EditableProfileCardHeader.EditButton'}
                         >
                             {t('Редактировать')}
-                        </Button>)
-                        : (
-                            <HStack gap={'8'}>
-                                <Button
-                                    theme={ThemeButton.OUTLINE_RED}
-                                    onClick={onCancelEdit}
-                                    data-testid={'EditableProfileCardHeader.CancelButton'}
-                                >
-                                    {t('Отменить')}
-                                </Button>
+                        </Button>
+                    ) : (
+                        <HStack gap={'8'}>
+                            <Button
+                                theme={ThemeButton.OUTLINE_RED}
+                                onClick={onCancelEdit}
+                                data-testid={
+                                    'EditableProfileCardHeader.CancelButton'
+                                }
+                            >
+                                {t('Отменить')}
+                            </Button>
 
-                                <Button
-                                    theme={ThemeButton.OUTLINE}
-                                    onClick={onSave}
-                                    data-testid={'EditableProfileCardHeader.SaveButton'}
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </HStack>
-
-                        )
-                    }
+                            <Button
+                                theme={ThemeButton.OUTLINE}
+                                onClick={onSave}
+                                data-testid={
+                                    'EditableProfileCardHeader.SaveButton'
+                                }
+                            >
+                                {t('Сохранить')}
+                            </Button>
+                        </HStack>
+                    )}
                 </>
             )}
         </HStack>

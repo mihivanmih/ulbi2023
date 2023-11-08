@@ -1,4 +1,10 @@
-import { MutableRefObject, useCallback, useEffect, useRef, useState } from 'react'
+import {
+    MutableRefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 
 interface UseModelProps {
     onClose?: () => void
@@ -12,7 +18,7 @@ interface UseModelProps {
  * @param isOpen
  * @param onClose
  */
-export function useModel ({ animationDelay, isOpen, onClose }: UseModelProps) {
+export function useModel({ animationDelay, isOpen, onClose }: UseModelProps) {
     const [isClosing, setIsClosing] = useState(false)
     const [isMounted, setIsMounted] = useState(false)
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
@@ -33,11 +39,14 @@ export function useModel ({ animationDelay, isOpen, onClose }: UseModelProps) {
         }
     }, [animationDelay, onClose])
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            close()
-        }
-    }, [close])
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                close()
+            }
+        },
+        [close],
+    )
 
     useEffect(() => {
         if (isOpen) {
@@ -53,6 +62,6 @@ export function useModel ({ animationDelay, isOpen, onClose }: UseModelProps) {
     return {
         isClosing,
         isMounted,
-        close
+        close,
     }
 }

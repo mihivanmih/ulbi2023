@@ -22,22 +22,19 @@ interface DropdownProps {
     direction?: DropdownDirection
 }
 
-export function Dropdown (props: DropdownProps) {
-    const {
-        className,
-        trigger,
-        items,
-        direction = 'bottom right'
-    } = props
+export function Dropdown(props: DropdownProps) {
+    const { className, trigger, items, direction = 'bottom right' } = props
     const menuClasses = [mapDirectionClass[direction]]
 
     return (
-        <Menu as={'div'} className={classNames(styles.Dropdown, {}, [className, popupCls.popup])}>
-            <Menu.Button
-                className={popupCls.trigger}
-            >
-                {trigger}
-            </Menu.Button>
+        <Menu
+            as={'div'}
+            className={classNames(styles.Dropdown, {}, [
+                className,
+                popupCls.popup,
+            ])}
+        >
+            <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
             <Menu.Items className={classNames(styles.menu, {}, menuClasses)}>
                 {items.map((item, index) => {
                     const content = ({ active }: { active: boolean }) => (
@@ -45,7 +42,9 @@ export function Dropdown (props: DropdownProps) {
                             type={'button'}
                             onClick={item.onClick}
                             disabled={item.disabled}
-                            className={classNames(styles.item, { [popupCls.active]: active })}
+                            className={classNames(styles.item, {
+                                [popupCls.active]: active,
+                            })}
                         >
                             {item.content}
                         </button>
@@ -53,14 +52,23 @@ export function Dropdown (props: DropdownProps) {
 
                     if (item.href) {
                         return (
-                            <Menu.Item as={AppLink} disabled={item.disabled} to={item.href} key={item.href}>
+                            <Menu.Item
+                                as={AppLink}
+                                disabled={item.disabled}
+                                to={item.href}
+                                key={item.href}
+                            >
                                 {content}
                             </Menu.Item>
                         )
                     }
 
                     return (
-                        <Menu.Item as={Fragment} disabled={item.disabled} key={index}>
+                        <Menu.Item
+                            as={Fragment}
+                            disabled={item.disabled}
+                            key={index}
+                        >
                             {content}
                         </Menu.Item>
                     )

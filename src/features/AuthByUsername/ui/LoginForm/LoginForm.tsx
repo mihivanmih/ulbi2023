@@ -22,7 +22,7 @@ export interface LoginFormProps {
 }
 
 const initialReducers: ReducersList = {
-    loginForm: loginReducer
+    loginForm: loginReducer,
 }
 
 const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
@@ -34,17 +34,25 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
     const isLoading = useSelector(getLoginIsLoading)
     const password = useSelector(getLoginPassword)
 
-    const onChangeUsername = useCallback((value: string) => {
-        dispatch(loginActions.setUsername(value))
-    }, [dispatch])
+    const onChangeUsername = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setUsername(value))
+        },
+        [dispatch],
+    )
 
-    const onChangePassword = useCallback((value: string) => {
-        dispatch(loginActions.setPassword(value))
-    }, [dispatch])
+    const onChangePassword = useCallback(
+        (value: string) => {
+            dispatch(loginActions.setPassword(value))
+        },
+        [dispatch],
+    )
 
     const onLoginClick = useCallback(() => {
         void (async () => {
-            const result = await dispatch(loginByUsername({ username, password }))
+            const result = await dispatch(
+                loginByUsername({ username, password }),
+            )
             if (result.meta.requestStatus === 'fulfilled') {
                 onSuccess()
             }
@@ -58,7 +66,12 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
         >
             <div className={classNames(styles.LoginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')} />
-                { error && (<Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />)}
+                {error && (
+                    <Text
+                        text={t('Вы ввели неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
                 <Input
                     className={styles.input}
                     placeholder={t('Введите логин')}

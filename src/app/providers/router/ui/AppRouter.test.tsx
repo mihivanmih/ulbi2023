@@ -1,13 +1,17 @@
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import AppRouter from './AppRouter'
-import { getRouteAbout, getRouteAdmin, getRouteProfile } from '@/shared/const/router'
+import {
+    getRouteAbout,
+    getRouteAdmin,
+    getRouteProfile,
+} from '@/shared/const/router'
 import { screen } from '@testing-library/react'
 import { UserRole } from '@/entities/User'
 
 describe('app/rooter/AppRouter', () => {
     test('Страница должна отрендериться', async () => {
         componentRender(<AppRouter />, {
-            route: getRouteAbout()
+            route: getRouteAbout(),
         })
 
         const page = await screen.findByTestId('AboutPage')
@@ -16,7 +20,7 @@ describe('app/rooter/AppRouter', () => {
 
     test('Страница не найдена', async () => {
         componentRender(<AppRouter />, {
-            route: '/sdasda'
+            route: '/sdasda',
         })
 
         const page = await screen.findByTestId('NotFoundPage')
@@ -25,7 +29,7 @@ describe('app/rooter/AppRouter', () => {
 
     test('Редирект неавторизованного пользователя', async () => {
         componentRender(<AppRouter />, {
-            route: getRouteProfile('1')
+            route: getRouteProfile('1'),
         })
 
         const page = await screen.findByTestId('MainPage')
@@ -37,9 +41,9 @@ describe('app/rooter/AppRouter', () => {
             route: getRouteProfile('1'),
             initialState: {
                 user: {
-                    authData: {}
-                }
-            }
+                    authData: {},
+                },
+            },
         })
 
         const page = await screen.findByTestId('ProfilePage')
@@ -53,10 +57,10 @@ describe('app/rooter/AppRouter', () => {
                 user: {
                     _inited: true,
                     authData: {
-                        roles: [UserRole.USER]
-                    }
-                }
-            }
+                        roles: [UserRole.USER],
+                    },
+                },
+            },
         })
 
         const page = await screen.findByTestId('ForbiddenPage')
@@ -70,10 +74,10 @@ describe('app/rooter/AppRouter', () => {
                 user: {
                     _inited: true,
                     authData: {
-                        roles: [UserRole.ADMIN]
-                    }
-                }
-            }
+                        roles: [UserRole.ADMIN],
+                    },
+                },
+            },
         })
 
         const page = await screen.findByTestId('AdminPanelPage')

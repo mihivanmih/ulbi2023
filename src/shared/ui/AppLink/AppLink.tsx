@@ -7,7 +7,7 @@ import { memo } from 'react'
 
 export enum AppLinkTheme {
     PRIMARY = 'primary',
-    SECONDARY = 'secondary'
+    SECONDARY = 'secondary',
 }
 
 interface AppLinkProps extends LinkProps {
@@ -28,7 +28,10 @@ export const AppLink = memo((props: AppLinkProps) => {
     return (
         <Link
             to={to}
-            className={classNames(styles.AppLink, {}, [className, styles[theme]])}
+            className={classNames(styles.AppLink, {}, [
+                className,
+                styles[theme],
+            ])}
             {...otherProps}
         >
             {children}

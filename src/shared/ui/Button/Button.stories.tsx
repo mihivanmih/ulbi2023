@@ -8,39 +8,39 @@ export default {
     title: 'shared/Button',
     component: Button,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-    children: 'Text'
+    children: 'Text',
 }
 
 export const Clear = Template.bind({})
 Clear.args = {
     children: 'Text',
-    theme: ThemeButton.CLEAR
+    theme: ThemeButton.CLEAR,
 }
 
 export const ClearInverted = Template.bind({})
 ClearInverted.args = {
     children: 'Текст',
-    theme: ThemeButton.CLEAR_INVERTED
+    theme: ThemeButton.CLEAR_INVERTED,
 }
 
 export const Outline = Template.bind({})
 Outline.args = {
     children: 'Text',
-    theme: ThemeButton.OUTLINE
+    theme: ThemeButton.OUTLINE,
 }
 
 export const OutlineDarck = Template.bind({})
 OutlineDarck.args = {
     children: 'Text',
-    theme: ThemeButton.OUTLINE
+    theme: ThemeButton.OUTLINE,
 }
 OutlineDarck.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -48,33 +48,33 @@ export const OutlineSizeL = Template.bind({})
 OutlineSizeL.args = {
     children: 'Текст',
     theme: ThemeButton.OUTLINE,
-    size: ButtonSize.L
+    size: ButtonSize.L,
 }
 
 export const OutlineSizeXL = Template.bind({})
 OutlineSizeXL.args = {
     children: 'Текст',
     theme: ThemeButton.OUTLINE,
-    size: ButtonSize.XL
+    size: ButtonSize.XL,
 }
 
 export const BackgroundTheme = Template.bind({})
 BackgroundTheme.args = {
     children: 'Текст',
-    theme: ThemeButton.BACKGROUND
+    theme: ThemeButton.BACKGROUND,
 }
 
 export const BackgroundInvertedTheme = Template.bind({})
 BackgroundInvertedTheme.args = {
     children: 'Текст',
-    theme: ThemeButton.BACKGROUND_INVERTED
+    theme: ThemeButton.BACKGROUND_INVERTED,
 }
 
 export const Square = Template.bind({})
 Square.args = {
     children: '>',
     theme: ThemeButton.BACKGROUND_INVERTED,
-    square: true
+    square: true,
 }
 Square.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -83,7 +83,7 @@ SquareSizeL.args = {
     children: '>',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.L
+    size: ButtonSize.L,
 }
 SquareSizeL.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -92,7 +92,7 @@ SquareSizeXL.args = {
     children: '>',
     theme: ThemeButton.BACKGROUND_INVERTED,
     square: true,
-    size: ButtonSize.XL
+    size: ButtonSize.XL,
 }
 SquareSizeXL.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -100,5 +100,5 @@ export const Disabled = Template.bind({})
 Disabled.args = {
     children: '>',
     theme: ThemeButton.OUTLINE,
-    disabled: true
+    disabled: true,
 }

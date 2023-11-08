@@ -4,7 +4,7 @@ import type { HTMLAttributes, ReactNode } from 'react'
 
 export enum CardTheme {
     NORMAL = 'normal',
-    OUTLINED = 'outlined'
+    OUTLINED = 'outlined',
 }
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,7 +25,10 @@ export const Card = (props: CardProps) => {
 
     return (
         <div
-            className={classNames(styles.Card, { [styles.max]: max }, [className, styles[theme]])}
+            className={classNames(styles.Card, { [styles.max]: max }, [
+                className,
+                styles[theme],
+            ])}
             {...otherProps}
         >
             {children}

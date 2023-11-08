@@ -3,7 +3,7 @@ import { buildSlice } from '@/shared/lib/store'
 import { PayloadAction } from '@reduxjs/toolkit'
 
 const initialState: CounterSchema = {
-    value: 0
+    value: 0,
 }
 
 export const counterSlice = buildSlice({
@@ -18,12 +18,12 @@ export const counterSlice = buildSlice({
         },
         add: (state, { payload }: PayloadAction<number>) => {
             state.value += payload
-        }
-    }
+        },
+    },
 })
 
 export const {
     actions: counterActions,
     reducer: counterReducer,
-    useActions: useCounterActions
+    useActions: useCounterActions,
 } = counterSlice

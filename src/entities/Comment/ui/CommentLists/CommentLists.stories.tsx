@@ -8,10 +8,12 @@ export default {
     title: 'entities/Comment/CommentLists',
     component: CommentLists,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof CommentLists> = (args: any) => <CommentLists {...args} />
+const Template: ComponentStory<typeof CommentLists> = (args: any) => (
+    <CommentLists {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
@@ -19,19 +21,19 @@ Normal.args = {
         {
             user: { id: '1', username: 'Vasya' },
             text: 'Привет)',
-            id: 'BtFJoJH'
+            id: 'BtFJoJH',
         },
         {
             user: { id: '1', username: 'Pyt' },
             text: 'Мвахахахаххаа',
-            id: 'CU317BS'
-        }
-    ]
+            id: 'CU317BS',
+        },
+    ],
 }
 Normal.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const Loading = Template.bind({})
 Loading.args = {
     comments: [],
-    isLoading: true
+    isLoading: true,
 }

@@ -11,11 +11,13 @@ export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
-const Template: ComponentStory<typeof ProfilePage> = (args: any) => <ProfilePage {...args} />
+const Template: ComponentStory<typeof ProfilePage> = (args: any) => (
+    <ProfilePage {...args} />
+)
 
 export const Normal = Template.bind({
     profile: {
@@ -26,9 +28,9 @@ export const Normal = Template.bind({
             lastname: 'test',
             first: 'asd',
             city: 'Moskow',
-            currency: Currency.EUR
-        }
-    }
+            currency: Currency.EUR,
+        },
+    },
 })
 Normal.decorators = [StoreDecorator({})]
 

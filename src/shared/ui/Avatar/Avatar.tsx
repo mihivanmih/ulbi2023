@@ -22,18 +22,28 @@ export const Avatar = (props: AvatarProps) => {
         src = 'https://mirtex.ru/wp-content/uploads/2023/04/unnamed.jpg',
         alt,
         size = 100,
-        fallbackInverted
+        fallbackInverted,
     } = props
 
     const mods: Mods = {}
 
-    const stylesInline = useMemo<CSSProperties>(() => ({
-        width: size,
-        height: size
-    }), [size])
+    const stylesInline = useMemo<CSSProperties>(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    )
 
-    const fallback = <Skeleton width={size} height={size} border={'50%'}/>
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon}/>
+    const fallback = <Skeleton width={size} height={size} border={'50%'} />
+    const errorFallback = (
+        <Icon
+            inverted={fallbackInverted}
+            width={size}
+            height={size}
+            Svg={UserIcon}
+        />
+    )
 
     return (
         <AppImage
@@ -42,6 +52,7 @@ export const Avatar = (props: AvatarProps) => {
             src={src}
             style={stylesInline}
             alt={alt}
-            className={classNames(styles.Avatar, mods, [className])} />
+            className={classNames(styles.Avatar, mods, [className])}
+        />
     )
 }

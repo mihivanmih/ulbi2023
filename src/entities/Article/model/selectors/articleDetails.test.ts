@@ -2,20 +2,20 @@ import type { StateSchema } from '@/app/providers/StoreProvider'
 import {
     getArticleDetailsData,
     getArticleDetailsIsLoading,
-    getArticleDetailsError
+    getArticleDetailsError,
 } from './articleDetails'
 
 describe('getArticle selectors', () => {
     test('getArticleDetailsData', () => {
         const data = {
             id: '1',
-            title: 'title'
+            title: 'title',
         }
 
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                data
-            }
+                data,
+            },
         }
 
         expect(getArticleDetailsData(state as StateSchema)).toEqual(data)
@@ -29,8 +29,8 @@ describe('getArticle selectors', () => {
     test('getArticleDetailsIsLoading', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                isLoading: true
-            }
+                isLoading: true,
+            },
         }
         expect(getArticleDetailsIsLoading(state as StateSchema)).toEqual(true)
     })
@@ -43,8 +43,8 @@ describe('getArticle selectors', () => {
     test('getArticleDetailsError', () => {
         const state: DeepPartial<StateSchema> = {
             articleDetails: {
-                error: 'true'
-            }
+                error: 'true',
+            },
         }
         expect(getArticleDetailsError(state as StateSchema)).toEqual('true')
     })

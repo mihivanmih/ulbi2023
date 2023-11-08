@@ -9,18 +9,16 @@ export default {
     title: 'pages/NotFoundPage',
     component: NotFoundPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+    <NotFoundPage {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-
-})]
+Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-
-})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

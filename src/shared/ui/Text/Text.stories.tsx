@@ -9,8 +9,8 @@ export default {
     title: 'shared/Text',
     component: Text,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
 const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
@@ -18,42 +18,42 @@ const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />
 export const Primary = Template.bind({})
 Primary.args = {
     title: 'Текст',
-    text: 'lorem'
+    text: 'lorem',
 }
 
 export const Error = Template.bind({})
 Error.args = {
     title: 'Текст',
     text: 'lorem',
-    theme: TextTheme.ERROR
+    theme: TextTheme.ERROR,
 }
 
 export const OnlyTitle = Template.bind({})
 OnlyTitle.args = {
-    title: 'Текст'
+    title: 'Текст',
 }
 
 export const OnlyText = Template.bind({})
 OnlyText.args = {
-    text: 'lorem'
+    text: 'lorem',
 }
 
 export const PrimaryDark = Template.bind({})
 PrimaryDark.args = {
     title: 'Текст',
-    text: 'lorem'
+    text: 'lorem',
 }
 PrimaryDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const OnlyTitleDark = Template.bind({})
 OnlyTitleDark.args = {
-    title: 'Текст'
+    title: 'Текст',
 }
 OnlyTitleDark.decorators = [ThemeDecorator(Theme.DARK)]
 
 export const OnlyTextDark = Template.bind({})
 OnlyTextDark.args = {
-    text: 'lorem'
+    text: 'lorem',
 }
 OnlyTextDark.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -61,19 +61,19 @@ export const SizeL = Template.bind({})
 SizeL.args = {
     title: 'lorem 1',
     text: 'lorem',
-    size: TextSize.L
+    size: TextSize.L,
 }
 
 export const SizeM = Template.bind({})
 SizeM.args = {
     title: 'lorem 1',
     text: 'lorem',
-    size: TextSize.M
+    size: TextSize.M,
 }
 
 export const SizeS = Template.bind({})
 SizeS.args = {
     title: 'lorem 1',
     text: 'lorem',
-    size: TextSize.S
+    size: TextSize.S,
 }

@@ -7,8 +7,8 @@ describe('getLoginUsername.test', () => {
             loginForm: {
                 isLoading: false,
                 password: '123',
-                username: 'user'
-            }
+                username: 'user',
+            },
         }
         expect(getLoginUsername(state as StateSchema)).toEqual('user')
     })

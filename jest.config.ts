@@ -19,48 +19,35 @@ export default {
 
     // "unit": "jest --config jest.config.ts"
     globals: {
-        '__IS_DEV__': true,
-        '__API__': '',
-        '__PROJECT__': 'jest'
+        __IS_DEV__: true,
+        __API__: '',
+        __PROJECT__: 'jest',
     },
     clearMocks: true,
     testEnvironment: 'jsdom',
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\'
-    ],
-    moduleFileExtensions: [
-        'js',
-        'jsx',
-        'ts',
-        'tsx',
-        'json',
-        'node'
-    ],
-    moduleDirectories: [
-        'node_modules',
-        'src'
-    ],
-    modulePaths: [
-        '<rootDir>/src'
-    ],
-    testMatch: [
-        '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json', 'node'],
+    moduleDirectories: ['node_modules', 'src'],
+    modulePaths: ['<rootDir>/src'],
+    testMatch: ['<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'],
     setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
     moduleNameMapper: {
         '\\.(scss|less)$': 'identity-obj-proxy',
         '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
         '^@/(.*)$': '<rootDir>src/$1',
     },
-    "reporters": [
-        "default",
-        ["jest-html-reporters", {
-            "publicPath": "<rootDir>/reports/unit",
-            "filename": "report.html",
-            "openReport": true,
-            inlineSource: true
-        }]
-    ]
+    reporters: [
+        'default',
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: true,
+                inlineSource: true,
+            },
+        ],
+    ],
     // moduleNameMapper: {
     //     '^/(.*)$': '<rootDir>/src/$1'
     // },

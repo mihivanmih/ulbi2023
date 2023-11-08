@@ -10,18 +10,18 @@ export const resetProfile = (profileId: string) => {
         method: 'PUT',
         url: `http://localhost:8000/profile/` + profileId,
         headers: {
-            Authorization: 'asd'
+            Authorization: 'asd',
         },
         body: {
-            "id": "4",
-            "first": "Тестовый",
-            "lastname": "Чел",
-            "age": 19,
-            "currency": "RUB",
-            "country": "Russia",
-            "city": "Москва",
-            "username": "userName",
-            "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
+            id: '4',
+            first: 'Тестовый',
+            lastname: 'Чел',
+            age: 19,
+            currency: 'RUB',
+            country: 'Russia',
+            city: 'Москва',
+            username: 'userName',
+            avatar: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg',
         },
     })
 }

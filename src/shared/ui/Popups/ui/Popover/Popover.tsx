@@ -13,19 +13,17 @@ interface PopoverProps {
     children: ReactNode
 }
 
-export function Popover (props: PopoverProps) {
-    const {
-        className,
-        trigger,
-        children,
-        direction = 'bottom right'
-    } = props
+export function Popover(props: PopoverProps) {
+    const { className, trigger, children, direction = 'bottom right' } = props
 
     const menuClasses = [mapDirectionClass[direction]]
 
     return (
         <HPopover
-            className={classNames(styles.Popover, {}, [className, popupCls.popup])}
+            className={classNames(styles.Popover, {}, [
+                className,
+                popupCls.popup,
+            ])}
         >
             <HPopover.Button as={'div'} className={popupCls.trigger}>
                 {trigger}
