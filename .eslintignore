@@ -4,4 +4,5 @@ jestEmptyComponent.tsx
 jest.config.ts
 /scripts/refactoring/
 vite.config.ts
-
+/cypress
+cypress.config.ts
