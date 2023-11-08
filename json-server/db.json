@@ -562,6 +562,19 @@
       ],
       "blocks": [],
       "id": "6ynY9-I"
+    },
+    {
+      "title": "TESTING ARTICLE",
+      "subtitle": "БиологиЯ",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "O6By7Nq"
     }
   ],
   "comments": [
