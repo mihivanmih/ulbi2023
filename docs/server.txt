@@ -1,0 +1,40 @@
+ssh root@31.129.42.60
+B9Rm0fd1lyFb
+
+cd ..
+ls
+cd root/
+ls
+
+sudo apt update
+sudo apt install git-all
+
+sudo ssh-keygen
+/root/.ssh/project
+Парооль - DAgsqwdkqwd
+cd .ssh
+cat > config
+
+Host ulbi2023
+Hostname github.com
+User git
+IdentityFile ~/.ssh/project
+
+ctrl + c - сохранить
+sudo cat project.pub
+Сохраняем ключ в гите
+
+git clone ulbi2023:mihivanmih/ulbi2023
+
+cd ulbi2023
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+nvm -v
+nvm install 17.4.0
+
+npm run start:dev
+
+rm -R ulbi2023/
+du -sh /*
+df -h
