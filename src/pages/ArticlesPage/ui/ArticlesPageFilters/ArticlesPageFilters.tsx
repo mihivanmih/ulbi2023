@@ -4,9 +4,11 @@ import { useTranslation } from 'react-i18next'
 import { memo, useCallback } from 'react'
 import { useSelector } from 'react-redux'
 import {
-    getArticlePageOrder, getArticlePageSearch,
-    getArticlePageSort, getArticlePageType,
-    getArticlePageView
+    getArticlePageOrder,
+    getArticlePageSearch,
+    getArticlePageSort,
+    getArticlePageType,
+    getArticlePageView,
 } from '../../model/selectors/articlesPageSelectors'
 import type { ArticleView, ArticleSortField } from '@/entities/Article'
 import { articlesPageSliceAction } from '../../model/slices/articlePageSlice'
@@ -41,39 +43,53 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     const debouncedFetchData = useDebounce(fetchData, 500)
 
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlesPageSliceAction.setView(view))
-        debouncedFetchData()
-    }, [dispatch, debouncedFetchData])
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlesPageSliceAction.setView(view))
+            debouncedFetchData()
+        },
+        [dispatch, debouncedFetchData],
+    )
 
-    const onChangeOrder = useCallback((sortOrder: SortOrder) => {
-        dispatch(articlesPageSliceAction.setOrder(sortOrder))
-        dispatch(articlesPageSliceAction.setPage(1))
-        fetchData()
-    }, [dispatch, fetchData])
+    const onChangeOrder = useCallback(
+        (sortOrder: SortOrder) => {
+            dispatch(articlesPageSliceAction.setOrder(sortOrder))
+            dispatch(articlesPageSliceAction.setPage(1))
+            fetchData()
+        },
+        [dispatch, fetchData],
+    )
 
-    const onChangeSort = useCallback((newSort: ArticleSortField) => {
-        dispatch(articlesPageSliceAction.setSort(newSort))
-        dispatch(articlesPageSliceAction.setPage(1))
-        fetchData()
-    }, [dispatch, fetchData])
+    const onChangeSort = useCallback(
+        (newSort: ArticleSortField) => {
+            dispatch(articlesPageSliceAction.setSort(newSort))
+            dispatch(articlesPageSliceAction.setPage(1))
+            fetchData()
+        },
+        [dispatch, fetchData],
+    )
 
-    const onChangeSearch = useCallback((search: string) => {
-        dispatch(articlesPageSliceAction.setSearch(search))
-        dispatch(articlesPageSliceAction.setPage(1))
-        debouncedFetchData()
-    }, [dispatch, debouncedFetchData])
+    const onChangeSearch = useCallback(
+        (search: string) => {
+            dispatch(articlesPageSliceAction.setSearch(search))
+            dispatch(articlesPageSliceAction.setPage(1))
+            debouncedFetchData()
+        },
+        [dispatch, debouncedFetchData],
+    )
 
-    const onChangeType = useCallback((value: ArticleType) => {
-        dispatch(articlesPageSliceAction.setType(value))
-        dispatch(articlesPageSliceAction.setPage(1))
-        fetchData()
-    }, [dispatch, fetchData])
+    const onChangeType = useCallback(
+        (value: ArticleType) => {
+            dispatch(articlesPageSliceAction.setType(value))
+            dispatch(articlesPageSliceAction.setPage(1))
+            fetchData()
+        },
+        [dispatch, fetchData],
+    )
 
     return (
         <div className={classNames(styles.ArticlesPageFilters, {}, [])}>
             <div className={styles.sortWrapper}>
-
                 <ArticleSortSelector
                     order={order}
                     sort={sort}
@@ -81,13 +97,14 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onChangeSort={onChangeSort}
                 />
 
-                <ArticleViewSelector
-                    view={view}
-                    onViewClick={onChangeView}
-                />
+                <ArticleViewSelector view={view} onViewClick={onChangeView} />
             </div>
             <Card className={styles.search}>
-                <Input placeholder={t('Поиск')} onChange={onChangeSearch} value={search} />
+                <Input
+                    placeholder={t('Поиск')}
+                    onChange={onChangeSearch}
+                    value={search}
+                />
             </Card>
 
             <ArticleTypeTabs

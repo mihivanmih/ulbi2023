@@ -9,17 +9,15 @@ export default {
     title: 'pages/Article/ArticleEditPage',
     component: ArticleEditPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof ArticleEditPage> = (args: any) => <ArticleEditPage {...args} />
+const Template: ComponentStory<typeof ArticleEditPage> = (args: any) => (
+    <ArticleEditPage {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-
-})]
+Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-
-})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

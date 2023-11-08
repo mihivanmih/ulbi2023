@@ -5,40 +5,43 @@ import AboutIcon from '@/shared/assets/icons/about20x20.svg'
 import ProfileIcon from '@/shared/assets/icons/profile-20x20.svg'
 import Articles from '@/shared/assets/icons/article-20-20.svg'
 import type { SideBarItemType } from '../types/sidebar'
-import { getRouteAbout, getRouteArticles, getRouteMain, getRouteProfile } from '@/shared/const/router'
+import {
+    getRouteAbout,
+    getRouteArticles,
+    getRouteMain,
+    getRouteProfile,
+} from '@/shared/const/router'
 
-export const getSidebarItems = createSelector(
-    getUserAuthData, (userData) => {
-        const sidebarItemsList: SideBarItemType[] = [
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
+    const sidebarItemsList: SideBarItemType[] = [
+        {
+            path: getRouteMain(),
+            Icon: MainIcon,
+            text: 'Главная',
+        },
+        {
+            path: getRouteAbout(),
+            Icon: AboutIcon,
+            text: 'О сайте',
+        },
+    ]
+
+    if (userData) {
+        sidebarItemsList.push(
             {
-                path: getRouteMain(),
-                Icon: MainIcon,
-                text: 'Главная'
+                path: getRouteProfile(userData.id),
+                Icon: ProfileIcon,
+                text: 'Профиль',
+                authOnly: true,
             },
             {
-                path: getRouteAbout(),
-                Icon: AboutIcon,
-                text: 'О сайте'
-            }
-        ]
-
-        if (userData) {
-            sidebarItemsList.push(
-                {
-                    path: getRouteProfile(userData.id),
-                    Icon: ProfileIcon,
-                    text: 'Профиль',
-                    authOnly: true
-                },
-                {
-                    path: getRouteArticles(),
-                    Icon: Articles,
-                    text: 'Статьи',
-                    authOnly: true
-                }
-            )
-        }
-
-        return sidebarItemsList
+                path: getRouteArticles(),
+                Icon: Articles,
+                text: 'Статьи',
+                authOnly: true,
+            },
+        )
     }
-)
+
+    return sidebarItemsList
+})

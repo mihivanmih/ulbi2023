@@ -10,7 +10,9 @@ interface BugButtonProps {
 export const BugButton = ({ className = '' }: BugButtonProps) => {
     const [error, setError] = useState(false)
 
-    const onThrow = () => { setError(true) }
+    const onThrow = () => {
+        setError(true)
+    }
 
     useEffect(() => {
         if (error) {
@@ -19,10 +21,7 @@ export const BugButton = ({ className = '' }: BugButtonProps) => {
     }, [error])
 
     return (
-        <Button
-            onClick={onThrow}
-            className={classNames('', {}, [className])}
-        >
+        <Button onClick={onThrow} className={classNames('', {}, [className])}>
             +++
         </Button>
     )

@@ -20,36 +20,48 @@ interface ArticleDetailsCommentProps {
     id?: string
 }
 
-export const ArticleDetailsComment = memo((props: ArticleDetailsCommentProps) => {
-    const {
-        className = '',
-        id
-    } = props
+export const ArticleDetailsComment = memo(
+    (props: ArticleDetailsCommentProps) => {
+        const { className = '', id } = props
 
-    const { t } = useTranslation()
+        const { t } = useTranslation()
 
-    const dispatch = useAppDispatch()
-    const comments = useSelector(getArticleComments.selectAll)
-    const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
+        const dispatch = useAppDispatch()
+        const comments = useSelector(getArticleComments.selectAll)
+        const commentsIsLoading = useSelector(getArticleCommentsIsLoading)
 
-    const onSendComment = useCallback((text: string) => {
-        dispatch(addCommentForArticle(text))
-    }, [dispatch])
+        const onSendComment = useCallback(
+            (text: string) => {
+                dispatch(addCommentForArticle(text))
+            },
+            [dispatch],
+        )
 
-    useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id))
-    })
+        useInitialEffect(() => {
+            dispatch(fetchCommentsByArticleId(id))
+        })
 
-    return (
-        <VStack max gap={'16'} className={classNames(styles.ArticleDetailsComment, {}, [className])}>
-            <Text title={t('Комментарии')} className={styles.commentTitle} size={TextSize.L}/>
-            <Suspense fallback={<Loader />}>
-                <AddCommentForm onSendComment={onSendComment}/>
-            </Suspense>
-            <CommentLists
-                isLoading={commentsIsLoading}
-                comments={comments}
-            />
-        </VStack>
-    )
-})
+        return (
+            <VStack
+                max
+                gap={'16'}
+                className={classNames(styles.ArticleDetailsComment, {}, [
+                    className,
+                ])}
+            >
+                <Text
+                    title={t('Комментарии')}
+                    className={styles.commentTitle}
+                    size={TextSize.L}
+                />
+                <Suspense fallback={<Loader />}>
+                    <AddCommentForm onSendComment={onSendComment} />
+                </Suspense>
+                <CommentLists
+                    isLoading={commentsIsLoading}
+                    comments={comments}
+                />
+            </VStack>
+        )
+    },
+)

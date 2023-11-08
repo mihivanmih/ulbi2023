@@ -5,8 +5,8 @@ describe('getProfileError', () => {
     test('should return counter value', () => {
         const state: DeepPartial<StateSchema> = {
             profile: {
-                error: '123'
-            }
+                error: '123',
+            },
         }
 
         expect(getProfileError(state as StateSchema)).toEqual('123')

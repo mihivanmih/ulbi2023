@@ -5,7 +5,12 @@ import React, { memo, useCallback } from 'react'
 import { Avatar } from '@/shared/ui/Avatar'
 import { Dropdown } from '@/shared/ui/Popups'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User'
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
+} from '@/entities/User'
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router'
 
 interface avatarDropdownProps {
@@ -13,9 +18,7 @@ interface avatarDropdownProps {
 }
 
 export const avatarDropdown = memo((props: avatarDropdownProps) => {
-    const {
-        className = ''
-    } = props
+    const { className = '' } = props
 
     const { t } = useTranslation()
     const dispatch = useDispatch()
@@ -36,21 +39,25 @@ export const avatarDropdown = memo((props: avatarDropdownProps) => {
                 direction={'bottom left'}
                 items={[
                     ...(isAdminPanelAvailable
-                        ? [{
-                            content: t('Админка'),
-                            href: getRouteAdmin()
-                        }]
+                        ? [
+                              {
+                                  content: t('Админка'),
+                                  href: getRouteAdmin(),
+                              },
+                          ]
                         : []),
                     {
                         content: t('Профиль'),
-                        href: getRouteProfile(authData.id)
+                        href: getRouteProfile(authData.id),
                     },
                     {
                         content: t('Выйти'),
-                        onClick: onLogoutModal
-                    }
+                        onClick: onLogoutModal,
+                    },
                 ]}
-                trigger={<Avatar fallbackInverted size={30} src={authData.avatar}/>}
+                trigger={
+                    <Avatar fallbackInverted size={30} src={authData.avatar} />
+                }
             />
         )
     }

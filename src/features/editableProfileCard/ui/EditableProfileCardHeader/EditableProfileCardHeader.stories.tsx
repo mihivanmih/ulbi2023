@@ -9,18 +9,15 @@ export default {
     title: 'features/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof EditableProfileCardHeader> = (args: any) =>
-    <EditableProfileCardHeader {...args} />
+const Template: ComponentStory<typeof EditableProfileCardHeader> = (
+    args: any,
+) => <EditableProfileCardHeader {...args} />
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-
-})]
+Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-
-})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

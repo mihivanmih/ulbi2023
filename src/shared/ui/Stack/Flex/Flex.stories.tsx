@@ -6,8 +6,8 @@ export default {
     title: 'shared/Flex',
     component: Flex,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 const Template: ComponentStory<typeof Flex> = (args: any) => <Flex {...args} />
 
@@ -20,7 +20,7 @@ Row.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const Column = Template.bind({})
@@ -33,7 +33,7 @@ Column.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const Gap4 = Template.bind({})
@@ -46,7 +46,7 @@ Gap4.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const Gap8 = Template.bind({})
@@ -59,7 +59,7 @@ Gap8.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const Gap16 = Template.bind({})
@@ -72,7 +72,7 @@ Gap16.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const Gap32 = Template.bind({})
@@ -85,7 +85,7 @@ Gap32.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }
 
 export const ColumnGap32 = Template.bind({})
@@ -99,5 +99,5 @@ ColumnGap32.args = {
             <div>3</div>
             <div>4</div>
         </>
-    )
+    ),
 }

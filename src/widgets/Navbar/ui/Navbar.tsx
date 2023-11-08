@@ -57,14 +57,16 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
         <header className={classNames(styles.Navbar, {}, [className])}>
             <Text className={styles.appName} title={t('It News')} />
             <div className={styles.links}>
-                <Button theme={ThemeButton.CLEAR_INVERTED} onClick={onShowModal} >
+                <Button
+                    theme={ThemeButton.CLEAR_INVERTED}
+                    onClick={onShowModal}
+                >
                     {t('Войти')}
                 </Button>
             </div>
-            {isAuthModal && <LoginModal
-                isOpen={isAuthModal}
-                onClose={ onCloseModal }
-            />}
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </header>
     )
 })

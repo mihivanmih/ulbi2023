@@ -9,18 +9,14 @@ export default {
     title: 'pages/AboutPage',
     component: AboutPage,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
 const Template: ComponentStory<typeof AboutPage> = () => <AboutPage />
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-
-})]
+Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-
-})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

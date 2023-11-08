@@ -9,17 +9,15 @@ export default {
     title: 'pages/Article/ArticleInfiniteList',
     component: ArticleInfiniteList,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof ArticleInfiniteList> = (args: any) => <ArticleInfiniteList {...args} />
+const Template: ComponentStory<typeof ArticleInfiniteList> = (args: any) => (
+    <ArticleInfiniteList {...args} />
+)
 
 export const Normal = Template.bind({})
-Normal.decorators = [StoreDecorator({
-
-})]
+Normal.decorators = [StoreDecorator({})]
 
 export const Dark = Template.bind({})
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-
-})]
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})]

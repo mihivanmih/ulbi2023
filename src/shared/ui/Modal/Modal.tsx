@@ -19,27 +19,17 @@ interface ModalProps {
 export const Modal = (props: ModalProps) => {
     const { theme } = useTheme()
 
-    const {
-        className = '',
-        children,
-        isOpen,
-        lazy,
-        onClose
-    } = props
+    const { className = '', children, isOpen, lazy, onClose } = props
 
-    const {
-        isClosing,
-        close,
-        isMounted
-    } = useModel({
+    const { isClosing, close, isMounted } = useModel({
         animationDelay: 300,
         onClose,
-        isOpen
+        isOpen,
     })
 
     const mods: Mods = {
         [styles.opened]: isOpen,
-        [styles.isClosing]: isClosing
+        [styles.isClosing]: isClosing,
     }
 
     if (lazy && !isMounted) {
@@ -49,12 +39,8 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(styles.Modal, mods, [className, theme])}>
-                <Overlay onClick={close}/>
-                <div
-                    className={styles.content}
-                >
-                    {children}
-                </div>
+                <Overlay onClick={close} />
+                <div className={styles.content}>{children}</div>
             </div>
         </Portal>
     )

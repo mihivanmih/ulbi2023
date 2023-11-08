@@ -8,10 +8,12 @@ export default {
     title: 'pages/StarRating',
     component: StarRating,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof StarRating> = (args: any) => <StarRating {...args} />
+const Template: ComponentStory<typeof StarRating> = (args: any) => (
+    <StarRating {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

@@ -8,10 +8,12 @@ export default {
     title: 'features/avatarDropdown',
     component: AvatarDropdown,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof AvatarDropdown> = (args: any) => <AvatarDropdown {...args} />
+const Template: ComponentStory<typeof AvatarDropdown> = (args: any) => (
+    <AvatarDropdown {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

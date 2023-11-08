@@ -4,11 +4,14 @@ import styles from './Input.module.scss'
 import type { InputHTMLAttributes } from 'react'
 import { memo, useEffect, useRef, useState } from 'react'
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
+type HTMLInputProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readOnly'
+>
 
 export enum TypeButton {
     TEXT = 'text',
-    NUMBER = 'number'
+    NUMBER = 'number',
 }
 
 interface InputProps extends HTMLInputProps {
@@ -63,14 +66,14 @@ export const Input = memo((props: InputProps) => {
     }
 
     const mods: Mods = {
-        [styles.readonly]: readOnly
+        [styles.readonly]: readOnly,
     }
 
     return (
         <div className={classNames(styles.Input, mods, [className!])}>
-            { placeholder && (<div className={styles.placeholder} >
-                {`${placeholder}>`}
-            </div>)}
+            {placeholder && (
+                <div className={styles.placeholder}>{`${placeholder}>`}</div>
+            )}
             <div className={styles.caretWrapper}>
                 <input
                     ref={ref}
@@ -84,10 +87,12 @@ export const Input = memo((props: InputProps) => {
                     onSelect={onSelect}
                     {...otherProps}
                 />
-                { isCaretVisible && (<span
-                    className={styles.caret}
-                    style={{ left: `${caretPosition * 9}px` }}
-                />)}
+                {isCaretVisible && (
+                    <span
+                        className={styles.caret}
+                        style={{ left: `${caretPosition * 9}px` }}
+                    />
+                )}
             </div>
         </div>
     )

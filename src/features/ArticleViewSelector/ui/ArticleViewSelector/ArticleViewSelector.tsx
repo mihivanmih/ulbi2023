@@ -16,29 +16,27 @@ interface ArticleViewSelectorProps {
 const viewTypes = [
     {
         view: ArticleView.SMALL,
-        icon: TiledIcon
+        icon: TiledIcon,
     },
 
     {
         view: ArticleView.BIG,
-        icon: ListIcon
-    }
+        icon: ListIcon,
+    },
 ]
 
 export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
-    const {
-        className = '',
-        view,
-        onViewClick
-    } = props
+    const { className = '', view, onViewClick } = props
 
     const onClick = (newView: ArticleView) => () => {
         onViewClick?.(newView)
     }
 
     return (
-        <div className={classNames(styles.ArticleViewSelector, {}, [className])}>
-            {viewTypes.map(viewType => (
+        <div
+            className={classNames(styles.ArticleViewSelector, {}, [className])}
+        >
+            {viewTypes.map((viewType) => (
                 <Button
                     theme={ThemeButton.CLEAR}
                     key={viewType.view}
@@ -46,7 +44,9 @@ export const ArticleViewSelector = memo((props: ArticleViewSelectorProps) => {
                 >
                     <Icon
                         Svg={viewType.icon}
-                        className={classNames('', { [styles.notSelected]: viewType.view !== view })}
+                        className={classNames('', {
+                            [styles.notSelected]: viewType.view !== view,
+                        })}
                     />
                 </Button>
             ))}

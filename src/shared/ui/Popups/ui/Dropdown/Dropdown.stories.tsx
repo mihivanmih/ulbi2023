@@ -7,23 +7,25 @@ export default {
     title: 'shared/Dropdown',
     component: Dropdown,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof Dropdown> = (args: any) => <Dropdown {...args} />
+const Template: ComponentStory<typeof Dropdown> = (args: any) => (
+    <Dropdown {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
     trigger: <Button>Open</Button>,
     items: [
         {
-            content: 'first'
+            content: 'first',
         },
         {
-            content: 'second'
+            content: 'second',
         },
         {
-            content: 'third'
-        }
-    ]
+            content: 'third',
+        },
+    ],
 }

@@ -9,14 +9,14 @@ export default {
     title: 'shared/Input',
     component: Input,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
 
 const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Primary = Template.bind({})
 Primary.args = {
-    value: 'Текст'
+    value: 'Текст',
 }
 Primary.decorators = [ThemeDecorator(Theme.DARK)]

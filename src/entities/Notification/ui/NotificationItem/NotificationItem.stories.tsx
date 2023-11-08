@@ -8,10 +8,12 @@ export default {
     title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof NotificationItem> = (args: any) => <NotificationItem {...args} />
+const Template: ComponentStory<typeof NotificationItem> = (args: any) => (
+    <NotificationItem {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

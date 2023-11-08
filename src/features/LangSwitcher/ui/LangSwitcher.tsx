@@ -9,18 +9,22 @@ interface LangSwitcherProps {
     short?: boolean
 }
 
-export const LangSwitcher = memo(({ className = '', short }: LangSwitcherProps) => {
-    const { t, i18n } = useTranslation()
+export const LangSwitcher = memo(
+    ({ className = '', short }: LangSwitcherProps) => {
+        const { t, i18n } = useTranslation()
 
-    const toggle = () => {
-        void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
-    }
+        const toggle = () => {
+            void i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru')
+        }
 
-    return (
-        <Button
-            className={classNames(styles.LangSwitcher, {}, [className])}
-            theme={ThemeButton.CLEAR}
-            onClick={toggle}
-        >{short ? t('ru') : t('Язык')}</Button>
-    )
-})
+        return (
+            <Button
+                className={classNames(styles.LangSwitcher, {}, [className])}
+                theme={ThemeButton.CLEAR}
+                onClick={toggle}
+            >
+                {short ? t('ru') : t('Язык')}
+            </Button>
+        )
+    },
+)

@@ -10,17 +10,17 @@ interface indexProps {
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
 }
 
-export const StoreProvider = ({ children, initialState, asyncReducers }: indexProps) => {
+export const StoreProvider = ({
+    children,
+    initialState,
+    asyncReducers,
+}: indexProps) => {
     const store = createReduxStore(
         initialState as StateSchema,
-        asyncReducers as ReducersMapObject<StateSchema>
+        asyncReducers as ReducersMapObject<StateSchema>,
     )
 
     console.log('Render')
 
-    return (
-        <Provider store={store}>
-            { children}
-        </Provider>
-    )
+    return <Provider store={store}>{children}</Provider>
 }

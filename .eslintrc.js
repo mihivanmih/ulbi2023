@@ -3,7 +3,10 @@ module.exports = {
         browser: true,
         es2021: true
     },
-    extends: ['plugin:react-hooks/recommended', 'standard-with-typescript', 'plugin:react/recommended', 'plugin:i18next/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
+    extends: ['plugin:react-hooks/recommended', 'standard-with-typescript', 'plugin:react/recommended',
+        'plugin:i18next/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended',
+        'plugin:storybook/recommended', 'prettier'
+    ],
     parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
@@ -12,12 +15,7 @@ module.exports = {
     },
     plugins: ['react', 'react-hooks', 'i18next', 'react-hooks', 'test-fsd-2023', 'unused-imports'],
     rules: {
-        indent: [2, 4, {
-            MemberExpression: 1
-        }],
         'react/react-in-jsx-scope': 'off',
-        'react/jsx-indent': [2, 4],
-        '@typescript-eslint/indent': [2, 4],
         '@typescript-eslint/strict-boolean-expressions': 'off',
         '@typescript-eslint/naming-convention': 'off',
         '@typescript-eslint/ban-ts-comment': 'off',

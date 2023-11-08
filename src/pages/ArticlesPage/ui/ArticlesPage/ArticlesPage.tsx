@@ -6,9 +6,7 @@ import { articlesPageSliceReducer } from '../../model/slices/articlePageSlice'
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect'
 import { useSelector } from 'react-redux'
-import {
-    getArticlePageError
-} from '../../model/selectors/articlesPageSelectors'
+import { getArticlePageError } from '../../model/selectors/articlesPageSelectors'
 import { Page } from '@/widgets/Page'
 import { fetchArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage'
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage'
@@ -22,7 +20,7 @@ interface ArticlesPageProps {
 }
 
 const reducers: ReducersList = {
-    articlesPage: articlesPageSliceReducer
+    articlesPage: articlesPageSliceReducer,
 }
 
 const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
@@ -40,10 +38,14 @@ const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page data-testid={'ArticlesPage'} onScrollEnd={onLoadNextPart} className={classNames(styles.ArticlesPage, {}, [className])}>
+            <Page
+                data-testid={'ArticlesPage'}
+                onScrollEnd={onLoadNextPart}
+                className={classNames(styles.ArticlesPage, {}, [className])}
+            >
                 {error}
                 <ArticlesPageFilters />
-                <ArticleInfiniteList className={styles.list}/>
+                <ArticleInfiniteList className={styles.list} />
             </Page>
         </DynamicModuleLoader>
     )

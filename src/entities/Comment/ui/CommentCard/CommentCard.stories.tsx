@@ -8,18 +8,20 @@ export default {
     title: 'entities/Comment/CommentCard',
     component: CommentCard,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof CommentCard> = (args: any) => <CommentCard {...args} />
+const Template: ComponentStory<typeof CommentCard> = (args: any) => (
+    <CommentCard {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
     comment: {
         user: { id: '1', username: 'Vasya' },
         text: 'Привет)',
-        id: 'BtFJoJH'
-    }
+        id: 'BtFJoJH',
+    },
 }
 Normal.decorators = [ThemeDecorator(Theme.DARK)]
 
@@ -28,8 +30,8 @@ isLoading.args = {
     comment: {
         user: { id: '1', username: 'Vasya' },
         text: 'Привет)',
-        id: 'BtFJoJH'
+        id: 'BtFJoJH',
     },
-    isLoading: true
+    isLoading: true,
 }
 isLoading.decorators = [ThemeDecorator(Theme.DARK)]

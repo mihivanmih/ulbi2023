@@ -17,30 +17,40 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
     const [collapsed, setCollapsed] = useState(false)
 
     const onToggle = () => {
-        setCollapsed(prev => !prev)
+        setCollapsed((prev) => !prev)
     }
 
     const SidebarItemsList = useSelector(getSidebarItems)
 
-    const itemList = useMemo(() => SidebarItemsList.map((item) => (
-        <SidebarItem
-            key={item.path}
-            item={item}
-            collapsed={collapsed}
-        />
-    )), [SidebarItemsList, collapsed])
+    const itemList = useMemo(
+        () =>
+            SidebarItemsList.map((item) => (
+                <SidebarItem
+                    key={item.path}
+                    item={item}
+                    collapsed={collapsed}
+                />
+            )),
+        [SidebarItemsList, collapsed],
+    )
 
     return (
         <aside
             data-testid="sidebar"
-            className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed, test: true, test2: false }, [className])}>
+            className={classNames(
+                styles.Sidebar,
+                { [styles.collapsed]: collapsed, test: true, test2: false },
+                [className],
+            )}
+        >
             <Button
                 data-testid="sidebar-toogle"
                 onClick={onToggle}
                 className={styles.collapseBtn}
                 square
                 size={ButtonSize.L}
-                theme={ThemeButton.BACKGROUND}>
+                theme={ThemeButton.BACKGROUND}
+            >
                 {collapsed ? '>' : '<'}
             </Button>
 
@@ -50,7 +60,7 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
 
             <div className={styles.switchers}>
                 <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={styles.lang}/>
+                <LangSwitcher short={collapsed} className={styles.lang} />
             </div>
         </aside>
     )

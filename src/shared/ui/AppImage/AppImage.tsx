@@ -1,5 +1,11 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { ImgHTMLAttributes, memo, ReactElement, useLayoutEffect, useState } from 'react'
+import {
+    ImgHTMLAttributes,
+    memo,
+    ReactElement,
+    useLayoutEffect,
+    useState,
+} from 'react'
 
 interface AppimageProps extends ImgHTMLAttributes<HTMLImageElement> {
     className?: string

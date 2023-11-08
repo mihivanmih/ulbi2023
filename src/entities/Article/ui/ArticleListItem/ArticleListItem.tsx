@@ -25,36 +25,44 @@ interface ArticleListItemProps {
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const {
-        className = '',
-        article,
-        view = ArticleView.SMALL,
-        target
-    } = props
+    const { className = '', article, view = ArticleView.SMALL, target } = props
 
     const { t } = useTranslation()
 
-    const types = <Text text={article.type?.join(', ')} className={styles.types}/>
-    const viewsArticle = <>
-        <Text text={String(article.views)} className={styles.views}/>
-        <Icon Svg={EyeIcon} />
-    </>
+    const types = (
+        <Text text={article.type?.join(', ')} className={styles.types} />
+    )
+    const viewsArticle = (
+        <>
+            <Text text={String(article.views)} className={styles.views} />
+            <Icon Svg={EyeIcon} />
+        </>
+    )
 
     if (view === ArticleView.BIG) {
         const textBlock = article.blocks.find(
-            (block) => block.type === ArticleBlockType.TEXT
+            (block) => block.type === ArticleBlockType.TEXT,
         ) as ArticleTextBlock
 
         return (
             <div
                 data-testid={'ArticleListItem'}
-                className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
+                className={classNames(styles.ArticleListItem, {}, [
+                    className,
+                    styles[view],
+                ])}
             >
                 <Card className={styles.card}>
                     <div className={styles.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={styles.username} />
-                        <Text text={article.createdAt} className={styles.date} />
+                        <Text
+                            text={article.user.username}
+                            className={styles.username}
+                        />
+                        <Text
+                            text={article.createdAt}
+                            className={styles.date}
+                        />
                     </div>
                     <Text text={article.title} className={styles.title} />
                     {types}
@@ -65,7 +73,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         fallback={<Skeleton width={'100%'} height={250} />}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={styles.textBlock}/>
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={styles.textBlock}
+                        />
                     )}
                     <div className={styles.footer}>
                         <AppLink
@@ -88,10 +99,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
             data-testid={'ArticleListItem'}
             target={target}
             to={getRouteArticleDetails(article.id)}
-            className={classNames(styles.ArticleListItem, {}, [className, styles[view]])}
+            className={classNames(styles.ArticleListItem, {}, [
+                className,
+                styles[view],
+            ])}
         >
             <Card className={styles.card}>
-                <div className={styles.imageWrapper} >
+                <div className={styles.imageWrapper}>
                     <AppImage
                         src={article.img}
                         alt={article.title}
@@ -104,7 +118,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     {types}
                     {viewsArticle}
                 </div>
-                <Text text={article.title} className={styles.title}/>
+                <Text text={article.title} className={styles.title} />
             </Card>
         </AppLink>
     )

@@ -8,10 +8,12 @@ export default {
     title: 'features/NotificationButton',
     component: NotificationButton,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof NotificationButton> = (args: any) => <NotificationButton {...args} />
+const Template: ComponentStory<typeof NotificationButton> = (args: any) => (
+    <NotificationButton {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

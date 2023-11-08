@@ -8,8 +8,8 @@ describe('getLoginError.test', () => {
                 password: '123',
                 username: '123',
                 isLoading: false,
-                error: 'error'
-            }
+                error: 'error',
+            },
         }
         expect(getLoginError(state as StateSchema)).toEqual('error')
     })

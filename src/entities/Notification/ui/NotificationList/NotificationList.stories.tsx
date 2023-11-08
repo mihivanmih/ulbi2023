@@ -7,20 +7,24 @@ export default {
     title: 'entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof NotificationList> = (args: any) => <NotificationList {...args} />
+const Template: ComponentStory<typeof NotificationList> = (args: any) => (
+    <NotificationList {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}
-Normal.decorators = [StoreDecorator({
-    user: {
-        authData: {
-            id: '1'
-        }
-    }
-})]
+Normal.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1',
+            },
+        },
+    }),
+]
 Normal.parameters = {
     mockData: [
         {
@@ -31,14 +35,14 @@ Normal.parameters = {
                 {
                     id: '1',
                     title: 'Уведомление',
-                    description: 'Поставь лайк'
+                    description: 'Поставь лайк',
                 },
                 {
                     id: '2',
                     title: 'Уведомление 2',
-                    description: 'Поставь лайк'
-                }
-            ]
-        }
-    ]
+                    description: 'Поставь лайк',
+                },
+            ],
+        },
+    ],
 }

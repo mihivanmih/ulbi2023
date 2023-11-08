@@ -16,12 +16,14 @@ export const Code = memo(({ className = '', text }: CodeProps) => {
 
     return (
         <pre className={classNames(styles.Code, {}, [className])}>
-            <Button className={styles.copyBtn} theme={ThemeButton.CLEAR} onClick={onCopy}>
-                <CopyIcon className={styles.copyIcon}/>
+            <Button
+                className={styles.copyBtn}
+                theme={ThemeButton.CLEAR}
+                onClick={onCopy}
+            >
+                <CopyIcon className={styles.copyIcon} />
             </Button>
-            <code>
-                {text}
-            </code>
+            <code>{text}</code>
         </pre>
     )
 })

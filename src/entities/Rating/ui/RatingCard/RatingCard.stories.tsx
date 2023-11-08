@@ -8,10 +8,12 @@ export default {
     title: 'entities/Rating/RatingCard',
     component: RatingCard,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof RatingCard> = (args: any) => <RatingCard {...args} />
+const Template: ComponentStory<typeof RatingCard> = (args: any) => (
+    <RatingCard {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {}

@@ -1,5 +1,5 @@
-export const setRating = (starsCount=5, feedback = 'feedback') => {
-    cy.getByTestId('StarRating'+ starsCount).click()
+export const setRating = (starsCount = 5, feedback = 'feedback') => {
+    cy.getByTestId('StarRating' + starsCount).click()
     cy.getByTestId('ArticleRating.Input').type(feedback)
     cy.getByTestId('ArticleRating.Button.Send').click()
 }

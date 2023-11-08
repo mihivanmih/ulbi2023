@@ -8,13 +8,15 @@ export default {
     title: 'features/AddCommentForm',
     component: AddCommentForm,
     argTypes: {
-        backgroundColor: { control: 'color' }
-    }
+        backgroundColor: { control: 'color' },
+    },
 }
-const Template: ComponentStory<typeof AddCommentForm> = (args: any) => <AddCommentForm {...args} />
+const Template: ComponentStory<typeof AddCommentForm> = (args: any) => (
+    <AddCommentForm {...args} />
+)
 
 export const Normal = Template.bind({})
 Normal.args = {
-    onSendComment: action('onSendComment')
+    onSendComment: action('onSendComment'),
 }
 Normal.decorators = [StoreDecorator({})]

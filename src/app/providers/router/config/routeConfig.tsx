@@ -18,56 +18,56 @@ import {
     getRouteForbidden,
     getRouteArticles,
     getRouteMain,
-    getRouteProfile
+    getRouteProfile,
 } from '@/shared/const/router'
 import { AppRoutesProps } from '@/shared/types/router'
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.MAIN]: {
         path: getRouteMain(),
-        element: <MainPage/>
+        element: <MainPage />,
     },
     [AppRoutes.ABOUT]: {
         path: getRouteAbout(),
-        element: <AboutPage/>
+        element: <AboutPage />,
     },
     [AppRoutes.PROFILE]: {
         path: getRouteProfile(':id'),
-        element: <ProfilePage/>,
-        authOnly: true
+        element: <ProfilePage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
         path: getRouteArticles(),
-        element: <ArticlesPage/>,
-        authOnly: true
+        element: <ArticlesPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLES_DETAILS]: {
         path: getRouteArticleDetails(':id'),
-        element: <ArticleDetailsPage/>,
-        authOnly: true
+        element: <ArticleDetailsPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLES_CREATE]: {
         path: getRouteArticleCreate(),
-        element: <ArticleEditPage/>,
-        authOnly: true
+        element: <ArticleEditPage />,
+        authOnly: true,
     },
     [AppRoutes.ARTICLES_EDIT]: {
         path: getRouteArticleEdit(':id'),
-        element: <ArticleEditPage/>,
-        authOnly: true
+        element: <ArticleEditPage />,
+        authOnly: true,
     },
     [AppRoutes.ADMIN_PANEL]: {
         path: getRouteAdmin(),
-        element: <AdminPanelPage/>,
+        element: <AdminPanelPage />,
         authOnly: true,
-        roles: [UserRole.ADMIN, UserRole.MANAGER]
+        roles: [UserRole.ADMIN, UserRole.MANAGER],
     },
     [AppRoutes.FORBIDDEN]: {
         path: getRouteForbidden(),
-        element: <ForbiddenPage/>
+        element: <ForbiddenPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',
-        element: <NotFoundPage/>
-    }
+        element: <NotFoundPage />,
+    },
 }

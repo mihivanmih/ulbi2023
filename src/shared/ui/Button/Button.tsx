@@ -10,7 +10,7 @@ export enum ThemeButton {
     OUTLINE = 'outline',
     OUTLINE_RED = 'outline_red',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'backgroundInverted'
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -44,7 +44,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export enum ButtonSize {
     M = 'size_m',
     L = 'size_l',
-    XL = 'size_xl'
+    XL = 'size_xl',
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -63,13 +63,16 @@ export const Button = memo((props: ButtonProps) => {
         [styles.square]: square,
         [styles[size]]: true,
         [styles.disabled]: disabled,
-        [styles.fullWidth]: fullWidth
+        [styles.fullWidth]: fullWidth,
     }
 
     return (
         <button
             type="button"
-            className={classNames(styles.Button, mods, [className, styles[theme]])}
+            className={classNames(styles.Button, mods, [
+                className,
+                styles[theme],
+            ])}
             disabled={disabled}
             {...otherProps}
         >
