@@ -21,7 +21,7 @@ const options = {
 
 const server = jsonServer.create()
 
-const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
+const router = jsonServer.router(path.resolve(__dirname, 'db2.json'))
 
 server.use(cors())
 server.use(jsonServer.defaults({}))
@@ -40,7 +40,7 @@ server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body
         const db = JSON.parse(
-            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+            fs.readFileSync(path.resolve(__dirname, 'db2.json'), 'UTF-8'),
         )
         const { users = [] } = db
 
