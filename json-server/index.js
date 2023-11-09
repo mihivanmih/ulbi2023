@@ -3,6 +3,7 @@ const jsonServer = require('json-server')
 const path = require('path')
 const cors = require('cors')
 const https = require('https')
+const http = require('http')
 
 const options = {
     key: fs.readFileSync(path.resolve(__dirname, 'privkey.pem')),
@@ -11,7 +12,7 @@ const options = {
 
 const server = jsonServer.create()
 
-const router = jsonServer.router(path.resolve(__dirname, 'db2.json'))
+const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 
 server.use(cors())
 server.use(jsonServer.defaults({}))
@@ -30,7 +31,7 @@ server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body
         const db = JSON.parse(
-            fs.readFileSync(path.resolve(__dirname, 'db2.json'), 'UTF-8'),
+            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
         )
         const { users = [] } = db
 
@@ -62,7 +63,16 @@ server.use((req, res, next) => {
 server.use(router)
 
 // запуск сервера
-const httpsServer = https.createServer(options)
-httpsServer.listen(8443, () => {
-    console.log('server is running on 8443 port')
+const PORT = 8443
+const HTTP_PORT = 8000
+
+const httpsServer = https.createServer(options, server)
+const httpServer = http.createServer(server)
+
+httpsServer.listen(PORT, () => {
+    console.log(`server is running on ${PORT} port`)
+})
+
+httpServer.listen(HTTP_PORT, () => {
+    console.log(`server is running on ${HTTP_PORT} port`)
 })
