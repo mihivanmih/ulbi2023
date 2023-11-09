@@ -38,3 +38,13 @@ npm run start:dev
 rm -R ulbi2023/
 du -sh /*
 df -h
+
+pm2 list
+pm2 kill
+mp2 stop 0
+pm2 start json-server/index.js
+
+npm run build:prod apiUrl=https://mihivanmih.ru:8443
+
+rm -rf /var/www/ulbi2023/html/
+mv ~/ulbi2023/build/ /var/www/ulbi2023/html/
