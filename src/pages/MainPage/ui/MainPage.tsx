@@ -11,12 +11,6 @@ const MyComponent = () => {
         <Page data-testid={'MainPage'}>
             {t('Главная страница')}
             <BugButton />
-            <div>sdsdsd</div>
-            <div>sdsdsd</div>
-            <div>sdsdsd</div>
-            <div>sdsdsd</div>
-            <div>sdsdsd</div>
-            <div>sdsdsd</div>
             <Counter />
         </Page>
     )
