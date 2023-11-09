@@ -2,6 +2,22 @@ const fs = require('fs')
 const jsonServer = require('json-server')
 const path = require('path')
 const cors = require('cors')
+const https = require('https')
+
+const options = {
+    key: fs.readFileSync(
+        path.resolve(
+            __dirname,
+            '/etc/letsencrypt/live/mihivanmih.ru/privkey.pem',
+        ),
+    ),
+    cert: fs.readFileSync(
+        path.resolve(
+            __dirname,
+            '/etc/letsencrypt/live/mihivanmih.ru/fullchain.pem',
+        ),
+    ),
+}
 
 const server = jsonServer.create()
 
@@ -23,11 +39,13 @@ server.use(async (req, res, next) => {
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body
-        const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'))
+        const db = JSON.parse(
+            fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'),
+        )
         const { users = [] } = db
 
         const userFromBd = users.find(
-            (user) => user.username === username && user.password === password
+            (user) => user.username === username && user.password === password,
         )
 
         if (userFromBd) {
@@ -54,6 +72,7 @@ server.use((req, res, next) => {
 server.use(router)
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port')
+const httpsServer = https.createServer(options)
+httpsServer.listen(8443, () => {
+    console.log('server is running on 8443 port')
 })
