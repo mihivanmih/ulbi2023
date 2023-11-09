@@ -10,7 +10,9 @@ export default (env: BuildEnv) => {
         html: path.resolve(__dirname, 'public', 'index.html'),
         src: path.resolve(__dirname, 'src'),
         locales: path.resolve(__dirname, 'public', 'locales'),
+        localesIcons: path.resolve(__dirname, 'public', 'icons'),
         buildLocales: path.resolve(__dirname, 'build', 'locales'),
+        buildIcons: path.resolve(__dirname, 'build', 'icons'),
     }
 
     const mode = env?.mode || 'development'
