@@ -5,18 +5,8 @@ const cors = require('cors')
 const https = require('https')
 
 const options = {
-    key: fs.readFileSync(
-        path.resolve(
-            __dirname,
-            '/etc/letsencrypt/live/mihivanmih.ru/privkey.pem',
-        ),
-    ),
-    cert: fs.readFileSync(
-        path.resolve(
-            __dirname,
-            '/etc/letsencrypt/live/mihivanmih.ru/fullchain.pem',
-        ),
-    ),
+    key: fs.readFileSync(path.resolve(__dirname, 'privkey.pem')),
+    cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
 }
 
 const server = jsonServer.create()
