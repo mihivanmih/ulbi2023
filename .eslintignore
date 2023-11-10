@@ -3,6 +3,7 @@ webpack.config.ts
 jestEmptyComponent.tsx
 jest.config.ts
 /scripts/refactoring/
+/scripts/remove-feature.ts
 vite.config.ts
 /cypress
 cypress.config.ts
