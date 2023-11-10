@@ -9,6 +9,8 @@ export interface BuildPaths {
     localesIcons: string
     buildLocales: string
     buildIcons: string
+    localesImages: string
+    buildImages: string
 }
 
 export interface BuildEnv {

@@ -69,6 +69,10 @@ export function buildPlugins({
                         from: paths.localesIcons,
                         to: paths.buildIcons,
                     },
+                    {
+                        from: paths.localesImages,
+                        to: paths.buildImages,
+                    },
                 ],
             }),
         )
