@@ -14,6 +14,7 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { useSearchParams } from 'react-router-dom'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
+import { ArticlePageGreeting } from '@/features/articlePageGreeting'
 
 interface ArticlesPageProps {
     className?: string
@@ -46,6 +47,7 @@ const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
                 {error}
                 <ArticlesPageFilters />
                 <ArticleInfiniteList className={styles.list} />
+                <ArticlePageGreeting />
             </Page>
         </DynamicModuleLoader>
     )
