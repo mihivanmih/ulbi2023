@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './ArticleDetailsPage.module.scss'
 import { memo } from 'react'
@@ -12,8 +13,8 @@ import { VStack } from '@/shared/ui/Stack'
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetailsComment } from '../ArticleDetailsComment/ArticleDetailsComment'
 import { ArticleRating } from '@/features/articleRating'
-import { getFeatureFlag } from '@/shared/lib/features'
-import { Counter } from '@/entities/Counter'
+import { toggleFeatures } from '@/shared/lib/features'
+import { Card } from '@/shared/ui/Card'
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -24,10 +25,14 @@ const reducers: ReducersList = {
 }
 
 const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
-    const { id } = useParams<{ id: string }>()
+    const { id = '' } = useParams<{ id: string }>()
+    const { t } = useTranslation()
 
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled')
-    const isCounterEnabled = getFeatureFlag('isCounterEnabled')
+    const articleRatingCard = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRating articleId={id} />,
+        off: () => <Card>{t('Оценка статей скоро появится')}</Card>,
+    })
 
     if (!id) {
         return null
@@ -43,8 +48,7 @@ const ArticleDetailsPage = ({ className = '' }: ArticleDetailsPageProps) => {
                 <VStack gap={'16'} max>
                     <ArticleDetailPageHeader />
                     <ArticleDetails id={id} />
-                    {isCounterEnabled && <Counter />}
-                    {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+                    {articleRatingCard}
                     <ArticleRecommendationsList />
                     <ArticleDetailsComment id={id} />
                 </VStack>
