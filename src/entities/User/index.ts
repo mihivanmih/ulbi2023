@@ -8,3 +8,5 @@ export {
 export { getUserAuthData } from './model/selectors/getUserAuthData/getUserAuthData'
 export { getUserInited } from './model/selectors/getUserInited/getUserInited'
 export { UserRole } from '../../entities/User/model/consts/consts'
+export { useJsonSettings } from './model/selectors/jsonSettings'
+export { saveJsonSettings } from './model/services/saveJsonSettings'
