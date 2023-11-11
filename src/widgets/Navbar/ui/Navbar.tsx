@@ -12,6 +12,7 @@ import { HStack } from '@/shared/ui/Stack'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
 import { getRouteArticleCreate } from '@/shared/const/router'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface NavbarProps {
     className?: string
@@ -32,24 +33,43 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
 
     if (authData) {
         return (
-            <header className={classNames(styles.Navbar, {}, [className])}>
-                <Text
-                    className={styles.appName}
-                    title={t('It News')}
-                    theme={TextTheme.INVERTED}
-                />
-                <AppLink
-                    to={getRouteArticleCreate()}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={styles.createBtn}
-                >
-                    {t('Создать статью')}
-                </AppLink>
-                <HStack gap={'16'} className={styles.actions}>
-                    <NotificationButton />
-                    <AvatarDropdown />
-                </HStack>
-            </header>
+            <ToggleFeatures
+                feature={'isAppRedisigned'}
+                on={
+                    <header
+                        className={classNames(styles.NavbarRedesigned, {}, [
+                            className,
+                        ])}
+                    >
+                        <HStack gap={'16'} className={styles.actions}>
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+                off={
+                    <header
+                        className={classNames(styles.Navbar, {}, [className])}
+                    >
+                        <Text
+                            className={styles.appName}
+                            title={t('It News')}
+                            theme={TextTheme.INVERTED}
+                        />
+                        <AppLink
+                            to={getRouteArticleCreate()}
+                            theme={AppLinkTheme.SECONDARY}
+                            className={styles.createBtn}
+                        >
+                            {t('Создать статью')}
+                        </AppLink>
+                        <HStack gap={'16'} className={styles.actions}>
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
+                    </header>
+                }
+            />
         )
     }
 

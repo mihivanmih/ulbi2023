@@ -8,6 +8,8 @@ import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
 import { VStack } from '@/shared/ui/Stack'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { AppLogo } from '@/shared/ui/AppLogo'
 
 interface SidebarProps {
     className?: string
@@ -35,33 +37,65 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
     )
 
     return (
-        <aside
-            data-testid="sidebar"
-            className={classNames(
-                styles.Sidebar,
-                { [styles.collapsed]: collapsed, test: true, test2: false },
-                [className],
-            )}
-        >
-            <Button
-                data-testid="sidebar-toogle"
-                onClick={onToggle}
-                className={styles.collapseBtn}
-                square
-                size={ButtonSize.L}
-                theme={ThemeButton.BACKGROUND}
-            >
-                {collapsed ? '>' : '<'}
-            </Button>
+        <ToggleFeatures
+            feature={'isAppRedisigned'}
+            on={
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        styles.SidebarRedesigned,
+                        {
+                            [styles.collapsed]: collapsed,
+                            test: true,
+                            test2: false,
+                        },
+                        [className],
+                    )}
+                >
+                    <AppLogo className={styles.appLogo} />
+                </aside>
+            }
+            off={
+                <aside
+                    data-testid="sidebar"
+                    className={classNames(
+                        styles.Sidebar,
+                        {
+                            [styles.collapsed]: collapsed,
+                            test: true,
+                            test2: false,
+                        },
+                        [className],
+                    )}
+                >
+                    <Button
+                        data-testid="sidebar-toogle"
+                        onClick={onToggle}
+                        className={styles.collapseBtn}
+                        square
+                        size={ButtonSize.L}
+                        theme={ThemeButton.BACKGROUND}
+                    >
+                        {collapsed ? '>' : '<'}
+                    </Button>
 
-            <VStack role={'navigation'} gap={'8'} className={styles.items}>
-                {itemList}
-            </VStack>
+                    <VStack
+                        role={'navigation'}
+                        gap={'8'}
+                        className={styles.items}
+                    >
+                        {itemList}
+                    </VStack>
 
-            <div className={styles.switchers}>
-                <ThemeSwitcher />
-                <LangSwitcher short={collapsed} className={styles.lang} />
-            </div>
-        </aside>
+                    <div className={styles.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwitcher
+                            short={collapsed}
+                            className={styles.lang}
+                        />
+                    </div>
+                </aside>
+            }
+        />
     )
 })
