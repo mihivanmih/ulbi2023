@@ -29,7 +29,8 @@
         "build-storybook": "storybook build -c ./config/storybook",
         "prepare": "husky install",
         "generate:slice": "node ./scripts/createSlice/index.js",
-        "ts-node": "ts-node .\\scripts\\refactoring\\createPublicApiForSharedUi.ts"
+        "ts-node": "ts-node .\\scripts\\refactoring\\createPublicApiForSharedUi.ts",
+        "remove-feature": "ts-node .\\scripts\\remove-feature.ts"
     },
     "lint-staged": {
         "**/*.{ts,tsx}": [
