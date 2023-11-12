@@ -9,12 +9,12 @@ import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader
 import { Page } from '@/widgets/Page'
 import { articleDetailsPageReducer } from '../../model/slices'
 import { ArticleDetailPageHeader } from '../ArticleDetailPageHeader/ArticleDetailPageHeader'
-import { VStack } from '@/shared/ui/Stack'
+import { VStack } from '@/shared/ui/deprecated/Stack'
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList'
 import { ArticleDetailsComment } from '../ArticleDetailsComment/ArticleDetailsComment'
 import { ArticleRating } from '@/features/articleRating'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { Card } from '@/shared/ui/Card'
+import { Card } from '@/shared/ui/deprecated/Card'
 
 interface ArticleDetailsPageProps {
     className?: string

@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './ArticleBlockComponent.module.scss'
 import { memo } from 'react'
-import { Code } from '@/shared/ui/Code'
+import { Code } from '@/shared/ui/deprecated/Code'
 import type { ArticleCodeBlock } from '../../model/types/article'
 
 interface ArticleBlockComponentProps {

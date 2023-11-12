@@ -2,8 +2,8 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './ArticleTypeTabs.module.scss'
 import { useTranslation } from 'react-i18next'
 import { memo, useCallback, useMemo } from 'react'
-import type { TabItem } from '@/shared/ui/Tabs'
-import { Tabs } from '@/shared/ui/Tabs'
+import type { TabItem } from '@/shared/ui/deprecated/Tabs'
+import { Tabs } from '@/shared/ui/deprecated/Tabs'
 import { ArticleType } from '@/entities/Article'
 
 interface ArticleTypeTabsProps {
