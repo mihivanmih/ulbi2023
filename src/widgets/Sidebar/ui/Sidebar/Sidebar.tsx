@@ -7,9 +7,11 @@ import { Button, ButtonSize, ThemeButton } from '@/shared/ui/deprecated/Button'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
 import { useSelector } from 'react-redux'
 import { getSidebarItems } from '../../model/selectors/getSidebarItems'
-import { VStack } from '@/shared/ui/deprecated/Stack'
 import { ToggleFeatures } from '@/shared/lib/features'
-import { AppLogo } from '@/shared/ui/deprecated/AppLogo'
+import { VStack } from '@/shared/ui/deprecated/Stack'
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
+import ArrowIcon from '@/shared/assets/icons/arrow-bottom.svg'
+import { Icon } from '@/shared/ui/redesigned/Icon'
 
 interface SidebarProps {
     className?: string
@@ -45,14 +47,37 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
                     className={classNames(
                         styles.SidebarRedesigned,
                         {
-                            [styles.collapsed]: collapsed,
+                            [styles.collapsedRedesigned]: collapsed,
                             test: true,
                             test2: false,
                         },
                         [className],
                     )}
                 >
-                    <AppLogo className={styles.appLogo} />
+                    <AppLogo
+                        size={collapsed ? 30 : 50}
+                        className={styles.appLogo}
+                    />
+                    <VStack
+                        role={'navigation'}
+                        gap={'8'}
+                        className={styles.items}
+                    >
+                        {itemList}
+                    </VStack>
+                    <Icon
+                        data-testid="sidebar-toogle"
+                        onClick={onToggle}
+                        className={styles.collapseBtn}
+                        Svg={ArrowIcon}
+                    />
+                    <div className={styles.switchers}>
+                        <ThemeSwitcher />
+                        <LangSwitcher
+                            short={collapsed}
+                            className={styles.lang}
+                        />
+                    </div>
                 </aside>
             }
             off={

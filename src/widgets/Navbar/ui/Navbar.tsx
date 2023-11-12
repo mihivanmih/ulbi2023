@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Navbar.module.scss'
 import { Button, ThemeButton } from '@/shared/ui/deprecated/Button'
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
-import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink'
+import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { useTranslation } from 'react-i18next'
 import { LoginModal } from '@/features/AuthByUsername'
 import { useSelector } from 'react-redux'
@@ -58,7 +58,7 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
                         />
                         <AppLink
                             to={getRouteArticleCreate()}
-                            theme={AppLinkTheme.SECONDARY}
+                            variant={'primary'}
                             className={styles.createBtn}
                         >
                             {t('Создать статью')}
