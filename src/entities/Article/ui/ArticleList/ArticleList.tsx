@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/Text'
+import { Text, TextSize } from '@/shared/ui/deprecated/Text'
 import styles from './ArticleList.module.scss'
 import type { HTMLAttributeAnchorTarget } from 'react'
 import { memo } from 'react'

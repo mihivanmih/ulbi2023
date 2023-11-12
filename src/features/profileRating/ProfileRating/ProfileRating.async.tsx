@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react'
 import { ProfileRatingProps } from './ProfileRating'
 
-import { Skeleton } from '@/shared/ui/Skeleton'
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 
 const ProfileRatingLazy = lazy(async () => await import('./ProfileRating'))
 
