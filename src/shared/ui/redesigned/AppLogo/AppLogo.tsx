@@ -1,19 +1,16 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './AppLogo.module.scss'
 import { memo } from 'react'
-import { HStack } from '../Stack'
+import { HStack } from '../../deprecated/Stack'
 import AppSvg from '@/shared/assets/icons/app-image.svg'
 
 interface AppLogoProps {
     className?: string
+    size?: number
 }
 
-/**
- * Устарел используем новые компоненты из папки redisigned
- *
- */
 export const AppLogo = memo((props: AppLogoProps) => {
-    const { className = '' } = props
+    const { className = '', size = 50 } = props
 
     return (
         <HStack
@@ -23,7 +20,12 @@ export const AppLogo = memo((props: AppLogoProps) => {
         >
             <div className={styles.gradientBig} />
             <div className={styles.gradientSmall} />
-            <AppSvg className={styles.appLogo} />
+            <AppSvg
+                className={styles.appLogo}
+                width={size}
+                height={size}
+                color={'black'}
+            />
         </HStack>
     )
 })

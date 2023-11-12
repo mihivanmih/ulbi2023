@@ -4,7 +4,7 @@ import styles from './Avatar.module.scss'
 import type { CSSProperties } from 'react'
 import { useMemo } from 'react'
 import { AppImage } from '../AppImage'
-import { Icon } from '../Icon'
+import { Icon } from '../../deprecated/Icon'
 import { Skeleton } from '../Skeleton'
 import UserIcon from '../../../assets/icons/user-filled.svg'
 
