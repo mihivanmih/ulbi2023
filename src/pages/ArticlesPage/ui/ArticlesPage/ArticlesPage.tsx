@@ -15,6 +15,10 @@ import { useSearchParams } from 'react-router-dom'
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList'
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { ArticlePageGreeting } from '@/features/articlePageGreeting'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout'
+import { ViewSelectorContainer } from '../ViewSelectorContainer/ViewSelectorContainer'
+import { FiltersContainer } from '../FiltersContainer/FiltersContainer'
 
 interface ArticlesPageProps {
     className?: string
@@ -37,18 +41,47 @@ const ArticlesPage = ({ className = '' }: ArticlesPageProps) => {
         dispatch(initArticlesPage(searchParams))
     })
 
+    const content = (
+        <ToggleFeatures
+            feature={'isAppRedisigned'}
+            on={
+                <StickyContentLayout
+                    left={<ViewSelectorContainer />}
+                    right={<FiltersContainer />}
+                    content={
+                        <Page
+                            data-testid={'ArticlesPage'}
+                            onScrollEnd={onLoadNextPart}
+                            className={classNames(
+                                styles.ArticlesPageRedesigned,
+                                {},
+                                [className],
+                            )}
+                        >
+                            <ArticleInfiniteList className={styles.list} />
+                            <ArticlePageGreeting />
+                        </Page>
+                    }
+                />
+            }
+            off={
+                <Page
+                    data-testid={'ArticlesPage'}
+                    onScrollEnd={onLoadNextPart}
+                    className={classNames(styles.ArticlesPage, {}, [className])}
+                >
+                    {error}
+                    <ArticlesPageFilters />
+                    <ArticleInfiniteList className={styles.list} />
+                    <ArticlePageGreeting />
+                </Page>
+            }
+        />
+    )
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
-            <Page
-                data-testid={'ArticlesPage'}
-                onScrollEnd={onLoadNextPart}
-                className={classNames(styles.ArticlesPage, {}, [className])}
-            >
-                {error}
-                <ArticlesPageFilters />
-                <ArticleInfiniteList className={styles.list} />
-                <ArticlePageGreeting />
-            </Page>
+            {content}
         </DynamicModuleLoader>
     )
 }

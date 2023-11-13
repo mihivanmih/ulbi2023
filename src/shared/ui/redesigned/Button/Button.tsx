@@ -4,7 +4,7 @@ import styles from './Button.module.scss'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { memo } from 'react'
 
-export type ThemeButton = 'clear' | 'outline'
+export type ThemeButton = 'clear' | 'outline' | 'filled'
 export type ButtonSize = 'm' | 'l' | 'xl'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
