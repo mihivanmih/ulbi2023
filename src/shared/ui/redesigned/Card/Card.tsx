@@ -4,6 +4,7 @@ import type { HTMLAttributes, ReactNode } from 'react'
 
 export type CardTheme = 'normal' | 'outlined' | 'light'
 export type CardPadding = '0' | '8' | '16' | '24'
+export type CardBorder = 'round' | 'border'
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string
@@ -11,6 +12,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     variant?: CardTheme
     max?: boolean
     padding?: CardPadding
+    border?: CardBorder
 }
 
 const mapPaddingToClass: Record<CardPadding, string> = {
@@ -27,6 +29,7 @@ export const Card = (props: CardProps) => {
         variant = 'normal',
         max,
         padding = '8',
+        border = 'normal',
         ...otherProps
     } = props
 
@@ -39,7 +42,12 @@ export const Card = (props: CardProps) => {
                 {
                     [styles.max]: max,
                 },
-                [className, styles[variant], styles[paddingClass]],
+                [
+                    className,
+                    styles[variant],
+                    styles[paddingClass],
+                    styles[border],
+                ],
             )}
             {...otherProps}
         >
