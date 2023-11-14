@@ -8,6 +8,8 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem'
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton'
 import { useTranslation } from 'react-i18next'
 import { ArticleView } from '../../model/consts/consts'
+import { ToggleFeatures } from '@/shared/lib/features'
+import { HStack } from '@/shared/ui/redesigned/Stack'
 
 interface ArticleListProps {
     className?: string
@@ -53,23 +55,47 @@ export const ArticleList = memo((props: ArticleListProps) => {
     }
 
     return (
-        <div
-            data-testid={'ArticleList'}
-            className={classNames(styles.ArticleList, {}, [
-                className,
-                styles[view],
-            ])}
-        >
-            {articles.map((item) => (
-                <ArticleListItem
-                    article={item}
-                    view={view}
-                    className={styles.card}
-                    key={item.id}
-                    target={target}
-                />
-            ))}
-            {isLoading && getAkeletons(view)}
-        </div>
+        <ToggleFeatures
+            feature={'isAppRedisigned'}
+            on={
+                <HStack
+                    wrap={'wrap'}
+                    gap={'16'}
+                    data-testid={'ArticleList'}
+                    className={classNames(styles.ArticleListRedesigned, {}, [])}
+                >
+                    {articles.map((item) => (
+                        <ArticleListItem
+                            article={item}
+                            view={view}
+                            className={styles.card}
+                            key={item.id}
+                            target={target}
+                        />
+                    ))}
+                    {isLoading && getAkeletons(view)}
+                </HStack>
+            }
+            off={
+                <div
+                    data-testid={'ArticleList'}
+                    className={classNames(styles.ArticleList, {}, [
+                        className,
+                        styles[view],
+                    ])}
+                >
+                    {articles.map((item) => (
+                        <ArticleListItem
+                            article={item}
+                            view={view}
+                            className={styles.card}
+                            key={item.id}
+                            target={target}
+                        />
+                    ))}
+                    {isLoading && getAkeletons(view)}
+                </div>
+            }
+        />
     )
 })
