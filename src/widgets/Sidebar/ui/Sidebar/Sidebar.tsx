@@ -5,8 +5,7 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher'
 import { LangSwitcher } from '@/features/LangSwitcher'
 import { Button, ButtonSize, ThemeButton } from '@/shared/ui/deprecated/Button'
 import { SidebarItem } from '../SidebarItem/SidebarItem'
-import { useSelector } from 'react-redux'
-import { getSidebarItems } from '../../model/selectors/getSidebarItems'
+import { useSidebarItems } from '../../model/selectors/getSidebarItems'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { VStack } from '@/shared/ui/redesigned/Stack'
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo'
@@ -24,7 +23,7 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
         setCollapsed((prev) => !prev)
     }
 
-    const SidebarItemsList = useSelector(getSidebarItems)
+    const SidebarItemsList = useSidebarItems()
 
     const itemList = useMemo(
         () =>
