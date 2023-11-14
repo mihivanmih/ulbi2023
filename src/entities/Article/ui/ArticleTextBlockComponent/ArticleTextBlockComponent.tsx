@@ -1,8 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './ArticleTextBlockComponent.module.scss'
 import { memo } from 'react'
-import { Text } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 import type { ArticleTextBlock } from '../../model/types/article'
+import { ToggleFeatures } from '@/shared/lib/features'
 
 interface ArticleTextBlockComponentProps {
     className?: string
@@ -18,13 +20,40 @@ export const ArticleTextBlockComponent = memo(
                 ])}
             >
                 {block.title && (
-                    <Text title={block.title} className={styles.title} />
+                    <ToggleFeatures
+                        feature={'isAppRedisigned'}
+                        on={
+                            <Text
+                                title={block.title}
+                                className={styles.title}
+                            />
+                        }
+                        off={
+                            <TextDeprecated
+                                title={block.title}
+                                className={styles.title}
+                            />
+                        }
+                    />
                 )}
                 {block.paragraphs?.map((paragraph, index) => (
-                    <Text
+                    <ToggleFeatures
                         key={paragraph}
-                        text={paragraph}
-                        className={styles.paragraph}
+                        feature={'isAppRedisigned'}
+                        on={
+                            <Text
+                                key={paragraph}
+                                text={paragraph}
+                                className={styles.paragraph}
+                            />
+                        }
+                        off={
+                            <TextDeprecated
+                                key={paragraph}
+                                text={paragraph}
+                                className={styles.paragraph}
+                            />
+                        }
                     />
                 ))}
             </div>

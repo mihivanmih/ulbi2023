@@ -23,7 +23,11 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
 
     const userInfo = (
         <>
-            <Avatar size={32} src={article.user.avatar} />
+            <Avatar
+                size={32}
+                src={article.user.avatar}
+                className={styles.avatar}
+            />
             <Text bold text={article.user.username} />
         </>
     )
@@ -94,9 +98,9 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                 styles[view],
             ])}
         >
-            <Card className={styles.card} border="round">
+            <Card className={styles.card} border="round" padding={'0'}>
                 <AppImage
-                    fallback={<Skeleton width={200} height={200} />}
+                    fallback={<Skeleton width={'100%'} height={200} />}
                     alt={article.title}
                     src={article.img}
                     className={styles.img}
