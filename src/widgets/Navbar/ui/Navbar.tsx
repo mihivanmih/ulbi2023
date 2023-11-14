@@ -1,7 +1,11 @@
 import React, { memo, useCallback, useState } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Navbar.module.scss'
-import { Button, ThemeButton } from '@/shared/ui/deprecated/Button'
+import {
+    Button as ButtonDeprecated,
+    ThemeButton,
+} from '@/shared/ui/deprecated/Button'
+import { Button } from '@/shared/ui/redesigned/Button'
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
 import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { useTranslation } from 'react-i18next'
@@ -12,7 +16,7 @@ import { HStack } from '@/shared/ui/redesigned/Stack'
 import { AvatarDropdown } from '@/features/avatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
 import { getRouteArticleCreate } from '@/shared/const/router'
-import { ToggleFeatures } from '@/shared/lib/features'
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features'
 
 interface NavbarProps {
     className?: string
@@ -31,16 +35,18 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
         setIsAuthModal(true)
     }, [])
 
+    const mainClass = toggleFeatures({
+        name: 'isAppRedisigned',
+        on: () => styles.NavbarRedesigned,
+        off: () => styles.Navbar,
+    })
+
     if (authData) {
         return (
             <ToggleFeatures
                 feature={'isAppRedisigned'}
                 on={
-                    <header
-                        className={classNames(styles.NavbarRedesigned, {}, [
-                            className,
-                        ])}
-                    >
+                    <header className={classNames(mainClass, {}, [className])}>
                         <HStack gap={'16'} className={styles.actions}>
                             <NotificationButton />
                             <AvatarDropdown />
@@ -74,19 +80,29 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
     }
 
     return (
-        <header className={classNames(styles.Navbar, {}, [className])}>
+        <header className={classNames(mainClass, {}, [className])}>
             <ToggleFeatures
                 feature={'isAppRedisigned'}
                 on={<></>}
                 off={<Text className={styles.appName} title={t('It News')} />}
             />
             <div className={styles.links}>
-                <Button
-                    theme={ThemeButton.CLEAR_INVERTED}
-                    onClick={onShowModal}
-                >
-                    {t('Войти')}
-                </Button>
+                <ToggleFeatures
+                    feature={'isAppRedisigned'}
+                    on={
+                        <Button onClick={onShowModal} variant={'clear'}>
+                            {t('Войти')}
+                        </Button>
+                    }
+                    off={
+                        <ButtonDeprecated
+                            theme={ThemeButton.CLEAR_INVERTED}
+                            onClick={onShowModal}
+                        >
+                            {t('Войти')}
+                        </ButtonDeprecated>
+                    }
+                />
             </div>
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />

@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux'
 import { getUserAuthData } from '@/entities/User'
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton'
 import { useProfileRating, useRateProfile } from '../api/profileRatingApi'
+import { VStack } from '@/shared/ui/redesigned/Stack'
 
 export interface ProfileRatingProps {
     className?: string
@@ -60,15 +61,17 @@ const ProfileRating = memo((props: ProfileRatingProps) => {
     }
 
     return (
-        <RatingCard
-            onAccept={onAccept}
-            onCancel={onCancel}
-            className={classNames(styles.ProfileRating, {}, [className])}
-            title={t('Оцените профиль')}
-            feedbackTitle={t('оставьте свой отзыв о профиль')}
-            hasFeedback
-            rate={rating?.rate}
-        />
+        <VStack gap={'16'} max>
+            <RatingCard
+                onAccept={onAccept}
+                onCancel={onCancel}
+                className={classNames(styles.ProfileRating, {}, [className])}
+                title={t('Оцените профиль')}
+                feedbackTitle={t('оставьте свой отзыв о профиль')}
+                hasFeedback
+                rate={rating?.rate}
+            />
+        </VStack>
     )
 })
 
