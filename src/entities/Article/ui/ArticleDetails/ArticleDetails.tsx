@@ -21,14 +21,14 @@ import {
 import { Text } from '@/shared/ui/redesigned/Text'
 import { useTranslation } from 'react-i18next'
 import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton'
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton'
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton'
 import { Avatar } from '@/shared/ui/deprecated/Avatar'
 import EyeIcon from '@/shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from '@/shared/assets/icons/calendar-20-20.svg'
 import { Icon } from '@/shared/ui/redesigned/Icon'
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack'
 import { renderArticleBlock } from './renderBlock'
-import { ToggleFeatures } from '@/shared/lib/features'
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features'
 import { AppImage } from '@/shared/ui/redesigned/AppImage'
 
 interface ArticleDetailsProps {
@@ -71,6 +71,13 @@ const Deprecated = () => {
         </>
     )
 }
+
+const Skeleton = toggleFeatures({
+    name: 'isAppRedisigned',
+    on: () => SkeletonRedesigned,
+    off: () => SkeletonDeprecated,
+})
+
 const Redesigned = () => {
     const article = useSelector(getArticleDetailsData)
     return (
@@ -107,29 +114,29 @@ export const ArticleDetails = memo(
 
         if (isLoading) {
             content = (
-                <VStack max gap={'8'}>
-                    <SkeletonDeprecated
+                <VStack max gap={'16'}>
+                    <Skeleton
                         className={styles.avatar}
                         width={200}
                         height={200}
                         border={'50%'}
                     />
-                    <SkeletonDeprecated
+                    <Skeleton
                         className={styles.title}
                         width={300}
                         height={32}
                     />
-                    <SkeletonDeprecated
+                    <Skeleton
                         className={styles.skeleton}
                         width={600}
                         height={24}
                     />
-                    <SkeletonDeprecated
+                    <Skeleton
                         className={styles.skeleton}
                         width={'100%'}
                         height={200}
                     />
-                    <SkeletonDeprecated
+                    <Skeleton
                         className={styles.skeleton}
                         width={'100%'}
                         height={200}
