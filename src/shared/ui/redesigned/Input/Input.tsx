@@ -1,28 +1,28 @@
 import type { Mods } from '@/shared/lib/classNames/classNames'
-import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Input.module.scss'
 import type { InputHTMLAttributes, ReactNode } from 'react'
 import { memo, useEffect, useRef, useState } from 'react'
+import { HStack } from '../Stack'
+import { Text } from '../Text'
+import { classNames } from '@/shared/lib/classNames/classNames'
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readOnly'
+    'value' | 'onChange' | 'readOnly' | 'size'
 >
 
-export enum TypeButton {
-    TEXT = 'text',
-    NUMBER = 'number',
-}
+type InputSize = 's' | 'm' | 'l'
 
 interface InputProps extends HTMLInputProps {
     className?: string
     value?: string | number
     onChange?: (value: string) => void
     autofocus?: boolean
-    readOnly?: boolean
-    type?: TypeButton
+    readonly?: boolean
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    label?: string
+    size?: InputSize
 }
 
 export const Input = memo((props: InputProps) => {
@@ -32,10 +32,11 @@ export const Input = memo((props: InputProps) => {
         onChange,
         autofocus,
         placeholder,
-        readOnly,
-        type = TypeButton.TEXT,
+        readonly,
         addonLeft,
         addonRight,
+        label,
+        size = 'm',
         ...otherProps
     } = props
 
@@ -62,20 +63,24 @@ export const Input = memo((props: InputProps) => {
     }
 
     const mods: Mods = {
-        [styles.readonly]: readOnly,
+        [styles.readonly]: readonly,
         [styles.focused]: isFocused,
         [styles.widthAddonLeft]: Boolean(addonLeft),
         [styles.widthAddonRight]: Boolean(addonRight),
     }
 
-    return (
-        <div className={classNames(styles.InputWrapper, mods, [className!])}>
+    const input = (
+        <div
+            className={classNames(styles.InputWrapper, mods, [
+                className,
+                styles[size],
+            ])}
+        >
             <div className={styles.addonLeft}>{addonLeft}</div>
             <input
                 ref={ref}
-                type={type}
                 value={value}
-                readOnly={readOnly}
+                readOnly={readonly}
                 className={styles.input}
                 onChange={onChangeHandler}
                 onBlur={onBlur}
@@ -86,4 +91,15 @@ export const Input = memo((props: InputProps) => {
             <div className={styles.addonRight}>{addonRight}</div>
         </div>
     )
+
+    if (label) {
+        return (
+            <HStack max gap={'8'}>
+                <Text text={label} />
+                {input}
+            </HStack>
+        )
+    }
+
+    return input
 })

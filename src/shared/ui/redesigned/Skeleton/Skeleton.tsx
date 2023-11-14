@@ -10,10 +10,6 @@ interface SkeletonProps {
     border?: string
 }
 
-/**
- * Устарел используем новые компоненты из папки redisigned
- *
- */
 export const Skeleton = memo((props: SkeletonProps) => {
     const { className = '', height, width, border } = props
 

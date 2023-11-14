@@ -71,46 +71,5 @@ export const ArticleList = memo((props: ArticleListProps) => {
             ))}
             {isLoading && getAkeletons(view)}
         </div>
-
-        // <WindowScroller
-        //     onScroll={() => { console.log('777') }}
-        //     scrollElement={document.getElementById(PAGE_ID) as Element}
-        // >
-        //     {({ height, width, registerChild, isScrolling, scrollTop, onChildScroll }) => (
-        //         <div
-        //             ref={registerChild}
-        //             className={classNames(styles.ArticleList, {}, [className, styles[view]])}
-        //         >
-        //             {virtualized
-        //                 ? (
-        //                     <List
-        //                         height={height ?? 700}
-        //                         rowCount={rowCount}
-        //                         rowHeight={isBig ? 700 : 330}
-        //                         rowRenderer={rowRenderer}
-        //                         width={width ? width - 80 : 700}
-        //                         autoHeight
-        //                         onScroll={onChildScroll}
-        //                         isScrolling={isScrolling}
-        //                         scrollTop={scrollTop}
-        //                     />
-        //                 )
-        //                 : (
-        //                     articles.map(item => (
-        //                         <ArticleListItem
-        //                             article={item}
-        //                             view={view}
-        //                             className={styles.card}
-        //                             key={item.id}
-        //                             target={target}
-        //                         />
-        //                     ))
-        //                 )
-        //             }
-        //
-        //             {isLoading && getAkeletons(view)}
-        //         </div>
-        //     )}
-        // </WindowScroller>
     )
 })
