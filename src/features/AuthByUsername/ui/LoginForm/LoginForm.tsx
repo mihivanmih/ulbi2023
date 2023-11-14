@@ -23,6 +23,7 @@ import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch'
 import { ToggleFeatures } from '@/shared/lib/features'
 import { VStack } from '@/shared/ui/redesigned/Stack'
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate'
 
 export interface LoginFormProps {
     className?: string
@@ -41,6 +42,7 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
     const error = useSelector(getLoginError)
     const isLoading = useSelector(getLoginIsLoading)
     const password = useSelector(getLoginPassword)
+    const forceUpdate = useForceUpdate()
 
     const onChangeUsername = useCallback(
         (value: string) => {
@@ -63,9 +65,10 @@ const LoginForm = memo(({ className = '', onSuccess }: LoginFormProps) => {
             )
             if (result.meta.requestStatus === 'fulfilled') {
                 onSuccess()
+                forceUpdate()
             }
         })()
-    }, [dispatch, onSuccess, password, username])
+    }, [dispatch, forceUpdate, onSuccess, password, username])
 
     return (
         <DynamicModuleLoader

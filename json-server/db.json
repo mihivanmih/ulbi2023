@@ -720,12 +720,10 @@
             "roles": ["USER"],
             "features": {
                 "isArticleRatingEnabled": false,
-                "isCounterEnabled": false
+                "isCounterEnabled": false,
+                "isAppRedisigned": true
             },
             "jsonSettings": {
-                "theme": "app_orange_theme",
-                "isFirstVisit": true,
-                "settingsPageHasBeenOpen": false,
                 "isArticlePageWasOpened": true
             },
             "avatar": "https://upload.wikimedia.org/wikipedia/commons/0/0f/A._Schwarzenegger.jpg"
@@ -854,6 +852,12 @@
             "profileId": "1",
             "rate": 5,
             "id": 2
+        },
+        {
+            "userId": "1",
+            "profileId": "111",
+            "rate": 3,
+            "id": 3
         }
     ]
 }
