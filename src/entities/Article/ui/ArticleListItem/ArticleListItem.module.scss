@@ -30,6 +30,16 @@
     object-fit: contain;
   }
 
+  & .skeletonTop {
+    margin-top: 8px;
+  }
+
+  & .skeletonFooter {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
   & .footer {
     display: flex;
     align-items: center;
@@ -103,5 +113,16 @@
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
+}
+
+.ArticleListItemRedesigned {
+  &.BIG {
+    width: 100%;
+  }
+
+  &.SMALL {
+    width: 240px;
+    height: 350px;
   }
 }

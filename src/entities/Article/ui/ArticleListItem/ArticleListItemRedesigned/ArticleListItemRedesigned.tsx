@@ -21,11 +21,14 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
 
     const { t } = useTranslation()
 
-    const types = (
-        <Text text={article.type?.join(', ')} className={styles.types} />
+    const userInfo = (
+        <>
+            <Avatar size={32} src={article.user.avatar} />
+            <Text bold text={article.user.username} />
+        </>
     )
-    const viewsArticle = (
-        <HStack gap={'8'}>
+    const views = (
+        <HStack gap="8">
             <Icon Svg={EyeIcon} />
             <Text text={String(article.views)} className={styles.views} />
         </HStack>
@@ -48,8 +51,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
             >
                 <VStack max gap={'16'}>
                     <HStack gap={'8'} max>
-                        <Avatar size={32} src={article.user.avatar} />
-                        <Text text={article.user.username} bold />
+                        {userInfo}
                         <Text text={article.createdAt} />
                     </HStack>
                     <Text bold text={article.title} />
@@ -75,7 +77,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                                 {t('Читать далее...')}
                             </Button>
                         </AppLink>
-                        <div className={styles.footer}>{viewsArticle}</div>
+                        {views}
                     </HStack>
                 </VStack>
             </Card>
@@ -84,7 +86,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            data-testid={'ArticleListItem'}
+            data-testid="ArticleListItem"
             target={target}
             to={getRouteArticleDetails(article.id)}
             className={classNames(styles.ArticleListItem, {}, [
@@ -92,21 +94,26 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                 styles[view],
             ])}
         >
-            <Card className={styles.card}>
-                <div className={styles.imageWrapper}>
-                    <AppImage
-                        src={article.img}
-                        alt={article.title}
-                        className={styles.img}
-                        fallback={<Skeleton width={200} height={200} />}
-                    />
-                    <Text text={article.createdAt} className={styles.date} />
-                </div>
-                <div className={styles.infoWrapper}>
-                    {types}
-                    {viewsArticle}
-                </div>
-                <Text text={article.title} className={styles.title} />
+            <Card className={styles.card} border="round">
+                <AppImage
+                    fallback={<Skeleton width={200} height={200} />}
+                    alt={article.title}
+                    src={article.img}
+                    className={styles.img}
+                />
+                <VStack className={styles.info} gap="4">
+                    <Text title={article.title} className={styles.title} />
+                    <VStack gap="4" className={styles.footer} max>
+                        <HStack justify="between" max>
+                            <Text
+                                text={article.createdAt}
+                                className={styles.date}
+                            />
+                            {views}
+                        </HStack>
+                        <HStack gap="4">{userInfo}</HStack>
+                    </VStack>
+                </VStack>
             </Card>
         </AppLink>
     )

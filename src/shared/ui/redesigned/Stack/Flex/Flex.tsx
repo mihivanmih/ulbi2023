@@ -6,6 +6,7 @@ import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
 export type FlexJustify = 'start' | 'center' | 'end' | 'between'
 export type FlexAlign = 'start' | 'center' | 'end'
 export type FlexDirection = 'row' | 'column'
+export type flexWrap = 'nowrap' | 'wrap'
 export type FlexGap = '4' | '8' | '16' | '24' | '32'
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -47,6 +48,7 @@ export interface FlexProps extends DivProps {
     direction?: FlexDirection
     gap?: FlexGap
     max?: boolean
+    wrap?: flexWrap
 }
 
 export const Flex = (props: FlexProps) => {
@@ -58,6 +60,7 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         gap,
         max,
+        wrap = 'nowrap',
         ...arg
     } = props
 
@@ -66,6 +69,7 @@ export const Flex = (props: FlexProps) => {
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        styles[wrap],
         gap && gapClasses[gap],
     ]
 
