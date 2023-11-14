@@ -5,6 +5,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { memo } from 'react'
 
 export type ThemeButton = 'clear' | 'outline' | 'filled'
+export type ButtonColor = 'normal' | 'success' | 'error'
 export type ButtonSize = 'm' | 'l' | 'xl'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
@@ -34,6 +35,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     fullWidth?: boolean
     addonLeft?: ReactNode
     addonRight?: ReactNode
+    color?: ButtonColor
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -47,6 +49,7 @@ export const Button = memo((props: ButtonProps) => {
         fullWidth,
         addonLeft,
         addonRight,
+        color = 'normal',
         ...otherProps
     } = props
 
@@ -64,6 +67,7 @@ export const Button = memo((props: ButtonProps) => {
                 className,
                 styles[variant],
                 styles[size],
+                styles[color],
             ])}
             disabled={disabled}
             {...otherProps}

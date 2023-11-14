@@ -16,8 +16,6 @@ const ProfilePage = () => {
         <Page data-testid={'ProfilePage'} className={classNames('', {}, [])}>
             <VStack gap={'16'}>
                 <EditableProfileCard id={id} />
-            </VStack>
-            <VStack>
                 <ProfileRating profileId={id} />
             </VStack>
         </Page>

@@ -48,6 +48,34 @@
   &:hover {
     border: 1px solid var(--accent-redesigned);
   }
+
+  &.normal {
+    border: 1px solid var(--icon-redesigned);
+
+    &:hover {
+      color: var(--icon-redesigned);
+    }
+  }
+
+  &.error  {
+    border: 1px solid var(--cancel-redesigned);
+
+    &:hover {
+      color: var(--cancel-redesigned);
+    }
+
+  }
+
+  &.success {
+    border: 1px solid var(--save-redesigned);
+
+    &:hover {
+      color: var(--save-redesigned);
+    }
+  }
+
+
+
 }
 
 .square {
