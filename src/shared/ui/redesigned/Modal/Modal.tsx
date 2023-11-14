@@ -3,10 +3,11 @@ import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Modal.module.scss'
 import type { ReactNode } from 'react'
 import React from 'react'
-import { Portal } from '../../redesigned/Portal/Portal'
-import { Overlay } from '../../redesigned/Overlay/Overlay'
+import { Portal } from '../Portal/Portal'
+import { Overlay } from '../Overlay/Overlay'
 import { useModel } from '@/shared/lib/hooks/useModel/useModel'
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme'
+import { toggleFeatures } from '@/shared/lib/features'
 
 interface ModalProps {
     className?: string
@@ -41,8 +42,18 @@ export const Modal = (props: ModalProps) => {
     }
 
     return (
-        <Portal>
-            <div className={classNames(styles.Modal, mods, [className, theme])}>
+        <Portal element={document.getElementById('app') ?? document.body}>
+            <div
+                className={classNames(styles.Modal, mods, [
+                    className,
+                    theme,
+                    toggleFeatures({
+                        name: 'isAppRedisigned',
+                        on: () => styles.modalNew,
+                        off: () => styles.modalOld,
+                    }),
+                ])}
+            >
                 <Overlay onClick={close} />
                 <div className={styles.content}>{children}</div>
             </div>

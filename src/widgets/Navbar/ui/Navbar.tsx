@@ -75,7 +75,11 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
 
     return (
         <header className={classNames(styles.Navbar, {}, [className])}>
-            <Text className={styles.appName} title={t('It News')} />
+            <ToggleFeatures
+                feature={'isAppRedisigned'}
+                on={<></>}
+                off={<Text className={styles.appName} title={t('It News')} />}
+            />
             <div className={styles.links}>
                 <Button
                     theme={ThemeButton.CLEAR_INVERTED}
