@@ -17,10 +17,6 @@ interface ModalProps {
     lazy?: boolean
 }
 
-/**
- * Устарел используем новые компоненты из папки redisigned
- *
- */
 export const Modal = (props: ModalProps) => {
     const { theme } = useTheme()
 
