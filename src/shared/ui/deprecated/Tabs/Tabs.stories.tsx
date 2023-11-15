@@ -4,7 +4,7 @@ import { Tabs } from './Tabs'
 import { action } from '@storybook/addon-actions'
 
 export default {
-    title: 'shared/Tabs',
+    title: 'shared/TabsDeprecated',
     component: Tabs,
     argTypes: {
         backgroundColor: { control: 'color' },

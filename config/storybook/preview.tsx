@@ -4,6 +4,7 @@ import { ThemeDecorator } from '../../src/shared/config/storybook/ThemeDecorator
 import { RouteDecorator } from '../../src/shared/config/storybook/RouteDecorator/RouteDecorator'
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator'
 import { Theme } from '../../src/shared/const/theme'
+import { FeaturesFlagsDecorator } from '../../src/shared/config/storybook/FeaturesFlagsDecorator/FeaturesFlagsDecorator'
 
 export const preview: Preview = {
     parameters: {
@@ -30,4 +31,5 @@ export const decorators = [
     ThemeDecorator(Theme.LIGHT),
     RouteDecorator,
     SuspenseDecorator,
+    FeaturesFlagsDecorator({}),
 ]

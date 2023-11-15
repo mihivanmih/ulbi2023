@@ -4,7 +4,7 @@ import AvatarImg from './storybook.jpg'
 import { Avatar } from './Avatar'
 
 export default {
-    title: 'shared/Avatar',
+    title: 'shared/AvatarDeprecated',
     component: Avatar,
     argTypes: {
         backgroundColor: { control: 'color' },
