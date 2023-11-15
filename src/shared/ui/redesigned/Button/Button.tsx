@@ -1,8 +1,8 @@
 import type { Mods } from '@/shared/lib/classNames/classNames'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Button.module.scss'
-import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import { memo } from 'react'
+import type { ButtonHTMLAttributes, ForwardedRef, ReactNode } from 'react'
+import { forwardRef } from 'react'
 
 export type ThemeButton = 'clear' | 'outline' | 'filled'
 export type ButtonColor = 'normal' | 'success' | 'error'
@@ -38,43 +38,46 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     color?: ButtonColor
 }
 
-export const Button = memo((props: ButtonProps) => {
-    const {
-        className = '',
-        children,
-        variant = 'outline',
-        square,
-        disabled,
-        size = 'm',
-        fullWidth,
-        addonLeft,
-        addonRight,
-        color = 'normal',
-        ...otherProps
-    } = props
+export const Button = forwardRef(
+    (props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
+        const {
+            className = '',
+            children,
+            variant = 'outline',
+            square,
+            disabled,
+            size = 'm',
+            fullWidth,
+            addonLeft,
+            addonRight,
+            color = 'normal',
+            ...otherProps
+        } = props
 
-    const mods: Mods = {
-        [styles.square]: square,
-        [styles.disabled]: disabled,
-        [styles.fullWidth]: fullWidth,
-        [styles.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
-    }
+        const mods: Mods = {
+            [styles.square]: square,
+            [styles.disabled]: disabled,
+            [styles.fullWidth]: fullWidth,
+            [styles.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
+        }
 
-    return (
-        <button
-            type="button"
-            className={classNames(styles.Button, mods, [
-                className,
-                styles[variant],
-                styles[size],
-                styles[color],
-            ])}
-            disabled={disabled}
-            {...otherProps}
-        >
-            <div className={styles.addonLeft}>{addonLeft}</div>
-            {children}
-            <div className={styles.addonRight}>{addonRight}</div>
-        </button>
-    )
-})
+        return (
+            <button
+                type="button"
+                className={classNames(styles.Button, mods, [
+                    className,
+                    styles[variant],
+                    styles[size],
+                    styles[color],
+                ])}
+                disabled={disabled}
+                {...otherProps}
+                ref={ref}
+            >
+                <div className={styles.addonLeft}>{addonLeft}</div>
+                {children}
+                <div className={styles.addonRight}>{addonRight}</div>
+            </button>
+        )
+    },
+)

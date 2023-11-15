@@ -1,19 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { BugButton } from '@/widgets/PageError'
 import { Page } from '@/widgets/Page'
-import { Counter } from '@/entities/Counter'
 
 const MyComponent = () => {
     const { t } = useTranslation()
 
-    return (
-        <Page data-testid={'MainPage'}>
-            {t('Главная страница')}
-            <BugButton />
-            <Counter />
-        </Page>
-    )
+    return <Page data-testid={'MainPage'}>{t('Главная страница')}</Page>
 }
 
 export default MyComponent

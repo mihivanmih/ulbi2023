@@ -1,9 +1,8 @@
 import { FeatureFlags } from '@/shared/types/featureFlags'
-import { LOCAL_STORAGE_LAST_DESIGN_KEY } from '@/shared/const/localstorage'
 
 const defaultFeatures: FeatureFlags = {
-    isAppRedisigned:
-        localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
+    // isAppRedisigned: localStorage.getItem(LOCAL_STORAGE_LAST_DESIGN_KEY) === 'new',
+    isAppRedisigned: true,
 }
 // ФИЧИ НЕ МЕНЯЮТСЯ В ХОДЕ СЕССИИ, ИХ НЕОБЯЗАТЕЛЬНО ДЕЛАТЬ РЕАКТИВНЫМИ!
 let featureFlags: FeatureFlags = {
