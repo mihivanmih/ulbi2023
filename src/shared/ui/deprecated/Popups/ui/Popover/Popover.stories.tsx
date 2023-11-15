@@ -5,7 +5,7 @@ import { Popover } from './Popover'
 import { Theme } from '@/shared/const/theme'
 
 export default {
-    title: 'pages/Popover',
+    title: 'pages/PopoverDeprecated',
     component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },

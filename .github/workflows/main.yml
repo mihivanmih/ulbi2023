@@ -32,8 +32,8 @@ jobs:
         if: always()
       - name: unit testing
         run: npm run unitJest
-#      - name: build storybook
-#        run: npm run build-storybook
+      - name: build storybook
+        run: npm run build-storybook
 #      - name: screenshot testing
 #        run: npm run test:ui:ci
 #      - name: Generate HTML report

@@ -4,6 +4,7 @@ import { ProfileCard } from './ProfileCard'
 import { Country } from '@/entities/Country'
 import { Currency } from '@/entities/Currency'
 import Avatar from '../../../../shared/assets/test/storybook.jpg'
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator/NewDesignDecorator'
 
 export default {
     title: 'entities/ProfileCard',
@@ -30,6 +31,20 @@ Normal.args = {
         avatar: Avatar,
     },
 }
+export const NormalRedesigned = Template.bind({})
+NormalRedesigned.args = {
+    data: {
+        username: 'admin',
+        age: 34,
+        country: Country.Russia,
+        lastname: 'test',
+        first: 'asd',
+        city: 'Moskow',
+        currency: Currency.EUR,
+        avatar: Avatar,
+    },
+}
+NormalRedesigned.decorators = [NewDesignDecorator]
 
 export const withError = Template.bind({})
 withError.args = {

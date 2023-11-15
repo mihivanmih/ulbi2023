@@ -3,7 +3,7 @@ import type { ComponentStory } from '@storybook/react'
 import { ListBox } from './ListBox'
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/ListBoxDeprecated',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' },

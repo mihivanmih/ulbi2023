@@ -6,7 +6,7 @@ import { Input } from './Input'
 import { Theme } from '@/shared/const/theme'
 
 export default {
-    title: 'shared/Input',
+    title: 'shared/InputDeprecated',
     component: Input,
     argTypes: {
         backgroundColor: { control: 'color' },

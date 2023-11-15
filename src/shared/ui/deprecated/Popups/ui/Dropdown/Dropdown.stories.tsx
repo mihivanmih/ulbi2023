@@ -3,7 +3,7 @@ import type { ComponentStory } from '@storybook/react'
 import { Dropdown } from './Dropdown'
 
 export default {
-    title: 'shared/Dropdown',
+    title: 'shared/DropdownDeprecated',
     component: Dropdown,
     argTypes: {
         backgroundColor: { control: 'color' },
