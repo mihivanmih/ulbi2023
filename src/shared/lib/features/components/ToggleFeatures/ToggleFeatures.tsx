@@ -10,7 +10,6 @@ interface ToggleFeaturesProps {
 
 export const ToggleFeatures = (props: ToggleFeaturesProps) => {
     const { on, off, feature } = props
-
     if (getFeatureFlag(feature)) {
         return on
     }
