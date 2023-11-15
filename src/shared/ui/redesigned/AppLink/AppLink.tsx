@@ -3,7 +3,7 @@ import styles from './AppLink.module.scss'
 import type { ReactNode } from 'react'
 import type { LinkProps } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
-import { memo } from 'react'
+import { ForwardedRef, forwardRef } from 'react'
 
 export type AppLinkVariant = 'primary' | 'secondary'
 
@@ -14,28 +14,31 @@ interface AppLinkProps extends LinkProps {
     activeClassName?: string
 }
 
-export const AppLink = memo((props: AppLinkProps) => {
-    const {
-        to,
-        className = '',
-        children,
-        variant = 'primary',
-        activeClassName = '',
-        ...otherProps
-    } = props
+export const AppLink = forwardRef(
+    (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+        const {
+            to,
+            className = '',
+            children,
+            variant = 'primary',
+            activeClassName = '',
+            ...otherProps
+        } = props
 
-    return (
-        <NavLink
-            to={to}
-            className={({ isActive }) =>
-                classNames('', { [activeClassName]: isActive }, [
-                    className,
-                    styles[variant],
-                ])
-            }
-            {...otherProps}
-        >
-            {children}
-        </NavLink>
-    )
-})
+        return (
+            <NavLink
+                to={to}
+                className={({ isActive }) =>
+                    classNames('', { [activeClassName]: isActive }, [
+                        className,
+                        styles[variant],
+                    ])
+                }
+                {...otherProps}
+                ref={ref}
+            >
+                {children}
+            </NavLink>
+        )
+    },
+)

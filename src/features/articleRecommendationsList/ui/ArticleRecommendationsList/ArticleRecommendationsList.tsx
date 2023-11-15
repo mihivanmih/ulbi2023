@@ -23,8 +23,6 @@ export const ArticleRecommendationsList = memo(
         } = useArticleRecommendationsList(3)
         const { t } = useTranslation()
 
-        console.log(articles)
-
         if (isLoading ?? error ?? !articles) {
             return null
         }
