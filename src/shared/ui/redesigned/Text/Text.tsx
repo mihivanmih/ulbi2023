@@ -5,6 +5,7 @@ import { memo } from 'react'
 export type TextVariant = 'primary' | 'error' | 'accent'
 export type TextAlign = 'right' | 'left' | 'center'
 export type TextSize = 's' | 'm' | 'l'
+export type TextPaddingTopBottom = '0' | '8' | '16' | '24' | 'auto'
 
 interface TextProps {
     className?: string
@@ -14,6 +15,8 @@ interface TextProps {
     align?: TextAlign
     size?: TextSize
     bold?: boolean
+    paddingTop?: TextPaddingTopBottom
+    paddingBottom?: TextPaddingTopBottom
     'data-testid'?: string
 }
 
@@ -31,6 +34,22 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
     l: 'h1',
 }
 
+const mapPaddingTopToClass: Record<TextPaddingTopBottom, string> = {
+    '0': 'pt_0',
+    '8': 'pt_8',
+    '16': 'pt_16',
+    '24': 'pt_24',
+    auto: 'pt_auto',
+}
+
+const mapPaddingBottomToClass: Record<TextPaddingTopBottom, string> = {
+    '0': 'pb_0',
+    '8': 'pb_8',
+    '16': 'pb_16',
+    '24': 'pb_24',
+    auto: 'pb_auto',
+}
+
 export const Text = memo((props: TextProps) => {
     const {
         className = '',
@@ -39,12 +58,16 @@ export const Text = memo((props: TextProps) => {
         variant = 'primary',
         align = 'left',
         size = 'm',
+        paddingTop = 'auto',
+        paddingBottom = 'auto',
         bold,
         'data-testid': dataTestId = 'Text',
     } = props
 
     const HeaderTag = mapSizeToHeaderTag[size]
     const sizeClass = mapSizeToClass[size]
+    const paddingClassTop = mapPaddingTopToClass[paddingTop]
+    const paddingClassBottom = mapPaddingBottomToClass[paddingBottom]
 
     return (
         <div
@@ -52,6 +75,8 @@ export const Text = memo((props: TextProps) => {
                 className,
                 styles[variant],
                 styles[align],
+                styles[paddingClassTop],
+                styles[paddingClassBottom],
                 sizeClass,
             ])}
         >

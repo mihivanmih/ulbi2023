@@ -34,7 +34,11 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
     const views = (
         <HStack gap="8">
             <Icon Svg={EyeIcon} />
-            <Text text={String(article.views)} className={styles.views} />
+            <Text
+                text={String(article.views)}
+                className={styles.views}
+                size={'s'}
+            />
         </HStack>
     )
 
@@ -110,12 +114,13 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                     <VStack gap="4" className={styles.footer} max>
                         <HStack justify="between" max>
                             <Text
+                                size={'s'}
                                 text={article.createdAt}
                                 className={styles.date}
                             />
                             {views}
                         </HStack>
-                        <HStack gap="4">{userInfo}</HStack>
+                        <HStack gap="8">{userInfo}</HStack>
                     </VStack>
                 </VStack>
             </Card>

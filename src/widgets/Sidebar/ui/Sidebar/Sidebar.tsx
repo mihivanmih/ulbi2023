@@ -64,12 +64,10 @@ export const Sidebar = memo(({ className = '' }: SidebarProps) => {
                     >
                         {itemList}
                     </VStack>
-                    <Icon
-                        data-testid="sidebar-toogle"
-                        onClick={onToggle}
-                        className={styles.collapseBtn}
-                        Svg={ArrowIcon}
-                    />
+                    <div data-testid="sidebar-toogle" onClick={onToggle}>
+                        <Icon className={styles.collapseBtn} Svg={ArrowIcon} />
+                    </div>
+
                     <div className={styles.switchers}>
                         <ThemeSwitcher />
                         <LangSwitcher

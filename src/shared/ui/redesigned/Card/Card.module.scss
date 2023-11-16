@@ -47,6 +47,31 @@
   padding: 24px
 }
 
+.gap_auto {
+  padding: auto;
+}
+
+
 .fullHeight {
   height: 100%;
+}
+
+.pb_0 {
+  padding-bottom: 0;
+}
+
+.pb_8 {
+  padding-bottom: 8px;
+}
+
+.pb_16 {
+  padding-bottom: 16px;
+}
+
+.pb_24 {
+  padding-bottom: 24px;
+}
+
+.pb_auto {
+  padding-bottom: auto;
 }

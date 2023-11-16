@@ -5,7 +5,7 @@ import type { LinkProps } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { ForwardedRef, forwardRef } from 'react'
 
-export type AppLinkVariant = 'primary' | 'secondary'
+export type AppLinkVariant = 'primary' | 'secondary' | 'color'
 
 interface AppLinkProps extends LinkProps {
     className?: string

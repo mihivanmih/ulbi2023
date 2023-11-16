@@ -3,6 +3,7 @@
     "Перевод": "Translate",
     "Главная страница": "Main page",
     "Язык": "English",
+    "RU": "EN",
     "новый перевод": "новый перевод",
     "Страница не найдена": "Page not found",
     "Произошла непредвиденная ошибка": "An unexpected error has occurred",
@@ -48,6 +49,7 @@
     "Ulbi TV App": "Ulbi TV App",
     "Создать статью": "Create article",
     "Профиль пользователя": "User profile",
+    "Ваш отзыв": "Your review",
     "Закрыть": "Close",
     "{{count}} просмотров_zero": "{{count}} views",
     "{{count}} просмотров_one": "{{count}} view",
@@ -55,5 +57,16 @@
     "Читать далее...": "Read more...",
     "Админка": "AdminUI",
     "Настройки": "Settings",
-    "Сортировать по:": "Sort by:"
+    "Сортировать по:": "Sort by:",
+    "Редактировать": "Edit",
+    "Отменить": "Cancel",
+    "Сохранить": "Save",
+    "Оцените профиль": "Rate this profile",
+    "просмотров": "views",
+    "Оцените статью": "Rate this article",
+    "Рекомендуем": "We recommend",
+    "Комментарии": "Comments",
+    "оставьте свой отзыв о статье": "leave your feedback on the article",
+    "Спасибо за оценку": "Thank you for your rating",
+    "отправить": "send"
 }
