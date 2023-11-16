@@ -1,5 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames'
-import { Text, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text as TextDeprecadet, TextSize } from '@/shared/ui/deprecated/Text'
+import { Text } from '@/shared/ui/redesigned/Text'
 import styles from './ArticleList.module.scss'
 import type { HTMLAttributeAnchorTarget } from 'react'
 import { memo } from 'react'
@@ -49,7 +50,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     styles[view],
                 ])}
             >
-                <Text size={TextSize.L} title={t('Статьи не найдены')} />
+                <ToggleFeatures
+                    feature={'isAppRedisigned'}
+                    on={<Text size={'l'} title={t('Статьи не найдены')} />}
+                    off={
+                        <TextDeprecadet
+                            size={TextSize.L}
+                            title={t('Статьи не найдены')}
+                        />
+                    }
+                />
             </div>
         )
     }

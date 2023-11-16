@@ -12,6 +12,6 @@ describe('Sidebar', () => {
         const toogleBtn = screen.getByTestId('sidebar-toogle')
         expect(screen.getByTestId('sidebar')).toBeInTheDocument()
         fireEvent.click(toogleBtn)
-        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed')
+        expect(screen.getByTestId('sidebar')).toHaveClass('collapsedRedesigned')
     })
 })

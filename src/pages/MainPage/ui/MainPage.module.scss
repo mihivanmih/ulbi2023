@@ -1,0 +1,39 @@
+.MainPage {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  & a {
+    color: var(--accent-redesigned);
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+  }
+
+}
+
+.MainPageCenter {
+  max-width: 730px;
+}
+
+
+
+.MainPageUl {
+  padding-left: 16px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  & li {
+    list-style-type: circle;
+  }
+
+}
+
+.title {
+  & p {
+    color: var(--icon-redesigned);
+  }
+}

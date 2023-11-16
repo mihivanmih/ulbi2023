@@ -34,6 +34,8 @@ export const ArticleRecommendationsList = memo(
                 className={classNames(styles.ArticleRecommendationsList, {}, [
                     className,
                 ])}
+                max
+                justify={'center'}
             >
                 <ToggleFeatures
                     feature={'isAppRedisigned'}

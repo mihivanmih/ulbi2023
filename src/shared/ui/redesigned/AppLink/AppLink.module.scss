@@ -13,3 +13,12 @@
     opacity: 0.8;
   }
 }
+
+.color {
+  color: var(--accent-redesigned);
+
+  &:hover {
+    color: var(--accent-redesigned);
+    text-decoration: underline;
+  }
+}

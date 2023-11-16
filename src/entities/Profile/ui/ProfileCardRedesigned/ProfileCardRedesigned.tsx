@@ -114,7 +114,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                         />
                         <Input
                             value={data?.avatar}
-                            label={t('Cсылка на аватар')}
+                            label={t('Аватар')}
                             onChange={onChangeAvatar}
                             readonly={readonly}
                         />

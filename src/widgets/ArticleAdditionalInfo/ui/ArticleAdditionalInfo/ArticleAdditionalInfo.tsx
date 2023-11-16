@@ -22,7 +22,7 @@ export const ArticleAdditionalInfo = memo(
 
         const { t } = useTranslation()
 
-        const textCiew = t('просмотров: ') + views
+        const textCiew = t('просмотров') + ': ' + views
         return (
             <VStack
                 gap={'32'}

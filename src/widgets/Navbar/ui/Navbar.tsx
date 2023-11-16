@@ -1,11 +1,7 @@
-import React, { memo, useCallback, useState } from 'react'
+import React, { memo } from 'react'
 import { classNames } from '@/shared/lib/classNames/classNames'
 import styles from './Navbar.module.scss'
-import {
-    Button as ButtonDeprecated,
-    ThemeButton,
-} from '@/shared/ui/deprecated/Button'
-import { Button } from '@/shared/ui/redesigned/Button'
+
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text'
 import { AppLink } from '@/shared/ui/redesigned/AppLink'
 import { useTranslation } from 'react-i18next'
@@ -17,23 +13,19 @@ import { AvatarDropdown } from '@/features/avatarDropdown'
 import { NotificationButton } from '@/features/notificationButton'
 import { getRouteArticleCreate } from '@/shared/const/router'
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features'
+import { Button } from '@/shared/ui/redesigned/Button'
+import {
+    Button as ButtonDeprecated,
+    ThemeButton,
+} from '@/shared/ui/deprecated/Button'
 
 interface NavbarProps {
     className?: string
 }
 
 export const Navbar = memo(({ className = '' }: NavbarProps) => {
-    const [isAuthModal, setIsAuthModal] = useState(false)
     const { t } = useTranslation()
     const authData = useSelector(getUserAuthData)
-
-    const onCloseModal = useCallback(() => {
-        setIsAuthModal(false)
-    }, [])
-
-    const onShowModal = useCallback(() => {
-        setIsAuthModal(true)
-    }, [])
 
     const mainClass = toggleFeatures({
         name: 'isAppRedisigned',
@@ -90,23 +82,19 @@ export const Navbar = memo(({ className = '' }: NavbarProps) => {
                 <ToggleFeatures
                     feature={'isAppRedisigned'}
                     on={
-                        <Button onClick={onShowModal} variant={'clear'}>
-                            {t('Войти')}
-                        </Button>
+                        <LoginModal>
+                            <Button variant={'clear'}>{t('Войти')}</Button>
+                        </LoginModal>
                     }
                     off={
-                        <ButtonDeprecated
-                            theme={ThemeButton.CLEAR_INVERTED}
-                            onClick={onShowModal}
-                        >
-                            {t('Войти')}
-                        </ButtonDeprecated>
+                        <LoginModal>
+                            <ButtonDeprecated theme={ThemeButton.OUTLINE}>
+                                {t('Войти')}
+                            </ButtonDeprecated>
+                        </LoginModal>
                     }
                 />
             </div>
-            {isAuthModal && (
-                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
-            )}
         </header>
     )
 })
