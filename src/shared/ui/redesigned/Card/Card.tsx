@@ -13,6 +13,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
     max?: boolean
     padding?: CardPadding
     paddingBottom?: CardPadding
+    paddingTop?: CardPadding
     border?: CardBorder
     fullHeight?: boolean
 }
@@ -33,6 +34,14 @@ const mapPaddingBottomToClass: Record<CardPadding, string> = {
     auto: 'pb_auto',
 }
 
+const mapPaddingTopToClass: Record<CardPadding, string> = {
+    '0': 'pt_0',
+    '8': 'pt_8',
+    '16': 'pt_16',
+    '24': 'pt_24',
+    auto: 'pt_auto',
+}
+
 export const Card = (props: CardProps) => {
     const {
         className = '',
@@ -42,12 +51,14 @@ export const Card = (props: CardProps) => {
         fullHeight,
         padding = '8',
         paddingBottom = 'auto',
+        paddingTop = 'auto',
         border = 'normal',
         ...otherProps
     } = props
 
     const paddingClass = mapPaddingToClass[padding]
     const paddingClassBottom = mapPaddingBottomToClass[paddingBottom]
+    const paddingClassTop = mapPaddingTopToClass[paddingTop]
 
     return (
         <div
@@ -62,6 +73,7 @@ export const Card = (props: CardProps) => {
                     styles[variant],
                     styles[paddingClass],
                     styles[paddingClassBottom],
+                    styles[paddingClassTop],
                     styles[border],
                 ],
             )}
